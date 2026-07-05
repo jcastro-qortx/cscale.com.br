@@ -1,4 +1,4 @@
-baseURL = "https://site.corescale.com.br/"
+baseURL = "https://corescale.com.br/"
 languageCode = "pt-br"
 title = "CoreScale"
 enableRobotsTXT = true

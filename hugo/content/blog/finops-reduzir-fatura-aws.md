@@ -4,6 +4,8 @@ date = 2026-06-18
 draft = false
 category = "FinOps"
 description = "Rightsizing, Savings Plans e cultura de custo — um roteiro prático para trazer previsibilidade à sua conta AWS."
+banner_gradient = "#1A1A2E, #16213E, #0F3460"
+banner_icon = '<img src="https://d1.awsstatic.com/icons/jp/console_cost-explorer_icon.0dce8f4cbb43ef7498edc173e6d019d0bfafb17c.png" alt="AWS Cost Explorer" style="width:72px;height:72px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));">'
 +++
 
 A maioria das contas AWS que auditamos tem entre **30% e 40% de desperdício**: recursos superdimensionados, ambientes ligados fora do horário e ausência de compromissos de longo prazo. FinOps é a disciplina que transforma esse desperdício em previsibilidade.

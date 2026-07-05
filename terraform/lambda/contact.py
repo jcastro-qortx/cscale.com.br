@@ -12,7 +12,7 @@ ses_client = boto3.client("ses", region_name=os.environ.get("AWS_SES_REGION", "u
 
 CONTACT_EMAIL = os.environ["CONTACT_EMAIL"]
 SENDER_EMAIL = os.environ["SENDER_EMAIL"]
-ALLOWED_ORIGIN = "https://site.corescale.com.br"
+ALLOWED_ORIGIN = "https://corescale.com.br"
 
 
 def handler(event, context):

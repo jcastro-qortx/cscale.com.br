@@ -23,6 +23,10 @@ site-corescale/
 *.tmp
 contact_deployed.html
 
+# Large media (deploy manually or use Git LFS)
+hugo/static/header.mp4
+hugo/static/yas.mov
+
 # Archives
 *.zip
 
@@ -32,3 +36,4 @@ generated-diagrams/*.dot
 # Old bundled index (root only)
 /index.html
 /index.html.old
+*.backup

@@ -13,7 +13,7 @@ variable "bucket_name" {
 variable "domain_name" {
   description = "Custom domain for the site"
   type        = string
-  default     = "site.corescale.com.br"
+  default     = "corescale.com.br"
 }
 
 variable "contact_email" {

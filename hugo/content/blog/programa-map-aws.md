@@ -4,6 +4,8 @@ date = 2026-04-30
 draft = false
 category = "MAP"
 description = "A metodologia da AWS em três fases e como acessar créditos e investimento para migrar."
+banner_gradient = "#2D1B4E, #1A1A3E, #0D2137"
+banner_icon = '<img src="https://d1.awsstatic.com/icons/jp/console_migration-hub_icon.9b645de79498370854e498c414a7e0c70f5ef41f.png" alt="AWS MAP" style="width:72px;height:72px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));">'
 +++
 
 O **Migration Acceleration Program (MAP)** é o programa oficial da AWS para acelerar migrações empresariais, combinando metodologia comprovada, ferramentas e **investimento financeiro** da própria Amazon.

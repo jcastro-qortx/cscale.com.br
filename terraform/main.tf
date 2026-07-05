@@ -72,8 +72,9 @@ resource "aws_s3_bucket_cors_configuration" "website" {
 # ─────────────────────────────────────────────
 
 resource "aws_acm_certificate" "site" {
-  domain_name       = var.domain_name
-  validation_method = "DNS"
+  domain_name               = var.domain_name
+  subject_alternative_names = ["www.${var.domain_name}"]
+  validation_method         = "DNS"
 
   lifecycle {
     create_before_destroy = true
@@ -164,7 +165,7 @@ resource "aws_cloudfront_distribution" "site" {
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = "index.html"
-  aliases             = [var.domain_name]
+  aliases             = [var.domain_name, "www.${var.domain_name}"]
   comment             = "CoreScale site - ${var.domain_name}"
 
   origin {
@@ -316,7 +317,7 @@ resource "aws_apigatewayv2_api" "contact" {
   protocol_type = "HTTP"
 
   cors_configuration {
-    allow_origins = ["https://site.corescale.com.br"]
+    allow_origins = ["https://corescale.com.br", "https://www.corescale.com.br"]
     allow_methods = ["POST", "OPTIONS"]
     allow_headers = ["Content-Type"]
     max_age       = 600
