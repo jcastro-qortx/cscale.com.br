@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://site.corescale.com.br/sitemap.xml

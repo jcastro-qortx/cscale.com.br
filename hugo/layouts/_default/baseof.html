@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .Title }}{{ .Title }}{{ if not .IsHome }} | CoreScale{{ end }}{{ else }}CoreScale{{ end }}</title>
+{{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1A2333">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#1A2333;font-family:'Manrope',system-ui,sans-serif;color:#E9EDF5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+::selection{background:#FF9900;color:#0A1322}
+@keyframes rmMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes rmBlink{50%{opacity:0}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important}}
+@media (max-width:1000px){
+.rm-nav{display:none !important}
+.rm-hero{grid-template-columns:1fr !important}
+.rm-split{grid-template-columns:1fr !important}
+.rm-bento{grid-template-columns:repeat(2,1fr) !important}
+.rm-metrics{grid-template-columns:repeat(2,1fr) !important}
+.rm-blog{grid-template-columns:repeat(2,1fr) !important}
+.rm-grid{grid-template-columns:repeat(2,1fr) !important}
+.rm-g3{grid-template-columns:1fr !important}
+.rm-g4{grid-template-columns:repeat(2,1fr) !important}
+.rm-feat{grid-template-columns:1fr !important}
+.rm-tilewide{grid-column:auto !important}
+.rm-tiletall{grid-row:auto !important}
+}
+@media (max-width:680px){
+.rm-bento{grid-template-columns:1fr !important}
+.rm-blog{grid-template-columns:1fr !important}
+.rm-grid{grid-template-columns:1fr !important}
+.rm-g4{grid-template-columns:1fr !important}
+.rm-metrics{grid-template-columns:1fr !important}
+.rm-pad{padding-left:20px !important;padding-right:20px !important}
+}
+</style>
+</head>
+<body>
+{{ block "main" . }}{{ end }}
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  function bind(attr,enter,leave){
+    document.querySelectorAll('['+attr+']').forEach(function(el){
+      var base=el.getAttribute('style')||'';
+      var ov=el.getAttribute(attr);
+      el.addEventListener(enter,function(){el.setAttribute('style',base+';'+ov);});
+      el.addEventListener(leave,function(){el.setAttribute('style',base);});
+    });
+  }
+  bind('data-hover','mouseenter','mouseleave');
+  bind('data-focus','focus','blur');
+  document.querySelectorAll('[data-contact-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var g=function(n){return (f.elements[n]&&f.elements[n].value||'').trim();};
+      var nome=g('nome'),email=g('email'),tel=g('telefone');
+      if(!nome||!email||!tel){return;}
+      var btn=f.querySelector('button[type="submit"]');
+      var origText=btn?btn.textContent:'';
+      if(btn){btn.disabled=true;btn.textContent='Enviando...';}
+      fetch('https://98wsgzys1j.execute-api.us-east-1.amazonaws.com/contact',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name:nome,email:email,message:'Telefone: '+tel+'\n\nSolicitação de diagnóstico gratuito via site.',website:''})
+      }).then(function(r){return r.json().then(function(d){return {ok:r.ok,data:d};});})
+      .then(function(res){
+        if(res.ok){
+          f.reset();
+          alert('Solicitação enviada! Nossa equipe entrará em contato em breve.');
+        }else{
+          alert(res.data.error||'Erro ao enviar. Tente novamente.');
+        }
+      }).catch(function(){alert('Erro de conexão. Verifique sua internet e tente novamente.');})
+      .finally(function(){if(btn){btn.disabled=false;btn.textContent=origText;}});
+    });
+  });
+});
+</script>
+<a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Quero%20um%20diagn%C3%B3stico%20gratuito%20da%20CoreScale." target="_blank" rel="noopener" style="position:fixed; bottom:24px; right:24px; width:56px; height:56px; background:#FF9900; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:99; box-shadow:0 4px 12px rgba(255,153,0,0.4); transition:all 0.3s ease;" data-hover="background:#FFAA2B; box-shadow:0 6px 18px rgba(255,153,0,0.6); transform:scale(1.1);">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A1322" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+  </svg>
+</a>
+</body>
+</html>

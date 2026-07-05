@@ -1,0 +1,405 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#1A2333;font-family:'Manrope',system-ui,sans-serif;color:#E9EDF5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+::selection{background:#FF9900;color:#0A1322}
+@keyframes rmMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes rmBlink{50%{opacity:0}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important}}
+@media (max-width:1000px){
+.rm-nav{display:none !important}
+.rm-hero{grid-template-columns:1fr !important}
+.rm-split{grid-template-columns:1fr !important}
+.rm-bento{grid-template-columns:repeat(2,1fr) !important}
+.rm-metrics{grid-template-columns:repeat(2,1fr) !important}
+.rm-blog{grid-template-columns:repeat(2,1fr) !important}
+.rm-grid{grid-template-columns:repeat(2,1fr) !important}
+.rm-g3{grid-template-columns:1fr !important}
+.rm-g4{grid-template-columns:repeat(2,1fr) !important}
+.rm-feat{grid-template-columns:1fr !important}
+.rm-tilewide{grid-column:auto !important}
+.rm-tiletall{grid-row:auto !important}
+}
+@media (max-width:680px){
+.rm-bento{grid-template-columns:1fr !important}
+.rm-blog{grid-template-columns:1fr !important}
+.rm-grid{grid-template-columns:1fr !important}
+.rm-g4{grid-template-columns:1fr !important}
+.rm-metrics{grid-template-columns:1fr !important}
+.rm-pad{padding-left:20px !important;padding-right:20px !important}
+}
+</style></head><body>
+<div style="font-family:'Manrope',system-ui,sans-serif; background:#1A2333; color:#E9EDF5; overflow-x:hidden; -webkit-font-smoothing:antialiased;">
+
+  <!-- ============ NAV ============ -->
+  <header style="position:sticky; top:0; z-index:60; background:rgba(26,35,51,0.82); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.08);">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px; height:72px; display:flex; align-items:center; gap:34px;">
+      <a href="#topo" style="display:flex; align-items:center; gap:10px;"><img src="../static/corescale-logo.png" alt="CoreScale" style="height:26px; width:auto; display:block;"></a>
+      <nav class="rm-nav" style="display:flex; align-items:center; gap:1px; margin-left:6px; flex:1;">
+        <a href="#topo" style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.68); padding:8px 12px; border-radius:9px;" data-hover="color:#fff; background:rgba(255,255,255,0.06);">Home</a>
+        <a href="#servicos" style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.68); padding:8px 12px; border-radius:9px;" data-hover="color:#fff; background:rgba(255,255,255,0.06);">Serviços</a>
+        <a href="#parceria" style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.68); padding:8px 12px; border-radius:9px;" data-hover="color:#fff; background:rgba(255,255,255,0.06);">Parceria AWS</a>
+        <a href="/cases/" style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.68); padding:8px 12px; border-radius:9px;" data-hover="color:#fff; background:rgba(255,255,255,0.06);">Cases</a>
+        <a href="/blog/" style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.68); padding:8px 12px; border-radius:9px;" data-hover="color:#fff; background:rgba(255,255,255,0.06);">Blog</a>
+        <a href="#metricas" style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.68); padding:8px 12px; border-radius:9px;" data-hover="color:#fff; background:rgba(255,255,255,0.06);">Sobre</a>
+        <a href="#contato" style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.68); padding:8px 12px; border-radius:9px;" data-hover="color:#fff; background:rgba(255,255,255,0.06);">Contato</a>
+      </nav>
+      <div style="display:flex; align-items:center; gap:14px; margin-left:auto;">
+        <a href="tel:+5511916464113" class="rm-nav" style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.02em; color:rgba(233,237,245,0.5);" data-hover="color:#fff;">+55 11 91646-4113</a>
+        <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Quero%20um%20diagn%C3%B3stico%20gratuito%20da%20CoreScale." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; background:#FF9900; color:#0A1322; font-weight:700; font-size:13.5px; padding:11px 18px; border-radius:10px; white-space:nowrap;" data-hover="background:#FFAA2B; transform:translateY(-1px);">Diagnóstico gratuito</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="topo" style="position:relative; overflow:hidden; background:linear-gradient(180deg,#1E2839,#1A2333); border-bottom:1px solid rgba(255,255,255,0.07);">
+    <div style="position:absolute; top:-180px; right:-120px; width:560px; height:560px; background:radial-gradient(circle, rgba(255,153,0,0.1), transparent 64%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-200px; left:-140px; width:520px; height:520px; background:radial-gradient(circle, rgba(157,110,214,0.16), transparent 64%); pointer-events:none;"></div>
+    <div class="rm-hero rm-pad" style="position:relative; max-width:1220px; margin:0 auto; padding:clamp(60px,7vw,96px) 28px clamp(64px,7vw,92px); display:grid; grid-template-columns:1.05fr 0.95fr; gap:68px; align-items:center;">
+      <div>
+        <div style="display:inline-flex; align-items:center; gap:9px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#FF9900; border:1px solid rgba(255,153,0,0.4); background:rgba(255,153,0,0.07); padding:8px 15px; border-radius:999px;">
+          <span style="width:7px; height:7px; border-radius:50%; background:#FF9900;"></span>
+          AWS Advanced Tier Services Partner
+        </div>
+        <h1 style="margin:24px 0 0; font-size:clamp(40px,5.2vw,70px); line-height:1.0; letter-spacing:-0.04em; font-weight:800; color:#F4F7FC; text-wrap:balance;">A nuvem AWS,<br>gerenciada por quem a <span style="color:#FF9900;">Amazon reconhece</span>.</h1>
+        <p style="margin:26px 0 0; font-size:clamp(16px,1.4vw,19px); line-height:1.62; color:rgba(233,237,245,0.64); max-width:500px;">Migração VMware, Azure e on-premises, FinOps e operação gerenciada 24/7 — para empresas que precisam escalar na AWS com segurança e controle de custos, com o investimento da própria Amazon via programa MAP.</p>
+        <div style="margin-top:34px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="#contato" style="display:inline-flex; align-items:center; gap:9px; background:#FF9900; color:#0A1322; font-weight:700; font-size:15px; padding:15px 26px; border-radius:12px;" data-hover="background:#FFAA2B; transform:translateY(-1px);">Solicitar diagnóstico<span style="font-size:17px;">→</span></a>
+          <a href="#migracao" style="display:inline-flex; align-items:center; gap:9px; border:1px solid rgba(255,255,255,0.18); color:#fff; font-weight:600; font-size:15px; padding:15px 24px; border-radius:12px; background:rgba(255,255,255,0.03);" data-hover="background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.36);">Avaliar elegibilidade MAP</a>
+        </div>
+        <div style="margin-top:40px; display:flex; align-items:stretch; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.09); border-radius:14px; overflow:hidden; max-width:520px;">
+          <div style="flex:1; padding:16px 20px;"><div style="font-size:23px; font-weight:800; letter-spacing:-0.02em; color:#F4F7FC;">500+</div><div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(233,237,245,0.45); margin-top:3px;">servidores migrados</div></div>
+          <div style="width:1px; background:rgba(255,255,255,0.08);"></div>
+          <div style="flex:1; padding:16px 20px;"><div style="font-size:23px; font-weight:800; letter-spacing:-0.02em; color:#FF9900;">99,9%</div><div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(233,237,245,0.45); margin-top:3px;">uptime garantido</div></div>
+        </div>
+      </div>
+
+      <!-- CREDENCIAIS CARD (badge com efeito de camadas) -->
+      
+        <div style="position:relative;">
+          <div style="position:relative; overflow:hidden; background:linear-gradient(165deg,#13223C,#0C1728); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:28px; box-shadow:0 46px 84px -36px rgba(0,0,0,0.62);">
+            <div style="position:absolute; top:-70px; right:-50px; width:240px; height:240px; background:radial-gradient(circle, rgba(255,153,0,0.12), transparent 62%); pointer-events:none;"></div>
+            <div style="position:relative; display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(233,237,245,0.5);">Credenciais</span>
+              <span style="display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#FF9900;"><span style="width:6px; height:6px; border-radius:50%; background:#FF9900; box-shadow:0 0 0 3px rgba(255,153,0,0.16);"></span>verificado</span>
+            </div>
+            <div style="position:relative; margin-top:20px; height:264px; border-radius:16px; background:#0B1524; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; overflow:hidden;">
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:250px; height:274px; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background:rgba(255,153,0,0.09);"></div>
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:234px; height:256px; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background:#0B1524;"></div>
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:218px; height:238px; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background:rgba(255,153,0,0.13);"></div>
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:202px; height:220px; clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); background:#0B1524;"></div>
+              <img src="../static/corescale-badge.png" alt="AWS Partner — Advanced Tier Services" style="position:relative; width:172px; max-width:62%; height:auto; display:block;">
+            </div>
+            <div style="height:1px; background:rgba(255,255,255,0.1); margin:22px 0;"></div>
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div style="width:46px; height:46px; border-radius:12px; background:rgba(255,153,0,0.12); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; flex:none;"><span style="font-family:'Manrope',sans-serif; font-weight:800; font-size:13px; line-height:1; letter-spacing:-0.02em; color:#fff;">aws</span><svg width="24" height="8" viewBox="0 0 26 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 3 C6 7.6, 16 7.6, 21.5 3.4" stroke="#FF9900" stroke-width="1.9" stroke-linecap="round"></path><path d="M18.4 1.7 L23 2.7 L22.2 7" stroke="#FF9900" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+              <div><div style="font-weight:700; font-size:15px; color:#fff;">Equipe certificada AWS</div><div style="font-size:13px; color:rgba(233,237,245,0.55); margin-top:2px;">Arquitetos e engenheiros com certificações oficiais</div></div>
+            </div>
+          </div>
+        </div>
+      
+      
+    </div>
+
+    <!-- TICKER -->
+    
+      <div style="position:relative; border-top:1px solid rgba(255,255,255,0.07); background:rgba(255,255,255,0.02); overflow:hidden;">
+        <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; gap:22px;">
+          <span style="flex:none; font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(233,237,245,0.42);">Migramos de</span>
+          <div style="position:relative; flex:1; overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);">
+            <div style="display:flex; width:max-content; animation:rmMarquee 28s linear infinite;">
+              <div style="display:flex; align-items:center;"><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">VMware</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">Microsoft Azure</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">Google Cloud</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">On-premises</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">Oracle Cloud</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">Datacenter próprio</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span></div>
+              <div style="display:flex; align-items:center;" aria-hidden="true"><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">VMware</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">Microsoft Azure</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">Google Cloud</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">On-premises</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">Oracle Cloud</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span><span style="display:inline-flex;align-items:center;gap:16px;padding-right:16px"><span style="font-size:14px;font-weight:600;color:rgba(233,237,245,0.74);white-space:nowrap">Datacenter próprio</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#FF9900">→ AWS</span><span style="width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.2)"></span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </section>
+
+  <!-- ============ BENTO SERVIÇOS (claro) ============ -->
+  <section id="servicos" style="position:relative; padding:clamp(72px,9vw,116px) 0; background:#F4F2EA;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:32px; flex-wrap:wrap;">
+        <div style="max-width:620px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.13em; text-transform:uppercase; color:#7A8494;"><span style="color:#8A4FBE;">02</span> &nbsp;— &nbsp;O que fazemos</div>
+          <h2 style="margin:16px 0 0; font-size:clamp(30px,3.6vw,48px); line-height:1.04; letter-spacing:-0.035em; font-weight:800; color:#101B2C; text-wrap:balance;">Uma stack de serviços, não um catálogo</h2>
+        </div>
+        <p style="max-width:340px; font-size:15px; line-height:1.6; color:#57616F;">Do primeiro diagnóstico à operação contínua — cada frente conversa com a próxima. Parceiro Advanced Tier com acesso a MAP, créditos e programas exclusivos.</p>
+      </div>
+
+      <div class="rm-bento" style="margin-top:44px; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; grid-auto-rows:minmax(196px,auto);">
+
+        <!-- Migração — tile grande -->
+        <a href="#migracao" class="rm-tilewide rm-tiletall" style="grid-column:span 2; grid-row:span 2; position:relative; overflow:hidden; display:flex; flex-direction:column; background:linear-gradient(155deg,#FFF7EC,#FFFFFF); border:1px solid #F0D9AE; border-radius:20px; padding:30px;" data-hover="border-color:#FF9900; transform:translateY(-3px); box-shadow:0 30px 60px -34px rgba(18,27,43,0.28);">
+          <div style="position:absolute; top:-70px; right:-50px; width:260px; height:260px; background:radial-gradient(circle, rgba(255,153,0,0.1), transparent 62%); pointer-events:none;"></div>
+          <div style="position:relative; display:flex; align-items:center; justify-content:space-between;">
+            <span style="width:48px; height:48px; border-radius:13px; background:#FF9900; display:flex; align-items:center; justify-content:center; color:#0A1322;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 17.5A4.5 4.5 0 0 1 6 8.55 6 6 0 0 1 17.7 7.7 4 4 0 0 1 17.5 17.5"></path><path d="M12 21v-7"></path><path d="M9.2 16.4 12 13.6l2.8 2.8"></path></svg></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#B9A57E;">01</span>
+          </div>
+
+          <div style="position:relative; margin-top:30px; display:flex; align-items:center; gap:14px;">
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#4A5462; background:#fff; border:1px solid #E6E2D8; padding:7px 13px; border-radius:9px; text-align:center;">VMware</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#4A5462; background:#fff; border:1px solid #E6E2D8; padding:7px 13px; border-radius:9px; text-align:center;">Azure</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:#4A5462; background:#fff; border:1px solid #E6E2D8; padding:7px 13px; border-radius:9px; text-align:center;">On-premises</span>
+            </div>
+            <div style="flex:1; display:flex; align-items:center; gap:8px; min-width:36px;">
+              <div style="flex:1; height:0; border-top:2px dashed #EAD3A6;"></div>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+            </div>
+            <div style="flex:none; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; width:104px; height:104px; border-radius:16px; background:#fff; border:1.5px solid #FF9900; box-shadow:0 16px 30px -18px rgba(255,153,0,0.55);">
+              <span style="font-family:'Manrope',sans-serif; font-weight:800; font-size:22px; line-height:1; letter-spacing:-0.03em; color:#101B2C;">aws</span>
+              <svg width="30" height="10" viewBox="0 0 26 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 3 C6 7.6, 16 7.6, 21.5 3.4" stroke="#FF9900" stroke-width="1.9" stroke-linecap="round"></path><path d="M18.4 1.7 L23 2.7 L22.2 7" stroke="#FF9900" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:0.12em; text-transform:uppercase; color:#9AA3B0; margin-top:1px;">Cloud</span>
+            </div>
+          </div>
+
+          <div style="position:relative; margin-top:auto; padding-top:30px;">
+            <h3 style="margin:0; font-size:25px; line-height:1.1; letter-spacing:-0.02em; font-weight:800; color:#101B2C; text-wrap:balance;">Migração para a AWS</h3>
+            <p style="margin:11px 0 0; font-size:14.5px; line-height:1.6; color:#57616F; max-width:400px;">De qualquer origem para a AWS: zero downtime, Landing Zone segura e o investimento da própria Amazon via MAP.</p>
+            <div style="margin-top:18px; display:flex; flex-wrap:wrap; gap:7px; align-items:center;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#6B7480; background:#fff; border:1px solid #E6E2D8; padding:5px 10px; border-radius:8px;">MAP</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#6B7480; background:#fff; border:1px solid #E6E2D8; padding:5px 10px; border-radius:8px;">Zero downtime</span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#6B7480; background:#fff; border:1px solid #E6E2D8; padding:5px 10px; border-radius:8px;">Landing Zone</span>
+              <span style="margin-left:auto; font-weight:700; font-size:13.5px; color:#C77A00;">Ver detalhes →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- FinOps -->
+        <div style="position:relative; display:flex; flex-direction:column; justify-content:space-between; background:#fff; border:1px solid #E6E2D8; border-radius:20px; padding:26px;" data-hover="border-color:#C9C3B4; transform:translateY(-3px); box-shadow:0 24px 50px -34px rgba(18,27,43,0.24);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="width:44px; height:44px; border-radius:12px; background:rgba(109,32,119,0.1); display:flex; align-items:center; justify-content:center; color:#6D2077;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 18l-8.5-8.5-5 5L1 6"></path><path d="M17 18h6v-6"></path></svg></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#B7BEC8;">02</span>
+          </div>
+          <div><h3 style="margin:22px 0 0; font-size:19px; letter-spacing:-0.01em; font-weight:700; color:#101B2C;">FinOps</h3><p style="margin:8px 0 0; font-size:13.5px; line-height:1.55; color:#5F6875;">Cortamos desperdício e reduzimos a conta AWS em 30–40%, com governança de custos.</p></div>
+        </div>
+
+        <!-- Operação 24/7 -->
+        <div style="position:relative; display:flex; flex-direction:column; justify-content:space-between; background:#fff; border:1px solid #E6E2D8; border-radius:20px; padding:26px;" data-hover="border-color:#C9C3B4; transform:translateY(-3px); box-shadow:0 24px 50px -34px rgba(18,27,43,0.24);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="width:44px; height:44px; border-radius:12px; background:rgba(22,163,74,0.12); display:flex; align-items:center; justify-content:center; color:#15803D;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#B7BEC8;">03</span>
+          </div>
+          <div><h3 style="margin:22px 0 0; font-size:19px; letter-spacing:-0.01em; font-weight:700; color:#101B2C;">Operação 24/7</h3><p style="margin:8px 0 0; font-size:13.5px; line-height:1.55; color:#5F6875;">Monitoramento proativo, resposta a incidentes e MTTR médio de 15 minutos.</p></div>
+        </div>
+
+        <!-- Segurança — tile largo -->
+        <div class="rm-tilewide" style="grid-column:span 2; position:relative; display:flex; align-items:center; gap:24px; background:#fff; border:1px solid #E6E2D8; border-radius:20px; padding:26px 28px;" data-hover="border-color:#C9C3B4; transform:translateY(-3px); box-shadow:0 24px 50px -34px rgba(18,27,43,0.24);">
+          <span style="flex:none; width:52px; height:52px; border-radius:14px; background:rgba(42,111,219,0.12); display:flex; align-items:center; justify-content:center; color:#1D5FBF;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></span>
+          <div style="flex:1;"><div style="display:flex; align-items:center; gap:10px;"><h3 style="margin:0; font-size:19px; letter-spacing:-0.01em; font-weight:700; color:#101B2C;">Segurança &amp; Compliance</h3><span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#B7BEC8;">04</span></div><p style="margin:8px 0 0; font-size:13.5px; line-height:1.55; color:#5F6875; max-width:420px;">Well-Architected, backup automatizado e Disaster Recovery multi-AZ — segurança enterprise por padrão.</p></div>
+        </div>
+
+        <!-- IA -->
+        <div style="position:relative; display:flex; flex-direction:column; justify-content:space-between; background:#fff; border:1px solid #E6E2D8; border-radius:20px; padding:26px;" data-hover="border-color:#C9C3B4; transform:translateY(-3px); box-shadow:0 24px 50px -34px rgba(18,27,43,0.24);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="width:44px; height:44px; border-radius:12px; background:rgba(255,153,0,0.14); display:flex; align-items:center; justify-content:center; color:#C77A00;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.6L18.3 9.3 13.7 11 12 15.6 10.3 11 5.7 9.3 10.3 7.6z"></path><path d="M18.5 14l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"></path></svg></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#B7BEC8;">05</span>
+          </div>
+          <div><h3 style="margin:22px 0 0; font-size:19px; letter-spacing:-0.01em; font-weight:700; color:#101B2C;">IA Generativa</h3><p style="margin:8px 0 0; font-size:13.5px; line-height:1.55; color:#5F6875;">Assistentes, RAG e agentes com Amazon Bedrock para automatizar o seu negócio.</p></div>
+        </div>
+
+        <!-- Boleto -->
+        <div style="position:relative; display:flex; flex-direction:column; justify-content:space-between; background:#fff; border:1px solid #E6E2D8; border-radius:20px; padding:26px;" data-hover="border-color:#C9C3B4; transform:translateY(-3px); box-shadow:0 24px 50px -34px rgba(18,27,43,0.24);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="width:44px; height:44px; border-radius:12px; background:rgba(18,27,43,0.06); display:flex; align-items:center; justify-content:center; color:#2B3546;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M8 13h8M8 17h8M8 9h2"></path></svg></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#B7BEC8;">06</span>
+          </div>
+          <div><h3 style="margin:22px 0 0; font-size:19px; letter-spacing:-0.01em; font-weight:700; color:#101B2C;">Nuvem em boleto</h3><p style="margin:8px 0 0; font-size:13.5px; line-height:1.55; color:#5F6875;">Pague sua infraestrutura AWS em reais, no boleto, com previsibilidade.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MIGRAÇÃO (faixa de contraste) ============ -->
+  <section id="migracao" style="position:relative; overflow:hidden; background:linear-gradient(165deg,#0F1B2E,#0B1524); color:#E9EDF5; padding:clamp(64px,8vw,104px) 0;">
+    <div style="position:absolute; top:-140px; right:-80px; width:520px; height:520px; background:radial-gradient(circle, rgba(255,153,0,0.12), transparent 66%); pointer-events:none;"></div>
+    <div class="rm-split rm-pad" style="position:relative; max-width:1220px; margin:0 auto; padding:0 28px; display:grid; grid-template-columns:1.02fr 0.98fr; gap:60px; align-items:center;">
+      <div>
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.13em; text-transform:uppercase; color:#FF9900;">VMware → AWS · Programa MAP</div>
+      <h2 style="margin:18px 0 0; font-size:clamp(28px,3.6vw,46px); line-height:1.06; letter-spacing:-0.035em; font-weight:800; color:#F4F7FC; text-wrap:balance;">O licenciamento da Broadcom subiu 8–15×. A AWS pode financiar a sua saída.</h2>
+      <p style="margin:16px 0 0; max-width:520px; font-size:16.5px; line-height:1.6; color:rgba(233,237,245,0.62);">Construímos o Business Case, provamos a economia antes de migrar e movemos tudo com créditos AWS via MAP.</p>
+      <div class="rm-metrics" style="margin:30px 0 0; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px 14px; background:rgba(255,255,255,0.02);"><div style="font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-0.03em; color:#FF9900;">até 40%</div><div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(233,237,245,0.5); margin-top:8px;">redução de TCO</div></div>
+        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px 14px; background:rgba(255,255,255,0.02);"><div style="font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-0.03em; color:#FF9900;">~31%</div><div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(233,237,245,0.5); margin-top:8px;">economia média</div></div>
+        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px 14px; background:rgba(255,255,255,0.02);"><div style="font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-0.03em; color:#FF9900;">25%</div><div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(233,237,245,0.5); margin-top:8px;">devolvido em créditos</div></div>
+        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px 14px; background:rgba(255,255,255,0.02);"><div style="font-size:clamp(26px,3vw,38px); font-weight:800; letter-spacing:-0.03em; color:#fff;">0</div><div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(233,237,245,0.5); margin-top:8px;">downtime</div></div>
+      </div>
+      <a href="#contato" style="display:inline-flex; align-items:center; gap:9px; margin-top:30px; background:#FF9900; color:#0A1322; font-weight:700; font-size:15px; padding:15px 28px; border-radius:12px;" data-hover="background:#FFAA2B; transform:translateY(-1px);">Avaliar elegibilidade MAP<span style="font-size:17px;">→</span></a>
+      </div>
+      <div>
+        <div style="position:relative; background:#0A1420; border:1px solid rgba(255,255,255,0.1); border-radius:16px; box-shadow:0 40px 80px -36px rgba(0,0,0,0.6); overflow:hidden; text-align:left;">
+          <div style="display:flex; align-items:center; gap:8px; padding:13px 16px; border-bottom:1px solid rgba(255,255,255,0.07);">
+            <span style="width:11px; height:11px; border-radius:50%; background:#FF5F57;"></span>
+            <span style="width:11px; height:11px; border-radius:50%; background:#FEBC2E;"></span>
+            <span style="width:11px; height:11px; border-radius:50%; background:#28C840;"></span>
+            <span style="margin-left:10px; font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.42);">corescale · assessment</span>
+            <span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:#4ADE80;">● live</span>
+          </div>
+          <div style="padding:18px 20px 20px; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.95;">
+            <div style="color:rgba(233,237,245,0.55);"><span style="color:#FF9900;">$</span> corescale assess --source vmware</div>
+            <div style="color:rgba(233,237,245,0.86);"><span style="color:#28C840;">✔</span> 312 workloads mapeados</div>
+            <div style="color:rgba(233,237,245,0.86);"><span style="color:#28C840;">✔</span> TCO projetado&nbsp;&nbsp;<span style="color:#FF9900;">−38%</span></div>
+            <div style="color:rgba(233,237,245,0.86);"><span style="color:#28C840;">✔</span> créditos MAP&nbsp;&nbsp;<span style="color:#FF9900;">elegível</span></div>
+            <div style="color:rgba(233,237,245,0.86);"><span style="color:#28C840;">✔</span> Landing Zone&nbsp;&nbsp;<span style="color:#28C840;">segura</span></div>
+            <div style="color:rgba(233,237,245,0.55);"><span style="color:#FF9900;">$</span> <span style="border-right:2px solid #FF9900; animation:rmBlink 1.1s step-end infinite; padding-right:2px;">&nbsp;</span></div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(255,255,255,0.07); border-top:1px solid rgba(255,255,255,0.07);">
+            <div style="background:#0A1420; padding:16px 18px;"><div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(233,237,245,0.4);">Economia / mês</div><div style="margin-top:8px; font-size:24px; font-weight:800; letter-spacing:-0.02em; color:#fff;">R$ 214k</div></div>
+            <div style="background:#0A1420; padding:16px 18px;"><div style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:rgba(233,237,245,0.4);">Ondas de migração</div><div style="margin-top:8px; font-size:24px; font-weight:800; letter-spacing:-0.02em; color:#FF9900;">6</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARCERIA AWS (claro) ============ -->
+  <section id="parceria" style="background:#fff; padding:clamp(72px,9vw,116px) 0; border-bottom:1px solid #E6E2D8;">
+    <div class="rm-split rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px; display:grid; grid-template-columns:1.02fr 0.98fr; gap:64px; align-items:center;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.13em; text-transform:uppercase; color:#7A8494;"><span style="color:#8A4FBE;">03</span> &nbsp;— &nbsp;Parceria estratégica</div>
+        <h2 style="margin:16px 0 0; font-size:clamp(28px,3.4vw,44px); line-height:1.08; letter-spacing:-0.035em; font-weight:800; color:#101B2C; text-wrap:balance;">Ao lado da Amazon Web Services, como Advanced Tier Partner</h2>
+        <p style="margin:20px 0 0; font-size:16.5px; line-height:1.65; color:#57616F; max-width:500px;">Nosso nível de parceria reflete experiência técnica comprovada e um histórico de sucesso em nuvem. Como Advanced Tier, temos acesso direto aos times da AWS e aos programas MAP, créditos e benefícios exclusivos — que repassamos ao seu projeto.</p>
+        <div style="margin-top:26px; display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:flex-start; gap:12px;"><span style="width:24px; height:24px; border-radius:7px; background:rgba(255,153,0,0.16); display:inline-flex; align-items:center; justify-content:center; flex:none; margin-top:1px; color:#C77A00;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-size:15.5px; line-height:1.5; color:#3A4655;"><strong style="color:#101B2C; font-weight:700;">Acesso direto</strong> aos times técnicos e de programas da AWS.</span></div>
+          <div style="display:flex; align-items:flex-start; gap:12px;"><span style="width:24px; height:24px; border-radius:7px; background:rgba(255,153,0,0.16); display:inline-flex; align-items:center; justify-content:center; flex:none; margin-top:1px; color:#C77A00;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-size:15.5px; line-height:1.5; color:#3A4655;"><strong style="color:#101B2C; font-weight:700;">Programa MAP</strong>, créditos e financiamento de migração.</span></div>
+          <div style="display:flex; align-items:flex-start; gap:12px;"><span style="width:24px; height:24px; border-radius:7px; background:rgba(255,153,0,0.16); display:inline-flex; align-items:center; justify-content:center; flex:none; margin-top:1px; color:#C77A00;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-size:15.5px; line-height:1.5; color:#3A4655;"><strong style="color:#101B2C; font-weight:700;">Equipe certificada</strong> — 35+ certificações AWS.</span></div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="border-radius:18px; overflow:hidden; border:1px solid #E6E2D8; box-shadow:0 24px 50px -34px rgba(18,27,43,0.28);">
+          <img src="../static/aws-logo.png" alt="Amazon Web Services" style="display:block; width:100%; height:auto;">
+        </div>
+        <div style="display:flex; align-items:center; gap:18px; background:#F7F5EF; border:1px solid #E6E2D8; border-radius:18px; padding:20px 22px;">
+          <div style="flex:none; width:96px; height:96px; border-radius:12px; background:#0B1524; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:center; padding:12px;">
+            <img src="../static/corescale-badge.png" alt="AWS Partner — Advanced Tier Services" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain;">
+          </div>
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:#9AA3B0;">Selo oficial</div>
+            <div style="margin-top:6px; font-size:17px; font-weight:800; letter-spacing:-0.01em; color:#101B2C;">Advanced Tier Services Partner</div>
+            <div style="margin-top:4px; font-size:13.5px; line-height:1.5; color:#5F6875;">Reconhecimento oficial da AWS pela nossa competência técnica.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MÉTRICAS ============ -->
+  <section id="metricas" style="padding:clamp(64px,8vw,100px) 0; background:#1A2333;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.13em; text-transform:uppercase; color:rgba(233,237,245,0.5);"><span style="color:#8A4FBE;">04</span> &nbsp;— &nbsp;Resultados</div>
+      <div class="rm-metrics" style="margin-top:32px; display:grid; grid-template-columns:repeat(4,1fr); background:#212C40; border:1px solid rgba(255,255,255,0.08); border-radius:20px; overflow:hidden;">
+        <div style="padding:32px 26px;border-right:1px solid rgba(255,255,255,0.08)"><div style="font-size:clamp(34px,4vw,52px);font-weight:800;letter-spacing:-0.03em;line-height:1;color:#F4F7FC">200+</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:rgba(233,237,245,0.46);margin-top:14px">Projetos entregues</div></div><div style="padding:32px 26px;border-right:1px solid rgba(255,255,255,0.08)"><div style="font-size:clamp(34px,4vw,52px);font-weight:800;letter-spacing:-0.03em;line-height:1;color:#F4F7FC">500+</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:rgba(233,237,245,0.46);margin-top:14px">Servidores migrados</div></div><div style="padding:32px 26px;border-right:1px solid rgba(255,255,255,0.08)"><div style="font-size:clamp(34px,4vw,52px);font-weight:800;letter-spacing:-0.03em;line-height:1;color:#F4F7FC">35+</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:rgba(233,237,245,0.46);margin-top:14px">Certificações AWS</div></div><div style="padding:32px 26px;"><div style="font-size:clamp(34px,4vw,52px);font-weight:800;letter-spacing:-0.03em;line-height:1;color:#FF9900">R$ 50m+</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:rgba(233,237,245,0.46);margin-top:14px">Billing gerenciado / mês</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BLOG ============ -->
+  <section id="blog" style="padding:clamp(20px,3vw,24px) 0 clamp(72px,9vw,110px); background:#1A2333;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.13em; text-transform:uppercase; color:rgba(233,237,245,0.5);"><span style="color:#8A4FBE;">05</span> &nbsp;— &nbsp;Do blog</div>
+          <h2 style="margin:16px 0 0; font-size:clamp(28px,3.4vw,44px); line-height:1.05; letter-spacing:-0.035em; font-weight:800; color:#F4F7FC; text-wrap:balance;">Insights de quem opera AWS todo dia</h2>
+        </div>
+        <a href="/blog/" style="display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:14.5px; color:#fff; border:1px solid rgba(255,255,255,0.18); padding:12px 20px; border-radius:11px; background:rgba(255,255,255,0.03);" data-hover="background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.36);">Ver todos os artigos →</a>
+      </div>
+      <div class="rm-blog" style="margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+        <a href="/blog/finops-reduzir-fatura-aws/" data-hover="transform:translateY(-4px);border-color:rgba(255,153,0,0.5);" style="display:flex;flex-direction:column;background:#212C40;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:26px 24px 24px;transition:transform .18s ease,border-color .18s ease"><div style="display:flex;align-items:center;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#FF9900;background:rgba(255,153,0,0.12);border:1px solid rgba(255,153,0,0.28);padding:4px 9px;border-radius:7px">FinOps</span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.04em;color:rgba(233,237,245,0.42)">18/06/2026 · 6 min</span></div><h3 style="margin:16px 0 0;font-size:19px;line-height:1.3;letter-spacing:-0.01em;font-weight:700;color:#F4F7FC;text-wrap:balance">FinOps na AWS: como reduzir a fatura em 30–40%</h3><span style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font-weight:700;font-size:13.5px;color:#FF9900">Ler artigo →</span></a><a href="/blog/vmware-broadcom-migrar-aws/" data-hover="transform:translateY(-4px);border-color:rgba(255,153,0,0.5);" style="display:flex;flex-direction:column;background:#212C40;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:26px 24px 24px;transition:transform .18s ease,border-color .18s ease"><div style="display:flex;align-items:center;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#FF9900;background:rgba(255,153,0,0.12);border:1px solid rgba(255,153,0,0.28);padding:4px 9px;border-radius:7px">Migração</span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.04em;color:rgba(233,237,245,0.42)">27/05/2026 · 5 min</span></div><h3 style="margin:16px 0 0;font-size:19px;line-height:1.3;letter-spacing:-0.01em;font-weight:700;color:#F4F7FC;text-wrap:balance">VMware e Broadcom: por que 2026 é o ano de migrar</h3><span style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font-weight:700;font-size:13.5px;color:#FF9900">Ler artigo →</span></a><a href="/blog/programa-map-aws/" data-hover="transform:translateY(-4px);border-color:rgba(255,153,0,0.5);" style="display:flex;flex-direction:column;background:#212C40;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:26px 24px 24px;transition:transform .18s ease,border-color .18s ease"><div style="display:flex;align-items:center;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#FF9900;background:rgba(255,153,0,0.12);border:1px solid rgba(255,153,0,0.28);padding:4px 9px;border-radius:7px">MAP</span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.04em;color:rgba(233,237,245,0.42)">30/04/2026 · 5 min</span></div><h3 style="margin:16px 0 0;font-size:19px;line-height:1.3;letter-spacing:-0.01em;font-weight:700;color:#F4F7FC;text-wrap:balance">O que é o programa MAP e como ele financia a migração</h3><span style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font-weight:700;font-size:13.5px;color:#FF9900">Ler artigo →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO / FORMULÁRIO ============ -->
+  <section id="contato" style="position:relative; overflow:hidden; padding:clamp(64px,8vw,104px) 0; background:#1A2333; border-top:1px solid rgba(255,255,255,0.06);">
+    <div style="position:absolute; top:-140px; left:-90px; width:480px; height:480px; background:radial-gradient(circle, rgba(138,63,151,0.24), transparent 64%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-160px; right:-70px; width:420px; height:420px; background:radial-gradient(circle, rgba(255,153,0,0.1), transparent 64%); pointer-events:none;"></div>
+    <div class="rm-split rm-pad" style="position:relative; max-width:1180px; margin:0 auto; padding:0 28px; display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center;">
+      <div>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#B478E0;">Avaliação gratuita</span>
+        <h2 style="margin:14px 0 0; font-size:clamp(28px,3.4vw,44px); line-height:1.08; letter-spacing:-0.035em; font-weight:800; color:#F4F7FC; text-wrap:balance;">Solicite seu diagnóstico cloud e a <span style="color:#B478E0;">avaliação MAP</span></h2>
+        <p style="margin:18px 0 0; font-size:16.5px; line-height:1.6; color:rgba(233,237,245,0.62); max-width:430px;">Deixe seus dados e nossa equipe retorna com uma análise inicial de economia, segurança e elegibilidade ao financiamento da AWS — sem compromisso.</p>
+        <div style="margin-top:30px; display:flex; flex-direction:column; gap:14px;">
+          <a href="tel:+5511916464113" style="display:inline-flex; align-items:center; gap:12px; font-size:15px; font-weight:600; color:#EAF0F8;" data-hover="color:#B478E0;"><span style="width:38px; height:38px; border-radius:10px; background:rgba(138,63,151,0.2); display:inline-flex; align-items:center; justify-content:center; color:#C58BEC; flex:none;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>+55 11 91646-4113</a>
+          <a href="mailto:core@cscale.com.br" style="display:inline-flex; align-items:center; gap:12px; font-size:15px; font-weight:600; color:#EAF0F8;" data-hover="color:#B478E0;"><span style="width:38px; height:38px; border-radius:10px; background:rgba(138,63,151,0.2); display:inline-flex; align-items:center; justify-content:center; color:#C58BEC; flex:none;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg></span>core@cscale.com.br</a>
+        </div>
+      </div>
+      <form data-contact-form style="background:#fff; border:1px solid #EAEDF2; border-radius:24px; padding:clamp(28px,3vw,40px); display:flex; flex-direction:column; gap:18px; box-shadow:0 40px 80px -40px rgba(0,0,0,0.5);">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <label style="font-size:13px; font-weight:600; color:#0A1322;">Nome</label>
+          <input name="nome" type="text" placeholder="Seu nome completo" style="height:50px; padding:0 16px; border-radius:12px; border:1px solid #DDE1E8; background:#fff; font-family:inherit; font-size:15px; color:#0A1322; outline:none;" data-focus="border-color:#6D2077; box-shadow:0 0 0 3px rgba(109,32,119,0.14);">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <label style="font-size:13px; font-weight:600; color:#0A1322;">E-mail</label>
+          <input name="email" type="email" placeholder="voce@empresa.com.br" style="height:50px; padding:0 16px; border-radius:12px; border:1px solid #DDE1E8; background:#fff; font-family:inherit; font-size:15px; color:#0A1322; outline:none;" data-focus="border-color:#6D2077; box-shadow:0 0 0 3px rgba(109,32,119,0.14);">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <label style="font-size:13px; font-weight:600; color:#0A1322;">Telefone</label>
+          <input name="telefone" type="tel" placeholder="(11) 99999-9999" style="height:50px; padding:0 16px; border-radius:12px; border:1px solid #DDE1E8; background:#fff; font-family:inherit; font-size:15px; color:#0A1322; outline:none;" data-focus="border-color:#6D2077; box-shadow:0 0 0 3px rgba(109,32,119,0.14);">
+        </div>
+        <button type="submit" style="margin-top:4px; height:52px; border:none; border-radius:999px; background:linear-gradient(135deg,#6D2077,#8A3D97); color:#fff; font-family:inherit; font-weight:700; font-size:16px; cursor:pointer;" data-hover="filter:brightness(1.09); transform:translateY(-1px);">Solicitar avaliação gratuita</button>
+        <p style="margin:0; font-size:12.5px; line-height:1.5; color:#8A93A4; text-align:center;">Ao enviar, você concorda em ser contatado pela equipe CoreScale.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background:#111A28; color:#E9EDF5; padding:clamp(48px,6vw,68px) 0 34px; border-top:1px solid rgba(255,255,255,0.06);">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px; display:flex; align-items:flex-start; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+      <div style="max-width:320px;">
+        <img src="../static/corescale-logo.png" alt="CoreScale" style="height:26px; width:auto; display:block;">
+        <p style="margin:16px 0 0; font-size:14px; line-height:1.6; color:rgba(233,237,245,0.5);">Consultoria em Cloud AWS — Advanced Tier Partner. Migração, FinOps, segurança e operação gerenciada.</p>
+      </div>
+      <div style="display:flex; gap:56px; flex-wrap:wrap;">
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(233,237,245,0.38);">Navegar</span>
+          <a href="#servicos" style="font-size:14px; color:rgba(233,237,245,0.62);" data-hover="color:#fff;">Serviços</a>
+          <a href="#migracao" style="font-size:14px; color:rgba(233,237,245,0.62);" data-hover="color:#fff;">Migração VMware</a>
+          <a href="#parceria" style="font-size:14px; color:rgba(233,237,245,0.62);" data-hover="color:#fff;">Parceria AWS</a>
+          <a href="#blog" style="font-size:14px; color:rgba(233,237,245,0.62);" data-hover="color:#fff;">Blog</a>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(233,237,245,0.38);">Contato</span>
+          <a href="tel:+5511916464113" style="font-size:14px; color:rgba(233,237,245,0.62);" data-hover="color:#fff;">+55 11 91646-4113</a>
+          <a href="mailto:core@cscale.com.br" style="font-size:14px; color:rgba(233,237,245,0.62);" data-hover="color:#fff;">core@cscale.com.br</a>
+          <a href="/privacidade/" style="font-size:14px; color:rgba(233,237,245,0.62);" data-hover="color:#fff;">Privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="rm-pad" style="max-width:1220px; margin:34px auto 0; padding:22px 28px 0; border-top:1px solid rgba(255,255,255,0.08); display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;">
+      <span style="font-size:13px; color:rgba(233,237,245,0.4);">© 2026 CoreScale — Consultoria em Cloud AWS</span>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.08em; color:rgba(233,237,245,0.35);">Parceiro Oficial AWS · Advanced Tier</span>
+    </div>
+  </footer>
+
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  function bind(attr,enter,leave){
+    document.querySelectorAll('['+attr+']').forEach(function(el){
+      var base=el.getAttribute('style')||'';
+      var ov=el.getAttribute(attr);
+      el.addEventListener(enter,function(){el.setAttribute('style',base+';'+ov);});
+      el.addEventListener(leave,function(){el.setAttribute('style',base);});
+    });
+  }
+  bind('data-hover','mouseenter','mouseleave');
+  bind('data-focus','focus','blur');
+  document.querySelectorAll('[data-contact-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var g=function(n){return (f.elements[n]&&f.elements[n].value||'').trim();};
+      var nome=g('nome'),email=g('email'),tel=g('telefone');
+      if(!nome||!email||!tel){return;}
+      var s=encodeURIComponent('Diagnóstico gratuito — '+nome);
+      var b=encodeURIComponent('Nome: '+nome+'\nE-mail: '+email+'\nTelefone: '+tel);
+      window.location.href='mailto:core@cscale.com.br?subject='+s+'&body='+b;
+    });
+  });
+});
+
+</script></body></html>

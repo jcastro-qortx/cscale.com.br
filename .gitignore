@@ -1,0 +1,34 @@
+# Terraform
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform.lock.hcl
+terraform/lambda/contact.zip
+terraform/tfplan
+
+# Hugo
+hugo/public/
+hugo/.hugo_build.lock
+
+# Generated output (rebuild with deploy.sh or hugo --minify)
+deploy/
+
+# Legacy site project (old Hugo with PaperMod)
+site-corescale/
+
+# OS
+.DS_Store
+
+# Temp files
+*.tmp
+contact_deployed.html
+
+# Archives
+*.zip
+
+# Old diagrams dot files
+generated-diagrams/*.dot
+
+# Old bundled index (root only)
+/index.html
+/index.html.old

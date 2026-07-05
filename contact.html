@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - CoreScale</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" href="/favicon.png" sizes="192x192">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0A1322;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .logo svg {
+      width: 64px;
+      height: 64px;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      margin-top: 0.75rem;
+      color: #fff;
+    }
+
+    .logo p {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      margin-top: 0.25rem;
+    }
+
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid #334155;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #cbd5e1;
+      margin-bottom: 0.5rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #e2e8f0;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #FF9900;
+      box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.1);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.875rem;
+      background: #FF9900;
+      color: #0A1322;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    button:hover {
+      background: #e88a00;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    button:disabled {
+      background: #475569;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .message {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      display: none;
+    }
+
+    .message.success {
+      display: block;
+      background: #064e3b;
+      border: 1px solid #065f46;
+      color: #6ee7b7;
+    }
+
+    .message.error {
+      display: block;
+      background: #450a0a;
+      border: 1px solid #7f1d1d;
+      color: #fca5a5;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .back-link a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+
+    .back-link a:hover {
+      color: #FF9900;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="24" height="24" rx="5" fill="#FF9900" transform="rotate(45 32 32)"/>
+        <rect x="27" y="27" width="10" height="10" rx="2" fill="#0A1322" transform="rotate(45 32 32)"/>
+      </svg>
+      <h1>CoreScale</h1>
+      <p>Fale conosco</p>
+    </div>
+
+    <div class="card">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" required placeholder="Seu nome">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="seu@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" required placeholder="Como podemos ajudar?"></textarea>
+        </div>
+
+        <!-- Honeypot field - do not fill -->
+        <div style="position: absolute; left: -9999px;" aria-hidden="true">
+          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" id="submitBtn">Enviar mensagem</button>
+
+        <div id="formMessage" class="message"></div>
+      </form>
+    </div>
+
+    <div class="back-link">
+      <a href="index.html">&larr; Voltar ao site</a>
+    </div>
+  </div>
+
+  <script>
+    // API_URL will be replaced after terraform apply with the actual API Gateway URL
+    const API_URL = 'https://98wsgzys1j.execute-api.us-east-1.amazonaws.com/contact';
+
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formMessage = document.getElementById('formMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      formMessage.className = 'message';
+      formMessage.style.display = 'none';
+
+      const data = {
+        name: document.getElementById('name').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        message: document.getElementById('message').value.trim(),
+        website: document.getElementById('website').value,
+      };
+
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          formMessage.className = 'message success';
+          formMessage.textContent = result.message || 'Mensagem enviada com sucesso!';
+          formMessage.style.display = 'block';
+          form.reset();
+        } else {
+          formMessage.className = 'message error';
+          formMessage.textContent = result.error || 'Erro ao enviar. Tente novamente.';
+          formMessage.style.display = 'block';
+        }
+      } catch (err) {
+        formMessage.className = 'message error';
+        formMessage.textContent = 'Erro de conexão. Verifique sua internet e tente novamente.';
+        formMessage.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar mensagem';
+      }
+    });
+  </script>
+</body>
+</html>

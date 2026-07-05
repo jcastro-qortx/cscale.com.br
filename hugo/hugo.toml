@@ -1,0 +1,13 @@
+baseURL = "https://site.corescale.com.br/"
+languageCode = "pt-br"
+title = "CoreScale"
+enableRobotsTXT = true
+
+[params]
+  description = "Consultoria em Cloud AWS — Advanced Tier Partner. Migração, FinOps, segurança e operação gerenciada 24/7."
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[taxonomies]
+  category = "categories"
