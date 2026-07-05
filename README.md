@@ -1,6 +1,6 @@
 # CoreScale Site — Infraestrutura AWS
 
-Site institucional da CoreScale servido em `https://site.corescale.com.br`.
+Site institucional da CoreScale em produção: **https://corescale.com.br**
 
 ## Arquitetura
 
@@ -10,13 +10,14 @@ Site institucional da CoreScale servido em `https://site.corescale.com.br`.
 
 | Componente | Recurso AWS | Função |
 |-----------|-------------|--------|
-| CDN | CloudFront Distribution | Entrega do site com HTTPS, cache e security headers |
-| URL Rewrite | CloudFront Function | Resolve `/path/` → `/path/index.html` para OAC |
+| CDN | CloudFront Distribution `E100PKYXLCMDIC` | Entrega do site com HTTPS, cache e security headers |
+| URL Rewrite | CloudFront Function `cscale-url-rewrite` | Resolve `/path/` → `/path/index.html` para OAC |
 | Storage | S3 `cscale-website` | Armazena HTML, imagens e assets (acesso via OAC apenas) |
-| API | API Gateway v2 HTTP | Endpoint `POST /contact` com CORS restrito e rate limiting |
+| API | API Gateway v2 HTTP `cscale-contact-api` | Endpoint `POST /contact` com CORS restrito e rate limiting |
 | Compute | Lambda `cscale-contact-form` | Processa formulário: honeypot, validação, envio de email |
 | Email | SES | Envia emails de contato para `jcastro@cscale.com.br` |
-| Certificado | ACM | SSL/TLS para o domínio custom |
+| Certificado | ACM | SSL/TLS para `corescale.com.br` + `www.corescale.com.br` |
+| DNS | Route 53 (zona `Z06962061IEXT1UZMMGUD`) | ALIAS records para CloudFront |
 
 ### Fluxo — Conteúdo Estático
 
@@ -30,9 +31,15 @@ Usuário → CloudFront (HTTPS) → CF Function (URL rewrite) → S3 (via OAC as
 Usuário → API Gateway (CORS + throttle 10 req/s) → Lambda (honeypot + validação) → SES → email
 ```
 
-## Security Hardening
+## Domínios
 
-Implementado em Julho/2026:
+| Domínio | Destino | Status |
+|---------|---------|--------|
+| `corescale.com.br` | CloudFront (ALIAS A + AAAA) | ✅ Produção |
+| `www.corescale.com.br` | CloudFront (ALIAS A + AAAA) | ✅ Produção |
+| `site.corescale.com.br` | CloudFront (CNAME) | ✅ Legado (ainda funciona) |
+
+## Security Hardening
 
 | Controle | Status | Detalhes |
 |----------|--------|----------|
@@ -41,102 +48,141 @@ Implementado em Julho/2026:
 | X-Frame-Options | ✅ | `DENY` (anti-clickjacking) |
 | Referrer-Policy | ✅ | `strict-origin-when-cross-origin` |
 | Permissions-Policy | ✅ | `camera=(), microphone=(), geolocation=()` |
-| CORS restrito | ✅ | Apenas `https://site.corescale.com.br` |
+| CORS restrito | ✅ | `https://corescale.com.br` + `www` |
 | Rate Limiting | ✅ | 10 req/s, burst 20 (API Gateway) |
 | Anti-Bot | ✅ | Honeypot field + validação server-side |
 | S3 privado | ✅ | OAC — bucket inacessível sem CloudFront |
-| SES verificado | ✅ | Sender e recipient verificados |
-| X-Content-Type-Options | ⚠️ | Desabilitado (incompatível com bundler legacy) |
-| Content-Security-Policy | ⚠️ | Desabilitado (incompatível com bundler legacy) |
+| SES verificado | ✅ | Sender + recipient verificados |
+| X-Content-Type-Options | ⚠️ | Pode ser re-ativado (site Hugo é compatível) |
+| Content-Security-Policy | ⚠️ | Pode ser re-ativado (site Hugo é compatível) |
 
-> **Nota:** CSP e `nosniff` serão re-ativados quando o site migrar completamente para o build Hugo (HTML estático sem blob URLs).
-
-## Estrutura de Diretórios
+## Estrutura do Repositório
 
 ```
 corescale/
+├── .gitlab-ci.yml           # Pipeline CI/CD (build Hugo → deploy S3 → invalidate CF)
+├── .gitignore
+├── README.md
 ├── terraform/
-│   ├── main.tf              # Infraestrutura AWS (S3, CloudFront, Lambda, API GW, SES)
+│   ├── main.tf              # Infraestrutura AWS completa
 │   ├── variables.tf         # Variáveis (região, bucket, domínio, emails)
 │   ├── outputs.tf           # Outputs (URLs, DNS records)
 │   └── lambda/
 │       └── contact.py       # Handler do formulário de contato
 ├── hugo/                    # Site institucional (Hugo SSG)
-│   ├── hugo.toml            # Configuração Hugo
-│   ├── content/             # Conteúdo Markdown (blog, cases, páginas)
-│   ├── layouts/             # Templates HTML
-│   ├── static/              # Assets estáticos (imagens, favicon)
-│   └── public/              # Output gerado (hugo --minify)
+│   ├── hugo.toml            # Configuração (baseURL: corescale.com.br)
+│   ├── archetypes/          # Templates para novos conteúdos
+│   ├── content/
+│   │   ├── _index.md        # Home
+│   │   ├── blog/            # 8 artigos publicados
+│   │   ├── cases/           # 3 cases de clientes
+│   │   ├── migracao-vmware-aws.md
+│   │   └── privacidade.md
+│   ├── layouts/
+│   │   ├── index.html       # Home (hero, serviços, MAP, parceria, métricas, contato)
+│   │   ├── _default/baseof.html  # Base template (fonts, CSS, JS)
+│   │   ├── partials/        # Header, footer, CTA, nossa-história
+│   │   ├── blog/            # List + single templates
+│   │   ├── cases/           # List + single templates
+│   │   └── migracao/, privacidade/
+│   └── static/              # Imagens, favicon, robots.txt
 ├── contact.html             # Formulário standalone (legacy)
-├── deploy.sh                # Script de deploy (terraform + upload S3)
-├── index.html               # Home bundled (legacy — será substituída pelo Hugo)
-└── generated-diagrams/      # Diagramas de arquitetura
+├── deploy.sh                # Script de deploy manual
+└── generated-diagrams/      # Diagramas de arquitetura (.png + .drawio)
 ```
 
-## Deploy
+## CI/CD — GitLab Pipeline
 
-### Pré-requisitos
+**Repositório:** `https://git.corescale.com.br/corescale/products/site-institucional`
 
-- AWS CLI configurado com credenciais
-- Terraform >= 1.5.0
-- Hugo extended >= 0.120 (para o site Hugo)
+A pipeline roda automaticamente em push para `main` quando há alterações em `hugo/`:
 
-### Deploy completo (infraestrutura + site)
-
-```bash
-cd corescale
-./deploy.sh
+```
+push → build (hugo --minify) → deploy (s3 sync + CF invalidation)
 ```
 
-### Deploy apenas do site Hugo
+### Configuração necessária no GitLab
+
+**Settings → CI/CD → Variables:**
+
+| Variável | Tipo | Descrição |
+|----------|------|-----------|
+| `AWS_ACCESS_KEY_ID` | Protected, Masked | IAM user para deploy |
+| `AWS_SECRET_ACCESS_KEY` | Protected, Masked | IAM user para deploy |
+
+**IAM Policy mínima para o user de deploy:**
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:DeleteObject", "s3:ListBucket"],
+      "Resource": ["arn:aws:s3:::cscale-website", "arn:aws:s3:::cscale-website/*"]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "cloudfront:CreateInvalidation",
+      "Resource": "arn:aws:cloudfront::024958414549:distribution/E100PKYXLCMDIC"
+    }
+  ]
+}
+```
+
+## Deploy Manual
+
+### Site Hugo (conteúdo)
 
 ```bash
-cd corescale/hugo
+cd hugo
 hugo --minify
 aws s3 sync public/ s3://cscale-website/ --delete --cache-control "max-age=300"
 aws cloudfront create-invalidation --distribution-id E100PKYXLCMDIC --paths "/*"
 ```
 
-### Deploy apenas da infraestrutura
+### Infraestrutura (Terraform)
 
 ```bash
-cd corescale/terraform
+cd terraform
 terraform init
 terraform apply
 ```
 
 ## Configuração
 
-### Variáveis Terraform (`variables.tf`)
+### Variáveis Terraform
 
-| Variável | Default | Descrição |
-|----------|---------|-----------|
+| Variável | Valor | Descrição |
+|----------|-------|-----------|
 | `aws_region` | `us-east-1` | Região AWS |
-| `bucket_name` | `cscale-website` | Nome do bucket S3 |
-| `domain_name` | `site.corescale.com.br` | Domínio custom |
+| `bucket_name` | `cscale-website` | Bucket S3 |
+| `domain_name` | `corescale.com.br` | Domínio produção |
 | `contact_email` | `jcastro@cscale.com.br` | Destinatário dos emails |
 | `sender_email` | `site@cscale.com.br` | Remetente SES |
 
 ### SES (Email)
 
-O SES está em **sandbox mode**. Ambos os emails precisam estar verificados:
-- `site@cscale.com.br` — remetente (sender)
-- `jcastro@cscale.com.br` — destinatário (recipient)
+SES em **sandbox mode**. Emails verificados:
+- `site@cscale.com.br` — remetente
+- `jcastro@cscale.com.br` — destinatário
 
-Para sair do sandbox e enviar para qualquer destinatário, solicite produção via AWS Console → SES → Account Dashboard → Request Production Access.
+Para enviar para qualquer destinatário: AWS Console → SES → Request Production Access.
 
-### DNS
+### DNS (Route 53 — profile `corescale-admin`)
 
 | Registro | Tipo | Valor |
 |----------|------|-------|
-| `site.corescale.com.br` | CNAME | `d32opakjll1yhp.cloudfront.net` |
-| ACM validation | CNAME | Conforme output `acm_validation_records` |
+| `corescale.com.br` | A (ALIAS) | `d32opakjll1yhp.cloudfront.net` |
+| `corescale.com.br` | AAAA (ALIAS) | `d32opakjll1yhp.cloudfront.net` |
+| `www.corescale.com.br` | A (ALIAS) | `d32opakjll1yhp.cloudfront.net` |
+| `www.corescale.com.br` | AAAA (ALIAS) | `d32opakjll1yhp.cloudfront.net` |
 
-## Lambda — Lógica do Formulário
+## Lambda — Formulário de Contato
 
 O handler (`terraform/lambda/contact.py`) implementa:
 
-1. **CORS condicional** — header `Access-Control-Allow-Origin` apenas quando `Origin == https://site.corescale.com.br`
+1. **CORS condicional** — `Access-Control-Allow-Origin` apenas quando `Origin == https://corescale.com.br`
 2. **Honeypot** — campo `website` verificado raw (sem trim); se não-vazio = bot → retorna 200 silenciosamente
 3. **Validação** — `name` (2-200 chars), `email` (@ + dot no domínio), `message` (10-5000 chars)
 4. **Envio** — SES `send_email` apenas quando honeypot vazio + validação OK
@@ -150,29 +196,57 @@ O handler (`terraform/lambda/contact.py`) implementa:
 | Sucesso | 200 | `{"message": "Mensagem enviada com sucesso!"}` |
 | Erro SES | 500 | `{"error": "Erro ao enviar mensagem..."}` |
 
-## Hugo — Site Institucional
+## Hugo — Publicar Conteúdo
 
-O site Hugo substitui o bundler single-file legacy. Gera HTML estático normal, compatível com todas as security headers.
+### Novo blog post
 
 ```bash
 cd hugo
-hugo server -D          # Dev server (http://localhost:1313)
-hugo --minify           # Build produção → public/
-hugo new content blog/meu-artigo.md   # Novo blog post
-hugo new content cases/meu-case.md    # Novo case
+hugo new content blog/meu-artigo.md
 ```
 
-Para detalhes sobre o Hugo, veja [`hugo/README.md`](hugo/README.md).
+Editar front matter:
+```toml
+title = "Título do Artigo"
+date = 2026-07-05
+draft = false
+category = "FinOps"  # FinOps, Migração, MAP, Segurança, IA, Operação
+description = "Resumo de 1-2 frases."
+banner_gradient = "#1A1A2E, #16213E, #0F3460"
+banner_icon = '<img src="https://d1.awsstatic.com/icons/..." alt="AWS Service" style="width:72px;height:72px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));">'
+```
+
+### Novo case
+
+```bash
+hugo new content cases/meu-case.md
+```
+
+### Dev server local
+
+```bash
+hugo server -D    # http://localhost:1313
+```
 
 ## Histórico de Mudanças
+
+### Julho 2026 — Go-Live Produção
+
+- **Domínio:** migração `site.corescale.com.br` → `corescale.com.br` (produção)
+- **ACM:** novo certificado para `corescale.com.br` + `www.corescale.com.br`
+- **DNS:** Route 53 ALIAS records (A + AAAA) para CloudFront
+- **CORS:** atualizado para `https://corescale.com.br`
+- **CI/CD:** pipeline GitLab (build Hugo → S3 sync → CF invalidation)
+- **Conteúdo:** 8 blog posts, 3 cases, landing page migração
+- **Layout:** serviços expandidos (8 tiles), menu mobile hamburger, seção Nossa História
+- **Blog:** banners com ícones oficiais AWS, cards com fundo branco
 
 ### Julho 2026 — Security Hardening
 
 - Migração S3 website hosting → OAC (bucket privado)
 - CloudFront Response Headers Policy (HSTS, X-Frame-Options, Referrer-Policy, Permissions-Policy)
 - CloudFront Function para URL rewrite (`/path/` → `/path/index.html`)
-- API Gateway: CORS restrito a `site.corescale.com.br`, rate limit 10 req/s
+- API Gateway: CORS restrito, rate limit 10 req/s burst 20
 - Lambda: CORS condicional, honeypot anti-bot, validação enhanced
-- Formulário de contato: honeypot field, envio via API (substituiu mailto)
-- SES: verificação do sender + recipient
-- Favicon e assets estáticos incluídos no deploy
+- Formulário de contato via API (substituiu mailto)
+- SES: verificação sender + recipient
