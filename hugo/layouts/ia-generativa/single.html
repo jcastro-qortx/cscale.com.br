@@ -1,0 +1,234 @@
+{{ define "main" }}
+<div style="font-family:'Manrope',system-ui,sans-serif; background:#1A2333; color:#E9EDF5; overflow-x:hidden; -webkit-font-smoothing:antialiased;">
+
+  <!-- NAV -->
+  {{ partial "rd-header.html" . }}
+
+  <!-- HERO -->
+  <section id="topo" style="position:relative; overflow:hidden; background:linear-gradient(180deg,#1E2839,#1A2333); border-bottom:1px solid rgba(255,255,255,0.07);">
+    <div style="position:absolute; top:-180px; right:-120px; width:560px; height:560px; background:radial-gradient(circle, rgba(255,153,0,0.1), transparent 64%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-200px; left:-140px; width:520px; height:520px; background:radial-gradient(circle, rgba(157,110,214,0.16), transparent 64%); pointer-events:none;"></div>
+    <div class="rm-hero rm-pad" style="position:relative; max-width:1220px; margin:0 auto; padding:clamp(56px,7vw,92px) 28px clamp(60px,7vw,88px); display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center;">
+      <div>
+        <div style="display:inline-flex; align-items:center; gap:9px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#FF9900; border:1px solid rgba(255,153,0,0.4); background:rgba(255,153,0,0.07); padding:8px 15px; border-radius:999px;">
+          <span style="width:7px; height:7px; border-radius:50%; background:#FF9900;"></span>
+          Generative AI · Bedrock · SageMaker · Kiro · Quick
+        </div>
+        <h1 style="margin:24px 0 0; font-size:clamp(38px,4.8vw,62px); line-height:1.02; letter-spacing:-0.04em; font-weight:800; color:#F4F7FC; text-wrap:balance;">IA generativa que vira <span style="color:#FF9900;">resultado no seu negócio</span>, não demo</h1>
+        <p style="margin:24px 0 0; font-size:clamp(16px,1.4vw,19px); line-height:1.6; color:rgba(233,237,245,0.64); max-width:520px;">Do assistente com RAG ao agente autônomo e ao modelo próprio — construímos soluções de IA sobre Amazon Bedrock, SageMaker, Kiro e Amazon Quick, com segurança, governança e custo sob controle na sua conta AWS.</p>
+        <div style="margin-top:34px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="#contato" style="display:inline-flex; align-items:center; gap:9px; background:#FF9900; color:#0A1322; font-weight:700; font-size:15px; padding:15px 26px; border-radius:12px;" data-hover="background:#FFAA2B; transform:translateY(-1px);">Explorar casos de uso&nbsp;<span style="font-size: 17px;">→</span></a>
+          <a href="#servicos-ia" style="display:inline-flex; align-items:center; gap:9px; border:1px solid rgba(255,255,255,0.18); color:#fff; font-weight:600; font-size:15px; padding:15px 24px; border-radius:12px; background:rgba(255,255,255,0.03);" data-hover="background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.36);">Ver serviços AWS</a>
+        </div>
+        <div style="margin-top:28px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(233,237,245,0.45);">Construímos com</div>
+          <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;">
+            <span style="font-size:13px; font-weight:600; color:rgba(233,237,245,0.82); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); padding:7px 13px; border-radius:999px;">Amazon Bedrock</span>
+            <span style="font-size:13px; font-weight:600; color:rgba(233,237,245,0.82); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); padding:7px 13px; border-radius:999px;">Amazon SageMaker</span>
+            <span style="font-size:13px; font-weight:600; color:rgba(233,237,245,0.82); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); padding:7px 13px; border-radius:999px;">Kiro</span>
+            <span style="font-size:13px; font-weight:600; color:rgba(233,237,245,0.82); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.12); padding:7px 13px; border-radius:999px;">Amazon Quick</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="position:relative; background:#0A1420; border:1px solid rgba(255,255,255,0.1); border-radius:16px; box-shadow:0 46px 84px -36px rgba(0,0,0,0.62); overflow:hidden;">
+          <div style="display:flex; align-items:center; gap:8px; padding:13px 16px; border-bottom:1px solid rgba(255,255,255,0.07);">
+            <span style="width:11px; height:11px; border-radius:50%; background:#FF5F57;"></span>
+            <span style="width:11px; height:11px; border-radius:50%; background:#FEBC2E;"></span>
+            <span style="width:11px; height:11px; border-radius:50%; background:#28C840;"></span>
+            <span style="margin-left:10px; font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.42);">corescale · kiro-cli</span>
+            <span style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:#4ADE80;">● live</span>
+          </div>
+          <div style="padding:24px 20px 20px; font-family:'JetBrains Mono',monospace;">
+            <pre style="margin:0; text-align:center; color:#9B7BFF; font-size:11px; line-height:1.18; letter-spacing:2px; text-shadow:0 0 9px rgba(155,123,255,0.45);">●   ●  ●●●  ●●●●   ●●● 
+●  ●    ●   ●   ●  ●   ●
+●●●     ●   ●●●●   ●   ●
+●  ●    ●   ●  ●   ●   ●
+●   ●  ●●●  ●   ●   ●●● </pre>
+            <div style="margin-top:16px; text-align:center; font-size:11px; line-height:1.75; color:rgba(233,237,245,0.7);">Welcome to the new Kiro CLI UX! <span style="color:#9B7BFF;">/tui</span> to learn more, <span style="color:#9B7BFF;">/feedback</span> for thoughts.<br>Prefer the classic experience? Relaunch with <span style="color:#9B7BFF;">kiro-cli --classic</span>.</div>
+            <div style="margin-top:16px; display:flex; align-items:center; gap:9px; font-size:11.5px;"><span style="width:7px; height:7px; border-radius:50%; background:#2DD4BF; box-shadow:0 0 7px #2DD4BF; flex:none;"></span><span style="color:#2DD4BF;">corescale-mcp requires OAuth — Ctrl+y to copy URL</span></div>
+            <div style="margin-top:16px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.08);">
+              <div style="display:flex; align-items:center; justify-content:space-between; font-size:12.5px;"><span><span style="color:#9B7BFF; font-weight:600;">Kiro</span> <span style="color:rgba(233,237,245,0.45);">· auto</span></span><span style="color:rgba(233,237,245,0.4);">~</span></div>
+              <div style="margin-top:11px; display:flex; align-items:center; gap:9px; font-size:12.5px; color:rgba(233,237,245,0.4);"><span style="display:inline-block; width:8px; height:15px; background:#9B7BFF; animation:rmBlink 1.1s step-end infinite; flex:none;"></span>ask a question or describe a task ↵</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA / POR QUE (claro) -->
+  <section style="background:#F4F2EA; padding:clamp(64px,8vw,104px) 0;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="max-width:660px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.13em; text-transform:uppercase; color:#7A8494;"><span style="color:#8A4FBE;">01</span> &nbsp;— &nbsp;Por que agora</div>
+        <h2 style="margin:16px 0 0; font-size:clamp(28px,3.4vw,44px); line-height:1.06; letter-spacing:-0.035em; font-weight:800; color:#101B2C; text-wrap:balance;">Muita empresa testou IA. Poucas colocaram em produção com segurança</h2>
+        <p style="margin:16px 0 0; font-size:16.5px; line-height:1.6; color:#57616F;">O desafio não é o modelo — é levar a IA para produção com dados privados, controle de custo, governança e integração real aos seus sistemas. É exatamente isso que fazemos sobre a stack de IA da AWS, sem que seus dados saiam da sua conta.</p>
+      </div>
+      <div class="rm-g4" style="margin-top:40px; display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:18px; padding:26px;"><div style="font-size:clamp(30px,3.4vw,42px); font-weight:800; letter-spacing:-0.03em; line-height:1; color:#FF9900;">100+</div><div style="margin-top:12px; font-size:13.5px; line-height:1.5; color:#5F6875;">modelos de fundação disponíveis via Amazon Bedrock</div></div>
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:18px; padding:26px;"><div style="font-size:clamp(30px,3.4vw,42px); font-weight:800; letter-spacing:-0.03em; line-height:1; color:#101B2C;">seus dados</div><div style="margin-top:12px; font-size:13.5px; line-height:1.5; color:#5F6875;">nunca treinam modelos de terceiros — ficam na sua conta AWS</div></div>
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:18px; padding:26px;"><div style="font-size:clamp(30px,3.4vw,42px); font-weight:800; letter-spacing:-0.03em; line-height:1; color:#101B2C;">pague</div><div style="margin-top:12px; font-size:13.5px; line-height:1.5; color:#5F6875;">só pelo uso, com FinOps aplicado ao consumo de tokens</div></div>
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:18px; padding:26px;"><div style="font-size:clamp(30px,3.4vw,42px); font-weight:800; letter-spacing:-0.03em; line-height:1; color:#101B2C;">semanas</div><div style="margin-top:12px; font-size:13.5px; line-height:1.5; color:#5F6875;">do piloto ao primeiro caso de uso em produção</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS AWS DE IA (slate) -->
+  <section id="servicos-ia" style="background:#1A2333; padding:clamp(64px,8vw,104px) 0;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="max-width:660px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.13em; text-transform:uppercase; color:rgba(233,237,245,0.5);"><span style="color:#8A4FBE;">02</span> &nbsp;— &nbsp;A stack de IA da AWS</div>
+        <h2 style="margin:16px 0 0; font-size:clamp(28px,3.4vw,44px); line-height:1.06; letter-spacing:-0.035em; font-weight:800; color:#F4F7FC; text-wrap:balance;">Quatro serviços, uma solução ponta a ponta</h2>
+        <p style="margin:16px 0 0; font-size:16.5px; line-height:1.6; color:rgba(233,237,245,0.6);">Combinamos os serviços gerenciados de IA da AWS conforme o seu caso — de assistentes prontos a modelos treinados sob medida.</p>
+      </div>
+      <div class="rm-g2" style="margin-top:40px; display:grid; grid-template-columns:repeat(2,1fr); gap:16px;">
+
+        <!-- Bedrock -->
+        <div style="background:#212C40; border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:30px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="display:inline-flex; width:50px; height:50px;"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="awsBrk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#59D3AC"></stop><stop offset="1" stop-color="#0B7A57"></stop></linearGradient></defs><rect width="50" height="50" rx="12" fill="url(#awsBrk)"></rect><path d="M25 12l2.5 7.2 7.2 2.5-7.2 2.5L25 31.4l-2.5-7.2-7.2-2.5 7.2-2.5z" fill="#fff"></path><path d="M34.5 29.5l1.1 3 3 1.1-3 1.1-1.1 3-1.1-3-3-1.1 3-1.1z" fill="#fff" opacity="0.92"></path></svg></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(233,237,245,0.4);">Serverless</span>
+          </div>
+          <h3 style="margin:22px 0 0; font-size:22px; font-weight:800; letter-spacing:-0.02em; color:#F4F7FC;">Amazon Bedrock</h3>
+          <p style="margin:10px 0 0; font-size:14.5px; line-height:1.6; color:rgba(233,237,245,0.6);">Acesso, por API única, aos principais modelos de fundação — Claude (Anthropic), Llama, Titan e outros. Construímos assistentes, RAG sobre seus documentos, agentes e guardrails, sem gerenciar infraestrutura.</p>
+          <div style="margin-top:18px; display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">RAG</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Agents</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Knowledge Bases</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Guardrails</span>
+          </div>
+        </div>
+
+        <!-- SageMaker -->
+        <div style="background:#212C40; border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:30px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="display:inline-flex; width:50px; height:50px;"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="awsSgm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#59D3AC"></stop><stop offset="1" stop-color="#0B7A57"></stop></linearGradient></defs><rect width="50" height="50" rx="12" fill="url(#awsSgm)"></rect><path d="M25 12.5l9.2 5.3v10.4L25 33.5l-9.2-5.3V17.8z" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"></path><circle cx="25" cy="23" r="3.1" fill="#fff"></circle><path d="M25 26.1v3.6M25 19.9v-3.4M27.7 24.6l3.1 1.8M22.3 24.6l-3.1 1.8" stroke="#fff" stroke-width="2" stroke-linecap="round"></path></svg></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(233,237,245,0.4);">Custom ML</span>
+          </div>
+          <h3 style="margin:22px 0 0; font-size:22px; font-weight:800; letter-spacing:-0.02em; color:#F4F7FC;">Amazon SageMaker</h3>
+          <p style="margin:10px 0 0; font-size:14.5px; line-height:1.6; color:rgba(233,237,245,0.6);">Quando o caso exige modelo próprio: construímos, treinamos, ajustamos (fine-tuning) e servimos modelos de ML e IA em escala — com pipelines de MLOps, versionamento e monitoramento.</p>
+          <div style="margin-top:18px; display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Fine-tuning</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">MLOps</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Endpoints</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Monitoramento</span>
+          </div>
+        </div>
+
+        <!-- Kiro -->
+        <div style="background:#212C40; border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:30px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="display:inline-flex; width:50px; height:50px;"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="awsKro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9B7BFF"></stop><stop offset="1" stop-color="#4B2FBF"></stop></linearGradient></defs><rect width="50" height="50" rx="12" fill="url(#awsKro)"></rect><path d="M25 13c-5 0-9 4-9 9v13.2c0 .8.9 1.2 1.5.7l2.3-1.8 2.3 1.8c.4.3 1 .3 1.4 0l2.2-1.8 2.3 1.8c.4.3 1 .3 1.4 0l2.3-1.8 2.3 1.8c.6.5 1.5.1 1.5-.7V22c0-5-4-9-9-9z" fill="#fff"></path><circle cx="21.6" cy="23.3" r="1.7" fill="#4B2FBF"></circle><circle cx="28.4" cy="23.3" r="1.7" fill="#4B2FBF"></circle></svg></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(233,237,245,0.4);">Agentic IDE</span>
+          </div>
+          <h3 style="margin:22px 0 0; font-size:22px; font-weight:800; letter-spacing:-0.02em; color:#F4F7FC;">Kiro</h3>
+          <p style="margin:10px 0 0; font-size:14.5px; line-height:1.6; color:rgba(233,237,245,0.6);">O IDE agêntico da AWS, com desenvolvimento orientado por especificação (spec-driven). Aceleramos a entrega de software da sua equipe — do requisito ao código testado — com agentes que planejam e executam tarefas.</p>
+          <div style="margin-top:18px; display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Spec-driven</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Agent hooks</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Produtividade dev</span>
+          </div>
+        </div>
+
+        <!-- Amazon Q -->
+        <div style="background:#212C40; border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:30px;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="display:inline-flex; width:50px; height:50px;"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="awsQck" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFA95E"></stop><stop offset="1" stop-color="#E7157B"></stop></linearGradient></defs><rect width="50" height="50" rx="12" fill="url(#awsQck)"></rect><path d="M15 18a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3h-8.4l-6 4.6a.6.6 0 0 1-1-.5v-4.1H18a3 3 0 0 1-3-3z" fill="#fff"></path><path d="M21.5 25v-2.6M25 25v-5M28.5 25v-3.4" stroke="#E7157B" stroke-width="2.3" stroke-linecap="round"></path></svg></span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(233,237,245,0.4);">Workspace IA</span>
+          </div>
+          <h3 style="margin:22px 0 0; font-size:22px; font-weight:800; letter-spacing:-0.02em; color:#F4F7FC;">Amazon Quick</h3>
+          <p style="margin:10px 0 0; font-size:14.5px; line-height:1.6; color:rgba(233,237,245,0.6);">A evolução do Amazon QuickSight: um workspace de IA agêntica que unifica pesquisa, business intelligence e automação. Conecta-se aos seus dados (S3, SharePoint, Salesforce, Jira) para responder em linguagem natural e executar ações — sem trocar de ferramenta.</p>
+          <div style="margin-top:18px; display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Quick Research</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Quick Sight</span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:rgba(233,237,245,0.7); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:5px 10px; border-radius:8px;">Quick Automate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS DE USO (claro) -->
+  <section id="casos" style="background:#F4F2EA; padding:clamp(64px,8vw,104px) 0; border-top:1px solid #E6E2D8;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="max-width:640px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.13em; text-transform:uppercase; color:#7A8494;"><span style="color:#8A4FBE;">03</span> &nbsp;— &nbsp;Casos de uso</div>
+        <h2 style="margin:16px 0 0; font-size:clamp(28px,3.4vw,44px); line-height:1.06; letter-spacing:-0.035em; font-weight:800; color:#101B2C; text-wrap:balance;">Onde a IA generativa gera valor primeiro</h2>
+      </div>
+      <div class="rm-g3" style="margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:18px; padding:28px;">
+          <span style="display:inline-flex; width:44px; height:44px; border-radius:12px; background:rgba(255,153,0,0.14); align-items:center; justify-content:center; color:#C77A00;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+          <h3 style="margin:18px 0 0; font-size:19px; font-weight:700; color:#101B2C;">Atendimento &amp; suporte</h3>
+          <p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#5F6875;">Assistentes que respondem com base na sua documentação (RAG), triam tickets e reduzem o tempo de resposta.</p>
+        </div>
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:18px; padding:28px;">
+          <span style="display:inline-flex; width:44px; height:44px; border-radius:12px; background:rgba(109,32,119,0.1); align-items:center; justify-content:center; color:#6D2077;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M16 13H8M16 17H8M10 9H8"></path></svg></span>
+          <h3 style="margin:18px 0 0; font-size:19px; font-weight:700; color:#101B2C;">Análise de documentos</h3>
+          <p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#5F6875;">Extração, resumo e classificação de contratos, notas e relatórios em larga escala — com resposta rastreável à fonte.</p>
+        </div>
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:18px; padding:28px;">
+          <span style="display:inline-flex; width:44px; height:44px; border-radius:12px; background:rgba(22,163,74,0.12); align-items:center; justify-content:center; color:#15803D;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+          <h3 style="margin:18px 0 0; font-size:19px; font-weight:700; color:#101B2C;">Agentes &amp; automação</h3>
+          <p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#5F6875;">Agentes que executam ações nos seus sistemas — consultar, atualizar, gerar — orquestrados com segurança e auditoria.</p>
+        </div>
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:18px; padding:28px;">
+          <span style="display:inline-flex; width:44px; height:44px; border-radius:12px; background:rgba(42,111,219,0.12); align-items:center; justify-content:center; color:#1D5FBF;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7M19 12H5"></path></svg></span>
+          <h3 style="margin:18px 0 0; font-size:19px; font-weight:700; color:#101B2C;">Copiloto para vendas</h3>
+          <p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#5F6875;">Geração de propostas, e-mails e respostas comerciais a partir do seu contexto e histórico de clientes.</p>
+        </div>
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:18px; padding:28px;">
+          <span style="display:inline-flex; width:44px; height:44px; border-radius:12px; background:rgba(255,153,0,0.14); align-items:center; justify-content:center; color:#C77A00;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13 4l-2 16"></path></svg></span>
+          <h3 style="margin:18px 0 0; font-size:19px; font-weight:700; color:#101B2C;">Produtividade de engenharia</h3>
+          <p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#5F6875;">Kiro — no IDE e no terminal (kiro-cli) — acelera desenvolvimento, revisão de código e modernização de sistemas legados.</p>
+        </div>
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:18px; padding:28px;">
+          <span style="display:inline-flex; width:44px; height:44px; border-radius:12px; background:rgba(109,32,119,0.1); align-items:center; justify-content:center; color:#6D2077;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m7 14 4-4 3 3 5-6"></path></svg></span>
+          <h3 style="margin:18px 0 0; font-size:19px; font-weight:700; color:#101B2C;">Insights sobre dados</h3>
+          <p style="margin:8px 0 0; font-size:14px; line-height:1.6; color:#5F6875;">Perguntas em linguagem natural sobre seus dados de negócio, com respostas fundamentadas e seguras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO ENTREGAMOS (claro/branco) -->
+  <section id="jornada" style="background:#fff; padding:clamp(64px,8vw,104px) 0; border-top:1px solid #E6E2D8; border-bottom:1px solid #E6E2D8;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="max-width:640px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.13em; text-transform:uppercase; color:#7A8494;"><span style="color:#8A4FBE;">04</span> &nbsp;— &nbsp;Como entregamos</div>
+        <h2 style="margin:16px 0 0; font-size:clamp(28px,3.4vw,44px); line-height:1.06; letter-spacing:-0.035em; font-weight:800; color:#101B2C; text-wrap:balance;">Do caso de uso à produção, com governança</h2>
+      </div>
+      <div class="rm-g4" style="margin-top:40px; display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+        <div style="background:#F4F2EA; border:1px solid #E6E2D8; border-radius:18px; padding:26px;"><div style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; color:#C77A00;">01 · Discovery</div><h3 style="margin:14px 0 0; font-size:18px; font-weight:700; color:#101B2C;">Identificar</h3><p style="margin:8px 0 0; font-size:13.5px; line-height:1.55; color:#5F6875;">Mapeamos os casos de uso de maior retorno e priorizamos um piloto viável.</p></div>
+        <div style="background:#F4F2EA; border:1px solid #E6E2D8; border-radius:18px; padding:26px;"><div style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; color:#8A4FBE;">02 · PoC</div><h3 style="margin:14px 0 0; font-size:18px; font-weight:700; color:#101B2C;">Prototipar</h3><p style="margin:8px 0 0; font-size:13.5px; line-height:1.55; color:#5F6875;">Construímos uma prova de conceito sobre Bedrock/SageMaker com seus dados reais.</p></div>
+        <div style="background:#F4F2EA; border:1px solid #E6E2D8; border-radius:18px; padding:26px;"><div style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; color:#C77A00;">03 · Produção</div><h3 style="margin:14px 0 0; font-size:18px; font-weight:700; color:#101B2C;">Escalar</h3><p style="margin:8px 0 0; font-size:13.5px; line-height:1.55; color:#5F6875;">Levamos à produção com segurança, guardrails, observabilidade e controle de custo.</p></div>
+        <div style="background:#F4F2EA; border:1px solid #E6E2D8; border-radius:18px; padding:26px;"><div style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; color:#8A4FBE;">04 · Evolução</div><h3 style="margin:14px 0 0; font-size:18px; font-weight:700; color:#101B2C;">Otimizar</h3><p style="margin:8px 0 0; font-size:13.5px; line-height:1.55; color:#5F6875;">Medimos resultado, ajustamos modelos e FinOps e expandimos para novos casos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contato" style="padding:clamp(64px,8vw,100px) 0; background:#1A2333;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="position:relative; overflow:hidden; border:1px solid rgba(255,153,0,0.28); border-radius:26px; background:linear-gradient(150deg,#2A2A20,#182234); padding:clamp(40px,5vw,60px);">
+        <div style="position:absolute; top:-120px; right:-40px; width:440px; height:440px; background:radial-gradient(circle, rgba(255,153,0,0.16), transparent 64%); pointer-events:none;"></div>
+        <div style="position:absolute; bottom:-160px; left:-60px; width:420px; height:420px; background:radial-gradient(circle, rgba(157,110,214,0.2), transparent 64%); pointer-events:none;"></div>
+        <div style="position:relative; display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+          <div style="max-width:560px;">
+            <h2 style="margin:0; font-size:clamp(26px,3.2vw,42px); line-height:1.08; letter-spacing:-0.035em; font-weight:800; color:#F4F7FC; text-wrap:balance;">Vamos mapear o primeiro caso de IA do seu negócio</h2>
+            <p style="margin:16px 0 0; font-size:16.5px; line-height:1.6; color:rgba(233,237,245,0.64);">Diagnóstico gratuito: identificamos onde a IA generativa gera mais valor e desenhamos um piloto sobre a AWS — sem compromisso.</p>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px; min-width:240px;">
+            <a href="mailto:core@cscale.com.br?subject=Quero%20conversar%20sobre%20IA%20generativa" style="display:inline-flex; align-items:center; justify-content:center; gap:9px; background:#FF9900; color:#0A1322; font-weight:700; font-size:16px; padding:16px 26px; border-radius:12px;" data-hover="background:#FFAA2B; transform:translateY(-1px);">Solicitar diagnóstico</a>
+            <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20IA%20generativa%20na%20AWS." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:9px; border:1px solid rgba(255,255,255,0.2); color:#fff; font-weight:600; font-size:16px; padding:16px 26px; border-radius:12px; background:rgba(255,255,255,0.03);" data-hover="background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.4);">Falar no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  {{ partial "rd-footer.html" . }}
+
+</div>
+{{ end }}

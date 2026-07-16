@@ -4,8 +4,6 @@ date = 2026-05-27
 draft = false
 category = "Migração"
 description = "O novo licenciamento disparou o custo do VMware. Entenda o cenário e como migrar com o programa MAP."
-banner_gradient = "#1A2F4D, #0F1B2E, #2A1A3D"
-banner_icon = '<img src="https://d1.awsstatic.com/icons/jp/console_migration-hub_icon.9b645de79498370854e498c414a7e0c70f5ef41f.png" alt="AWS Migration Hub" style="width:72px;height:72px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));">'
 +++
 
 A aquisição da VMware pela Broadcom mudou as regras do jogo: fim do licenciamento perpétuo, novos bundles e reajustes que, em muitos contratos, elevaram o custo em **8 a 15 vezes**. Para muitas empresas, manter o VMware deixou de fazer sentido econômico.

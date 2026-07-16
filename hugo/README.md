@@ -74,7 +74,10 @@ A partir de `archetypes/cases.md`. Campos do front matter:
 
 - **Home** — `layouts/index.html` (hero, bento de serviços, faixa MAP, parceria, métricas, contato).
 - **Migração** — `layouts/migracao/single.html`.
-- **Cabeçalho / rodapé / CTA** — `layouts/partials/rd-header.html`, `rd-footer.html`, `rd-cta.html`.
+- **Operação Gerenciada (MSP)** — `layouts/msp/single.html` (conteúdo em `content/msp.md`, rota `/msp/`).
+- **IA Generativa** — `layouts/ia-generativa/single.html` (`content/ia-generativa.md`, rota `/ia-generativa/`).
+- **Pagamento em Boleto** — `layouts/pagamento-boleto/single.html` (`content/pagamento-boleto.md`, rota `/pagamento-boleto/`).
+- **Cabeçalho / rodapé / CTA** — `layouts/partials/rd-header.html`, `rd-footer.html`, `rd-cta.html`. O menu **Serviços** é um dropdown (hover) definido no `rd-header.html`; os itens do submenu apontam para `/msp/`, `/ia-generativa/`, `/migracao-vmware-aws/` e `/pagamento-boleto/`.
 - **Cores/fontes base** — `layouts/_default/baseof.html`.
 
 Os estilos são **inline** (fiéis ao design). Efeitos de hover/foco e o formulário de contato (abre o e-mail com os dados) são controlados por um pequeno script embutido em `layouts/_default/baseof.html` via atributos `data-hover` / `data-focus` / `data-contact-form`.

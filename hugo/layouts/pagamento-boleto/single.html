@@ -1,0 +1,216 @@
+{{ define "main" }}
+<div style="font-family:'Manrope',system-ui,sans-serif; background:#1A2333; color:#E9EDF5; overflow-x:hidden; -webkit-font-smoothing:antialiased;">
+
+  <!-- NAV -->
+  {{ partial "rd-header.html" . }}
+
+  <!-- HERO -->
+  <section id="boleto" style="position:relative; overflow:hidden; background:linear-gradient(180deg,#1E2839,#1A2333); border-bottom:1px solid rgba(255,255,255,0.07);">
+    <div style="position:absolute; top:-160px; right:-100px; width:560px; height:560px; background:radial-gradient(circle, rgba(255,153,0,0.12), transparent 64%); pointer-events:none;"></div>
+    <div style="position:absolute; top:0; right:0; bottom:0; width:38%; background-image:repeating-linear-gradient(-45deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 22px); pointer-events:none;"></div>
+    <div class="rm-pad rm-hero-grid" style="position:relative; max-width:1220px; margin:0 auto; padding:clamp(48px,6vw,80px) 28px clamp(52px,6vw,76px); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,440px); gap:56px; align-items:center;">
+      <div style="min-width:0;">
+        <div style="display:inline-flex; align-items:center; gap:9px; font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#FF9900; border:1px solid rgba(255,153,0,0.4); background:rgba(255,153,0,0.07); padding:8px 15px; border-radius:999px;"><span style="width:7px; height:7px; border-radius:50%; background:#FF9900;"></span>Em parceria com a TD SYNNEX</div>
+        <h1 style="margin:20px 0 0; font-size:clamp(32px,4.6vw,58px); line-height:1.04; letter-spacing:-0.04em; font-weight:800; color:#F4F7FC; text-wrap:balance;">Pague sua fatura Cloud via <span style="color:#FF9900;">boleto bancário</span> e ganhe mais controle financeiro</h1>
+        <p style="margin:20px 0 0; font-size:clamp(16px,1.4vw,19px); line-height:1.65; color:rgba(233,237,245,0.66); max-width:620px;">A CoreScale, em parceria com a TD SYNNEX, oferece a opção de pagar sua fatura Cloud via boleto bancário, <strong style="color:#F4F7FC; font-weight:700;">sem custos adicionais</strong>, garantindo a conformidade fiscal com PIS, COFINS e ISS — além de mais flexibilidade financeira e controle sobre os custos da nuvem.</p>
+        <div style="margin-top:30px; display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Quero%20pagar%20minha%20fatura%20Cloud%20via%20boleto." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; background:#FF9900; color:#0A1322; font-weight:700; font-size:16px; padding:15px 26px; border-radius:12px;" data-hover="background:#FFAA2B; transform:translateY(-1px);">Entre em contato<span style="font-size:17px;">→</span></a>
+          <a href="#planos" style="display:inline-flex; align-items:center; gap:9px; background:transparent; color:#F4F7FC; font-weight:600; font-size:16px; padding:15px 24px; border-radius:12px; border:1px solid rgba(255,255,255,0.18);" data-hover="border-color:rgba(255,255,255,0.4); background:rgba(255,255,255,0.04);">Ver planos</a>
+        </div>
+      </div>
+
+      <!-- FINANCE VISUAL -->
+      <div class="rm-hero-visual" style="position:relative; min-width:0;">
+        <!-- boleto card -->
+        <div style="position:relative; z-index:2; background:linear-gradient(160deg,#FFFFFF,#F4F2EA); border-radius:18px; padding:24px; box-shadow:0 30px 70px rgba(0,0,0,0.45); transform:rotate(-2deg);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#9AA3B0;">Boleto · Fatura Cloud</div>
+            <div style="display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#16a34a; background:rgba(22,163,74,0.1); padding:4px 9px; border-radius:100px;"><span style="width:6px; height:6px; border-radius:50%; background:#16a34a;"></span>Pago em R$</div>
+          </div>
+          <div style="margin-top:18px; font-size:13px; color:#5F6875;">Valor da fatura</div>
+          <div style="font-size:34px; font-weight:800; letter-spacing:-0.03em; color:#101B2C; line-height:1;">R$ 12.480<span style="font-size:20px; color:#9AA3B0;">,00</span></div>
+          <div style="margin-top:14px; display:flex; justify-content:space-between; font-size:12.5px; color:#5F6875;"><span>Vencimento</span><span style="font-weight:700; color:#101B2C;">+60 dias</span></div>
+          <div style="margin-top:6px; display:flex; justify-content:space-between; font-size:12.5px; color:#5F6875;"><span>IOF / câmbio</span><span style="font-weight:700; color:#16a34a;">Isento</span></div>
+          <!-- barcode -->
+          <div style="margin-top:18px; display:flex; gap:2px; align-items:flex-end; height:44px;">
+            <span style="flex:1; background:#101B2C; height:100%;"></span><span style="flex:0.5; background:#101B2C; height:100%;"></span><span style="flex:1.5; background:#101B2C; height:100%;"></span><span style="flex:0.4; background:#101B2C; height:100%;"></span><span style="flex:1; background:#101B2C; height:100%;"></span><span style="flex:2; background:#101B2C; height:100%;"></span><span style="flex:0.5; background:#101B2C; height:100%;"></span><span style="flex:1; background:#101B2C; height:100%;"></span><span style="flex:0.4; background:#101B2C; height:100%;"></span><span style="flex:1.4; background:#101B2C; height:100%;"></span><span style="flex:0.6; background:#101B2C; height:100%;"></span><span style="flex:1; background:#101B2C; height:100%;"></span><span style="flex:1.8; background:#101B2C; height:100%;"></span><span style="flex:0.5; background:#101B2C; height:100%;"></span><span style="flex:1; background:#101B2C; height:100%;"></span>
+          </div>
+          <div style="margin-top:10px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.04em; color:#5F6875;">34191.79001 01043.510047 91020.150008</div>
+        </div>
+
+        <!-- mini cost-control panel -->
+        <div style="position:relative; z-index:3; margin:-22px 0 0 auto; width:230px; background:#0E1727; border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:18px; box-shadow:0 24px 50px rgba(0,0,0,0.4); transform:rotate(2deg);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <div style="font-family:'JetBrains Mono',monospace; font-size:9.5px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:rgba(233,237,245,0.5);">Custos Cloud</div>
+            <div style="font-size:11px; font-weight:700; color:#16a34a;">↓ 30%</div>
+          </div>
+          <div style="margin-top:14px; display:flex; align-items:flex-end; gap:7px; height:64px;">
+            <div style="flex:1; background:rgba(255,153,0,0.25); border-radius:4px 4px 0 0; height:80%;"></div>
+            <div style="flex:1; background:rgba(255,153,0,0.35); border-radius:4px 4px 0 0; height:64%;"></div>
+            <div style="flex:1; background:rgba(255,153,0,0.5); border-radius:4px 4px 0 0; height:52%;"></div>
+            <div style="flex:1; background:rgba(255,153,0,0.7); border-radius:4px 4px 0 0; height:40%;"></div>
+            <div style="flex:1; background:#FF9900; border-radius:4px 4px 0 0; height:30%;"></div>
+          </div>
+          <div style="margin-top:10px; font-size:11px; color:rgba(233,237,245,0.55);">Fatura em reais, sob controle</div>
+        </div>
+
+        <div style="position:absolute; inset:-30px -20px; z-index:1; background:radial-gradient(circle at 60% 40%, rgba(255,153,0,0.16), transparent 62%); pointer-events:none;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section style="background:#F4F2EA; padding:clamp(52px,6vw,84px) 0;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#C77A00;">Por que boleto</div>
+      <h2 style="margin:12px 0 0; font-size:clamp(28px,3.4vw,42px); line-height:1.08; letter-spacing:-0.03em; font-weight:800; color:#101B2C;">Benefícios para sua empresa</h2>
+      <div class="rm-benefits" style="margin-top:38px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:16px; padding:28px;" data-hover="border-color:#FF9900; transform:translateY(-2px);">
+          <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,153,0,0.1); display:flex; align-items:center; justify-content:center; color:#C77A00;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.02em; color:#101B2C; line-height:1.2;">Controle financeiro aprimorado</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.6; color:#5F6875;">A opção de pagamento via boleto permite uma gestão financeira mais estratégica, liberando o limite do seu cartão de crédito e proporcionando maior organização nos pagamentos.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:16px; padding:28px;" data-hover="border-color:#FF9900; transform:translateY(-2px);">
+          <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,153,0,0.1); display:flex; align-items:center; justify-content:center; color:#C77A00;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></div>
+          <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.02em; color:#101B2C; line-height:1.2;">Emissão simplificada de nota fiscal</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.6; color:#5F6875;">Com a cobrança via boleto, a emissão da nota fiscal se torna mais prática, facilitando a contabilização dos gastos na Cloud e eliminando a necessidade de nacionalização do documento.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:16px; padding:28px;" data-hover="border-color:#FF9900; transform:translateY(-2px);">
+          <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,153,0,0.1); display:flex; align-items:center; justify-content:center; color:#C77A00;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M7 8l3 3 4-5"/></svg></div>
+          <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.02em; color:#101B2C; line-height:1.2;">Assessment</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.6; color:#5F6875;">Realizamos um assessment completo do seu ambiente, analisando sua infraestrutura em profundidade para identificar oportunidades de otimização, redução de custos e aprimoramento da eficiência operacional.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:16px; padding:28px;" data-hover="border-color:#FF9900; transform:translateY(-2px);">
+          <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,153,0,0.1); display:flex; align-items:center; justify-content:center; color:#C77A00;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.02em; color:#101B2C; line-height:1.2;">Prazos estendidos para pagamento</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.6; color:#5F6875;">Ao optar pelo boleto bancário, você ganha mais tempo para quitar suas faturas, com prazos de até 60 dias, alinhando melhor os pagamentos ao seu fluxo de caixa.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:16px; padding:28px;" data-hover="border-color:#FF9900; transform:translateY(-2px);">
+          <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,153,0,0.1); display:flex; align-items:center; justify-content:center; color:#C77A00;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.02em; color:#101B2C; line-height:1.2;">NOC gratuito</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.6; color:#5F6875;">Conte com nosso serviço de NOC (Network Operations Center) sem custos adicionais, garantindo mais segurança e estabilidade para o seu ambiente.</p>
+        </div>
+
+        <div style="background:#fff; border:1px solid #E6E2D8; border-radius:16px; padding:28px;" data-hover="border-color:#FF9900; transform:translateY(-2px);">
+          <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,153,0,0.1); display:flex; align-items:center; justify-content:center; color:#C77A00;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+          <h3 style="margin:18px 0 8px; font-size:19px; font-weight:800; letter-spacing:-0.02em; color:#101B2C; line-height:1.2;">Gestão FinOps</h3>
+          <p style="margin:0; font-size:14.5px; line-height:1.6; color:#5F6875;">Aplicamos FinOps na operação do seu ambiente cloud para transformar custos em vantagem competitiva, com governança financeira, eficiência operacional e decisões baseadas em dados.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section id="planos" style="background:#1A2333; padding:clamp(56px,7vw,90px) 0;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#FF9900;">Valores da sua fatura Cloud</div>
+      <h2 style="margin:12px 0 0; font-size:clamp(28px,3.4vw,42px); line-height:1.08; letter-spacing:-0.03em; font-weight:800; color:#F4F7FC;">Vantagens técnicas</h2>
+
+      <div style="margin-top:38px; display:flex; flex-direction:column; gap:18px;">
+
+        <!-- PERSONAL -->
+        <div class="rm-plan" style="display:grid; grid-template-columns:280px 1fr auto; align-items:center; gap:24px; background:#111A28; border:1px solid rgba(255,255,255,0.08); border-radius:18px; overflow:hidden;">
+          <div class="rm-plan-name" style="padding:36px 32px; background:linear-gradient(150deg,#1E2839,#141d2c); height:100%; display:flex; flex-direction:column; justify-content:center;">
+            <div style="font-size:26px; font-weight:800; letter-spacing:-0.02em; color:#F4F7FC;">Personal</div>
+          </div>
+          <div class="rm-plan-feats" style="padding:28px 8px; display:grid; grid-template-columns:1fr 1fr; gap:14px 32px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Suporte grátis e ilimitado 24/7</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Monitoramento de ambientes</div>
+          </div>
+          <div style="padding:0 32px;"><a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Tenho%20interesse%20no%20plano%20Personal." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; white-space:nowrap; border:1px solid rgba(255,255,255,0.2); color:#F4F7FC; font-weight:700; font-size:14px; padding:12px 24px; border-radius:999px;" data-hover="border-color:#FF9900; color:#FF9900;">Solicitar agora</a></div>
+        </div>
+
+        <!-- STARTUP (POPULAR) -->
+        <div class="rm-plan" style="position:relative; display:grid; grid-template-columns:280px 1fr auto; align-items:center; gap:24px; background:#111A28; border:1px solid rgba(255,153,0,0.4); border-radius:18px; overflow:hidden; box-shadow:0 0 0 1px rgba(255,153,0,0.15), 0 20px 50px rgba(0,0,0,0.3);">
+          <div style="position:absolute; top:0; left:0; background:#FF9900; color:#0A1322; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.1em; padding:6px 16px 6px 32px; border-radius:0 0 12px 0;">POPULAR</div>
+          <div class="rm-plan-name" style="padding:44px 32px 36px; background:linear-gradient(150deg,#26210F,#141d2c); height:100%; display:flex; flex-direction:column; justify-content:center;">
+            <div style="font-size:26px; font-weight:800; letter-spacing:-0.02em; color:#F4F7FC;">Startup</div>
+          </div>
+          <div class="rm-plan-feats" style="padding:28px 8px; display:grid; grid-template-columns:1fr 1fr; gap:14px 32px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Suporte grátis e ilimitado 24/7</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Monitoramento de ambientes</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Risk Assessment</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Cloud Optimization</div>
+          </div>
+          <div style="padding:0 32px;"><a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Tenho%20interesse%20no%20plano%20Startup." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; white-space:nowrap; background:#FF9900; color:#0A1322; font-weight:700; font-size:14px; padding:13px 26px; border-radius:999px;" data-hover="background:#FFAA2B; transform:translateY(-1px);">Solicitar agora</a></div>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="rm-plan" style="display:grid; grid-template-columns:280px 1fr auto; align-items:center; gap:24px; background:#111A28; border:1px solid rgba(255,255,255,0.08); border-radius:18px; overflow:hidden;">
+          <div class="rm-plan-name" style="padding:36px 32px; background:linear-gradient(150deg,#1E2839,#141d2c); height:100%; display:flex; flex-direction:column; justify-content:center;">
+            <div style="font-size:26px; font-weight:800; letter-spacing:-0.02em; color:#F4F7FC;">Premium</div>
+          </div>
+          <div class="rm-plan-feats" style="padding:28px 8px; display:grid; grid-template-columns:1fr 1fr; gap:14px 32px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Suporte grátis e ilimitado 24/7</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Monitoramento de ambientes</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Risk Assessment</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Cloud Optimization</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:15px; color:rgba(233,237,245,0.82);"><span style="flex:none; color:#FF9900;">✓</span>Migração para Cloud</div>
+          </div>
+          <div style="padding:0 32px;"><a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Tenho%20interesse%20no%20plano%20Premium." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; white-space:nowrap; border:1px solid rgba(255,255,255,0.2); color:#F4F7FC; font-weight:700; font-size:14px; padding:12px 24px; border-radius:999px;" data-hover="border-color:#FF9900; color:#FF9900;">Solicitar agora</a></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:#111A28; padding:clamp(56px,7vw,90px) 0;">
+    <div class="rm-pad" style="max-width:920px; margin:0 auto; padding:0 28px;">
+      <h2 style="margin:0; font-size:clamp(28px,3.4vw,42px); line-height:1.08; letter-spacing:-0.03em; font-weight:800; color:#F4F7FC;">Perguntas frequentes</h2>
+      <div style="margin-top:32px; display:flex; flex-direction:column; gap:12px;">
+
+        <details style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600; list-style:none;"><span style="flex:none; color:#FF9900; font-size:20px; font-weight:700;">+</span>Como funciona o pagamento via boleto?</summary>
+          <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72);">A CoreScale, em parceria com a TD SYNNEX, emite o boleto em reais com base no consumo mensal da sua conta AWS. Você recebe a fatura com prazo de até 60 dias, sem IOF ou variação cambial.</div>
+        </details>
+
+        <details style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600; list-style:none;"><span style="flex:none; color:#FF9900; font-size:20px; font-weight:700;">+</span>Existe custo adicional para pagar em boleto?</summary>
+          <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72);">Não. Não há markup, taxa de conversão ou custos ocultos. O valor cobrado corresponde exatamente ao consumo AWS convertido pela taxa do dia.</div>
+        </details>
+
+        <details style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600; list-style:none;"><span style="flex:none; color:#FF9900; font-size:20px; font-weight:700;">+</span>A nota fiscal é emitida em nome da minha empresa?</summary>
+          <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72);">Sim. A nota fiscal é emitida com PIS, COFINS e ISS, facilitando a contabilização e eliminando a necessidade de nacionalização de documento estrangeiro.</div>
+        </details>
+
+        <details style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600; list-style:none;"><span style="flex:none; color:#FF9900; font-size:20px; font-weight:700;">+</span>Qual o prazo de pagamento?</summary>
+          <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72);">Os boletos têm prazo de até 60 dias, permitindo melhor alinhamento com o fluxo de caixa da sua empresa.</div>
+        </details>
+
+        <details style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
+          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600; list-style:none;"><span style="flex:none; color:#FF9900; font-size:20px; font-weight:700;">+</span>Posso migrar minha conta AWS existente para boleto?</summary>
+          <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72);">Sim. A migração é transparente  seus recursos, configurações e dados permanecem intactos. Apenas a forma de pagamento e faturamento é alterada.</div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:clamp(56px,7vw,90px) 0; background:#1A2333;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      <div style="position:relative; overflow:hidden; border:1px solid rgba(255,153,0,0.28); border-radius:26px; background:linear-gradient(150deg,#2A2A20,#182234); padding:clamp(36px,5vw,56px); display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
+        <div style="position:absolute; top:-120px; right:-40px; width:420px; height:420px; background:radial-gradient(circle, rgba(255,153,0,0.16), transparent 64%); pointer-events:none;"></div>
+        <div style="position:relative; max-width:580px;">
+          <h2 style="margin:0; font-size:clamp(24px,3vw,38px); line-height:1.1; letter-spacing:-0.035em; font-weight:800; color:#F4F7FC; text-wrap:balance;">Migre sua fatura Cloud para boleto</h2>
+          <p style="margin:14px 0 0; font-size:16px; line-height:1.6; color:rgba(233,237,245,0.64);">Sem custos adicionais e com conformidade fiscal. Fale com nosso time e comece hoje.</p>
+        </div>
+        <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Quero%20pagar%20minha%20fatura%20Cloud%20via%20boleto." target="_blank" rel="noopener" style="position:relative; display:inline-flex; align-items:center; gap:9px; background:#FF9900; color:#0A1322; font-weight:700; font-size:16px; padding:16px 26px; border-radius:12px;" data-hover="background:#FFAA2B; transform:translateY(-1px);">Entre em contato<span style="font-size:17px;">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  {{ partial "rd-footer.html" . }}
+
+</div>
+{{ end }}
