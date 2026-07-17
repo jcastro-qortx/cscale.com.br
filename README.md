@@ -74,16 +74,22 @@ corescale/
 │   ├── archetypes/          # Templates para novos conteúdos
 │   ├── content/
 │   │   ├── _index.md        # Home
-│   │   ├── blog/            # 8 artigos publicados
-│   │   ├── cases/           # 3 cases de clientes
+│   │   ├── blog/            # 3 artigos publicados
+│   │   ├── cases/           # 4 cases de clientes
+│   │   ├── ia-generativa.md # Landing page IA
+│   │   ├── msp.md           # Landing page MSP
+│   │   ├── pagamento-boleto.md # Landing page Boleto
 │   │   ├── migracao-vmware-aws.md
 │   │   └── privacidade.md
 │   ├── layouts/
 │   │   ├── index.html       # Home (hero, serviços, MAP, parceria, métricas, contato)
-│   │   ├── _default/baseof.html  # Base template (fonts, CSS, JS)
-│   │   ├── partials/        # Header, footer, CTA, nossa-história
+│   │   ├── _default/baseof.html  # Base template (fonts, CSS, JS, mobile menu)
+│   │   ├── partials/        # Header (com hamburger), footer, CTA
 │   │   ├── blog/            # List + single templates
 │   │   ├── cases/           # List + single templates
+│   │   ├── ia-generativa/   # Landing page IA Generativa
+│   │   ├── msp/             # Landing page Operação Gerenciada
+│   │   ├── pagamento-boleto/ # Landing page Pagamento Boleto
 │   │   └── migracao/, privacidade/
 │   └── static/              # Imagens, favicon, robots.txt
 ├── contact.html             # Formulário standalone (legacy)
@@ -93,24 +99,45 @@ corescale/
 
 ## CI/CD — GitLab Pipeline
 
-**Repositório:** `https://git.corescale.com.br/corescale/products/site-institucional`
+**Repositório:** `https://git.corescale.com.br/corescale/products/site-institucional`  
+**Branch de deploy:** `main`  
+**Runner:** `gitlab-runner-1` (Docker executor, self-hosted)
 
-A pipeline roda automaticamente em push para `main` quando há alterações em `hugo/`:
+A pipeline roda automaticamente em **todo push para `main`**:
 
 ```
-push → build (hugo --minify) → deploy (s3 sync + CF invalidation)
+git push origin main → build (hugo --minify) → deploy (s3 sync + CF invalidation)
 ```
 
-### Configuração necessária no GitLab
+### Stages
+
+| Stage | Imagem | Ação |
+|-------|--------|------|
+| `build` | `debian:bookworm-slim` | Instala Hugo Extended 0.163.3, roda `hugo --minify`, gera artefatos |
+| `deploy` | `amazon/aws-cli:latest` | `aws s3 sync` → `aws cloudfront create-invalidation` |
+
+### Por que Debian e não Alpine?
+
+Hugo Extended usa `libstdc++` e `libgcc_s` (glibc). Alpine usa musl e não é compatível — mesmo com `libc6-compat` ou `gcompat`, os símbolos C++ não resolvem. Debian Bookworm-slim resolve nativamente.
+
+### Configuração no GitLab
 
 **Settings → CI/CD → Variables:**
 
 | Variável | Tipo | Descrição |
 |----------|------|-----------|
-| `AWS_ACCESS_KEY_ID` | Protected, Masked | IAM user para deploy |
-| `AWS_SECRET_ACCESS_KEY` | Protected, Masked | IAM user para deploy |
+| `AWS_ACCESS_KEY_ID` | Protected, Masked | IAM user `gitlab-site-deploy` |
+| `AWS_SECRET_ACCESS_KEY` | Protected, Masked | IAM user `gitlab-site-deploy` |
 
-**IAM Policy mínima para o user de deploy:**
+### IAM User de Deploy
+
+| Campo | Valor |
+|-------|-------|
+| **User** | `gitlab-site-deploy` |
+| **Conta** | `024958414549` |
+| **Policy** | `site-deploy-policy` (inline) |
+
+**Permissões (princípio do menor privilégio):**
 
 ```json
 {
@@ -118,7 +145,7 @@ push → build (hugo --minify) → deploy (s3 sync + CF invalidation)
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": ["s3:PutObject", "s3:DeleteObject", "s3:ListBucket"],
+      "Action": ["s3:PutObject", "s3:DeleteObject", "s3:ListBucket", "s3:GetObject"],
       "Resource": ["arn:aws:s3:::cscale-website", "arn:aws:s3:::cscale-website/*"]
     },
     {
@@ -229,6 +256,17 @@ hugo server -D    # http://localhost:1313
 ```
 
 ## Histórico de Mudanças
+
+### Julho 2026 — Novas Landing Pages + CI/CD Automatizado
+
+- **Novas páginas:** IA Generativa (`/ia-generativa/`), MSP (`/msp/`), Pagamento Boleto (`/pagamento-boleto/`)
+- **Case Dalpozzo:** adicionado case de migração MAP (`/cases/varejo-migracao-aws-map/`)
+- **Formulário de contato:** migrado de `mailto:` para `fetch` na API Gateway (Lambda + SES)
+- **Menu mobile:** botão hamburger (☰) com drawer para navegação em telas < 1000px
+- **Links de serviços:** tiles da home agora linkam para as landing pages
+- **CI/CD:** pipeline GitLab (debian:bookworm-slim + Hugo Extended + AWS CLI)
+- **IAM:** criado user `gitlab-site-deploy` com permissões mínimas (S3 + CloudFront)
+- **Favicon:** atualizado
 
 ### Julho 2026 — Go-Live Produção
 
