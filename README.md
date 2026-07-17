@@ -4,7 +4,7 @@ Site institucional da CoreScale em produção: **https://corescale.com.br**
 
 ## Arquitetura
 
-![Arquitetura AWS](generated-diagrams/corescale-architecture.png)
+![Arquitetura AWS](generated-diagrams/corescale-site-architecture.png)
 
 ### Componentes
 
