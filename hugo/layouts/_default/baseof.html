@@ -25,6 +25,7 @@ a{text-decoration:none;color:inherit}
 @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important}}
 @media (max-width:1000px){
 .rm-nav{display:none !important}
+#rm-burger{display:flex !important}
 .rm-hero{grid-template-columns:1fr !important}
 .rm-split{grid-template-columns:1fr !important}
 .rm-bento{grid-template-columns:repeat(2,1fr) !important}
@@ -62,15 +63,41 @@ document.addEventListener('DOMContentLoaded',function(){
   }
   bind('data-hover','mouseenter','mouseleave');
   bind('data-focus','focus','blur');
+  // Mobile menu toggle
+  var burger=document.getElementById('rm-burger');
+  var mobileNav=document.getElementById('rm-mobile-nav');
+  if(burger&&mobileNav){
+    burger.addEventListener('click',function(){
+      var open=mobileNav.style.display==='flex';
+      mobileNav.style.display=open?'none':'flex';
+      burger.innerHTML=open?'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>':'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mobileNav.style.display='none';burger.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';});});
+  }
   document.querySelectorAll('[data-contact-form]').forEach(function(f){
     f.addEventListener('submit',function(e){
       e.preventDefault();
       var g=function(n){return (f.elements[n]&&f.elements[n].value||'').trim();};
       var nome=g('nome'),email=g('email'),tel=g('telefone');
       if(!nome||!email||!tel){return;}
-      var s=encodeURIComponent('Diagnóstico gratuito — '+nome);
-      var b=encodeURIComponent('Nome: '+nome+'\nE-mail: '+email+'\nTelefone: '+tel);
-      window.location.href='mailto:core@cscale.com.br?subject='+s+'&body='+b;
+      var btn=f.querySelector('button[type="submit"]');
+      var origText=btn.textContent;
+      btn.textContent='Enviando...';
+      btn.disabled=true;
+      fetch('https://98wsgzys1j.execute-api.us-east-1.amazonaws.com/contact',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name:nome,email:email,phone:tel,website:''})
+      }).then(function(r){return r.json();}).then(function(d){
+        btn.textContent='✓ Enviado com sucesso!';
+        btn.style.background='#16a34a';
+        f.reset();
+        setTimeout(function(){btn.textContent=origText;btn.style.background='';btn.disabled=false;},4000);
+      }).catch(function(){
+        btn.textContent='Erro — tente novamente';
+        btn.style.background='#dc2626';
+        setTimeout(function(){btn.textContent=origText;btn.style.background='';btn.disabled=false;},3000);
+      });
     });
   });
 });
