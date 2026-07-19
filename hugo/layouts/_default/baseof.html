@@ -33,7 +33,7 @@
 }
 </script>
 <link rel="stylesheet" href="/css/cinematic.css">
-<link rel="preload" as="image" href="/media/scene-core.webp" imagesrcset="/media/scene-core-mobile.webp 1080w, /media/scene-core.webp 2048w" imagesizes="100vw">
+<link rel="preload" as="image" href="/media/scene-migration.webp" imagesrcset="/media/scene-migration-mobile.webp 1080w, /media/scene-migration.webp 2048w" imagesizes="100vw">
 {{ end }}
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -55,6 +55,7 @@ a{text-decoration:none;color:inherit}
 @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms !important}}
 @media (max-width:1000px){
 .rm-nav{display:none !important}
+#rm-burger{display:flex !important}
 .rm-hero{grid-template-columns:1fr !important}
 .rm-split{grid-template-columns:1fr !important}
 .rm-bento{grid-template-columns:repeat(2,1fr) !important}
@@ -92,6 +93,17 @@ document.addEventListener('DOMContentLoaded',function(){
   }
   bind('data-hover','mouseenter','mouseleave');
   bind('data-focus','focus','blur');
+  // Mobile menu toggle
+  var burger=document.getElementById('rm-burger');
+  var mobileNav=document.getElementById('rm-mobile-nav');
+  if(burger&&mobileNav){
+    burger.addEventListener('click',function(){
+      var open=mobileNav.style.display==='flex';
+      mobileNav.style.display=open?'none':'flex';
+      burger.innerHTML=open?'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>':'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mobileNav.style.display='none';burger.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';});});
+  }
   document.querySelectorAll('[data-contact-form]').forEach(function(f){
     f.addEventListener('submit',function(e){
       e.preventDefault();

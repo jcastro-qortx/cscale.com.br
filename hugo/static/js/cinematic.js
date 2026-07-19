@@ -52,6 +52,27 @@
     scrollToTarget(el, false);
   });
 
+  /* ---------- Hero: animação de entrada ---------- */
+  if (!reduced) {
+    var heroSection = document.querySelector('.cine-hero');
+    if (heroSection) {
+      var leftCol = heroSection.querySelector('.rm-hero > div:first-child');
+      var rightCol = heroSection.querySelector('.rm-hero > div:last-child');
+      if (leftCol) {
+        gsap.fromTo(leftCol.children,
+          { opacity: 0, y: 35 },
+          { opacity: 1, y: 0, duration: 0.85, ease: 'power2.out', stagger: 0.1, delay: 0.2 }
+        );
+      }
+      if (rightCol && rightCol !== leftCol) {
+        gsap.fromTo(rightCol,
+          { opacity: 0, x: 50, scale: 0.96 },
+          { opacity: 1, x: 0, scale: 1, duration: 1, ease: 'power2.out', delay: 0.5 }
+        );
+      }
+    }
+  }
+
   /* ---------- Hero: vídeo apenas em desktop sem movimento reduzido ---------- */
   var heroVideo = document.querySelector('[data-cine-video]');
   var desktopMQ = window.matchMedia('(min-width: 1000px) and (pointer: fine)');
@@ -74,6 +95,140 @@
       });
       /* sem loop: o último quadro (estável) permanece como fundo */
     }
+  }
+
+  /* ---------- Campo neural do hero (cloud + IA, decorativo) ---------- */
+  function createNeuralField(canvas) {
+    var ctx = canvas.getContext('2d');
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    var small = window.matchMedia('(max-width: 999px)').matches;
+    var N = small ? 36 : 72;
+    var K = 3; /* vizinhos conectados por nó */
+    var W = 0, H = 0, nodes = [], edges = [], pulses = [];
+    var running = false, rafId = 0, t = 0;
+
+    /* sprite de brilho pré-renderizado (evita shadowBlur por frame) */
+    function makeGlow(color) {
+      var s = document.createElement('canvas'); s.width = s.height = 32;
+      var g = s.getContext('2d');
+      var grad = g.createRadialGradient(16, 16, 0, 16, 16, 16);
+      grad.addColorStop(0, color); grad.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = grad; g.fillRect(0, 0, 32, 32);
+      return s;
+    }
+    var glowAmber = makeGlow('rgba(255,163,44,0.9)');
+    var glowCyan = makeGlow('rgba(120,200,255,0.8)');
+
+    function build() {
+      var r = canvas.getBoundingClientRect();
+      W = Math.max(1, r.width); H = Math.max(1, r.height);
+      canvas.width = Math.floor(W * dpr); canvas.height = Math.floor(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      nodes = []; edges = []; pulses = [];
+      for (var i = 0; i < N; i++) {
+        /* densidade maior à direita/baixo, longe do título */
+        var bias = Math.pow(Math.random(), small ? 1 : 0.62);
+        nodes.push({
+          x: W * (small ? Math.random() : (0.18 + bias * 0.82)),
+          y: H * (0.12 + Math.random() * 0.82),
+          ph: Math.random() * Math.PI * 2,
+          amp: 4 + Math.random() * 9,
+          sp: 0.003 + Math.random() * 0.004,
+          hot: Math.random() < 0.45,
+          heat: 0
+        });
+      }
+      /* K vizinhos mais próximos */
+      for (var a = 0; a < N; a++) {
+        var d = [];
+        for (var b = 0; b < N; b++) {
+          if (a === b) { continue; }
+          var dx = nodes[a].x - nodes[b].x, dy = nodes[a].y - nodes[b].y;
+          d.push([dx * dx + dy * dy, b]);
+        }
+        d.sort(function (u, v) { return u[0] - v[0]; });
+        for (var k = 0; k < K; k++) {
+          var pair = a < d[k][1] ? a + '-' + d[k][1] : d[k][1] + '-' + a;
+          if (!edges.some(function (e) { return e.id === pair; })) {
+            edges.push({ id: pair, a: a, b: d[k][1] });
+          }
+        }
+      }
+    }
+
+    function nx(n) { return n.x + Math.cos(n.ph) * n.amp; }
+    function ny(n) { return n.y + Math.sin(n.ph * 1.3) * n.amp; }
+
+    function spawnPulse(fromNode) {
+      var out = edges.filter(function (e) { return e.a === fromNode || e.b === fromNode; });
+      if (!out.length) { return; }
+      var e = out[Math.floor(Math.random() * out.length)];
+      pulses.push({ e: e, from: fromNode, p: 0, v: 0.008 + Math.random() * 0.010 });
+    }
+
+    function step() {
+      if (!running) { return; }
+      t += 1;
+      ctx.clearRect(0, 0, W, H);
+      var i, n, e, a, b;
+      for (i = 0; i < nodes.length; i++) { n = nodes[i]; n.ph += n.sp; n.heat *= 0.965; }
+      /* arestas */
+      ctx.lineWidth = 1;
+      for (i = 0; i < edges.length; i++) {
+        e = edges[i]; a = nodes[e.a]; b = nodes[e.b];
+        var heat = Math.max(a.heat, b.heat);
+        ctx.strokeStyle = 'rgba(130,180,255,' + (0.06 + heat * 0.22) + ')';
+        ctx.beginPath(); ctx.moveTo(nx(a), ny(a)); ctx.lineTo(nx(b), ny(b)); ctx.stroke();
+      }
+      /* pulsos de inferência */
+      for (i = pulses.length - 1; i >= 0; i--) {
+        var p = pulses[i]; p.p += p.v;
+        var A = nodes[p.e.a === p.from ? p.e.a : p.e.b];
+        var B = nodes[p.e.a === p.from ? p.e.b : p.e.a];
+        if (p.p >= 1) {
+          var target = p.e.a === p.from ? p.e.b : p.e.a;
+          nodes[target].heat = 1;
+          if (Math.random() < 0.5 && pulses.length < 26) { spawnPulse(target); } /* propaga */
+          pulses.splice(i, 1);
+          continue;
+        }
+        var x = nx(A) + (nx(B) - nx(A)) * p.p;
+        var y = ny(A) + (ny(B) - ny(A)) * p.p;
+        ctx.drawImage(glowAmber, x - 7, y - 7, 14, 14);
+      }
+      /* nós */
+      for (i = 0; i < nodes.length; i++) {
+        n = nodes[i];
+        var breathe = 0.5 + 0.5 * Math.sin(n.ph * 2);
+        var size = 5 + breathe * 3 + n.heat * 10;
+        ctx.globalAlpha = 0.35 + breathe * 0.3 + n.heat * 0.35;
+        ctx.drawImage(n.hot ? glowAmber : glowCyan, nx(n) - size / 2, ny(n) - size / 2, size, size);
+        ctx.globalAlpha = 1;
+      }
+      /* novo estímulo periódico */
+      if (t % 52 === 0 && pulses.length < 18) { spawnPulse(Math.floor(Math.random() * nodes.length)); }
+      rafId = window.requestAnimationFrame(step);
+    }
+
+    window.addEventListener('resize', function () { if (running) { build(); } });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { window.cancelAnimationFrame(rafId); }
+      else if (running) { rafId = window.requestAnimationFrame(step); }
+    });
+    build();
+    return {
+      start: function () { if (!running) { running = true; rafId = window.requestAnimationFrame(step); } },
+      stop: function () { running = false; window.cancelAnimationFrame(rafId); }
+    };
+  }
+
+  var neuralCanvas = document.querySelector('.cine-neural');
+  if (neuralCanvas && !reduced && 'IntersectionObserver' in window) {
+    var field = createNeuralField(neuralCanvas);
+    var hero = document.querySelector('.cine-hero');
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.isIntersecting ? field.start() : field.stop(); });
+    }, { threshold: 0.05 }).observe(hero || neuralCanvas);
   }
 
   /* ---------- Sistema de partículas do palco (decorativo) ---------- */
