@@ -165,32 +165,19 @@
     <div class="rm-pad" style="max-width:920px; margin:0 auto; padding:0 28px;">
       <h2 style="margin:0; font-size:clamp(28px,3.4vw,42px); line-height:1.08; letter-spacing:-0.03em; font-weight:800; color:#F4F7FC;">Perguntas frequentes</h2>
       <div style="margin-top:32px; display:flex; flex-direction:column; gap:12px;">
-
-        <details style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
-          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600; list-style:none;"><span style="flex:none; color:#FF9900; font-size:20px; font-weight:700;">+</span>Como funciona o pagamento via boleto?</summary>
-          <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72);">A CoreScale, em parceria com a TD SYNNEX, emite o boleto em reais com base no consumo mensal da sua conta AWS. Você recebe a fatura com prazo de até 60 dias, sem IOF ou variação cambial.</div>
-        </details>
-
-        <details style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
-          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600; list-style:none;"><span style="flex:none; color:#FF9900; font-size:20px; font-weight:700;">+</span>Existe custo adicional para pagar em boleto?</summary>
-          <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72);">Não. Não há markup, taxa de conversão ou custos ocultos. O valor cobrado corresponde exatamente ao consumo AWS convertido pela taxa do dia.</div>
-        </details>
-
-        <details style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
-          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600; list-style:none;"><span style="flex:none; color:#FF9900; font-size:20px; font-weight:700;">+</span>A nota fiscal é emitida em nome da minha empresa?</summary>
-          <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72);">Sim. A nota fiscal é emitida com PIS, COFINS e ISS, facilitando a contabilização e eliminando a necessidade de nacionalização de documento estrangeiro.</div>
-        </details>
-
-        <details style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
-          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600; list-style:none;"><span style="flex:none; color:#FF9900; font-size:20px; font-weight:700;">+</span>Qual o prazo de pagamento?</summary>
-          <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72);">Os boletos têm prazo de até 60 dias, permitindo melhor alinhamento com o fluxo de caixa da sua empresa.</div>
-        </details>
-
-        <details style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
-          <summary style="display:flex; align-items:center; gap:14px; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600; list-style:none;"><span style="flex:none; color:#FF9900; font-size:20px; font-weight:700;">+</span>Posso migrar minha conta AWS existente para boleto?</summary>
-          <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72);">Sim. A migração é transparente  seus recursos, configurações e dados permanecem intactos. Apenas a forma de pagamento e faturamento é alterada.</div>
-        </details>
-
+        {{/* Bloco desativado: sintaxe "sc-for"/"faqs" não é Hugo válido (sobra de exportação de outra ferramenta) e quebrava o build. Conteúdo preservado abaixo para referência.
+        <sc-for list="faqs" as="item" hint-placeholder-count="5">
+          <div style="border:1px solid rgba(255,255,255,0.09); border-radius:12px; overflow:hidden; background:rgba(255,255,255,0.02);">
+            <button onClick="{{ item.toggle }}" style="width:100%; display:flex; align-items:center; gap:14px; text-align:left; background:{{ item.headerBg }}; border:none; cursor:pointer; padding:18px 22px; color:#F4F7FC; font-family:'Manrope',sans-serif; font-size:16px; font-weight:600;">
+              <span style="flex:none; width:22px; height:22px; display:flex; align-items:center; justify-content:center; color:#FF9900; font-size:20px; font-weight:700;">{{ item.sign }}</span>
+              <span style="flex:1;">{{ item.q }}</span>
+            </button>
+            <div style="max-height:{{ item.maxH }}; overflow:hidden; transition:max-height 0.3s ease;">
+              <div style="padding:4px 22px 22px 58px; font-size:15px; line-height:1.7; color:rgba(233,237,245,0.72); white-space:pre-line;">{{ item.a }}</div>
+            </div>
+          </div>
+        </sc-for>
+        */}}
       </div>
     </div>
   </section>

@@ -1,0 +1,85 @@
+/* ============================================================
+   CoreScale — experiência cinematográfica da home
+   Carregado apenas na página inicial (ver baseof.html).
+   Conteúdo permanece 100% visível sem JavaScript: os estados
+   iniciais de animação são aplicados via JS (gsap), nunca aqui.
+   ============================================================ */
+
+/* ---------- Lenis (smooth scroll) ---------- */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+
+/* ---------- HERO CINEMATOGRÁFICO ---------- */
+.cine-hero{position:relative;isolation:isolate;min-height:calc(100svh - 72px);display:flex;flex-direction:column;justify-content:center}
+.cine-hero-media{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:#0A1322}
+.cine-hero-media img,
+.cine-hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;will-change:transform}
+.cine-hero-media video{opacity:0;transition:opacity .9s ease}
+.cine-hero-media video.is-ready{opacity:1}
+.cine-hero-media .cine-hero-grade{position:absolute;inset:0;background:
+  linear-gradient(90deg, rgba(10,19,34,0.90) 0%, rgba(10,19,34,0.62) 44%, rgba(10,19,34,0.18) 100%),
+  linear-gradient(180deg, rgba(10,19,34,0.55) 0%, rgba(10,19,34,0.10) 42%, rgba(26,35,51,0.96) 100%)}
+
+/* ---------- JORNADA (scroll story) ---------- */
+.cine-story{position:relative;background:#070E1A;color:#E9EDF5}
+.cine-stage{position:relative;overflow:hidden}
+.cine-media{position:absolute;inset:0}
+.cine-layer{position:absolute;inset:-5.5%;background-size:cover;background-position:center;opacity:0;will-change:transform,opacity,filter}
+.cine-layer::after{content:"";position:absolute;inset:0}
+.cine-tint-cyan::after{background:linear-gradient(155deg, rgba(56,189,248,0.14), transparent 58%);mix-blend-mode:screen}
+.cine-tint-blue{filter:hue-rotate(-14deg) saturate(0.92) brightness(0.9)}
+.cine-tint-blue::after{background:linear-gradient(200deg, rgba(59,130,246,0.16), transparent 62%);mix-blend-mode:screen}
+.cine-tint-warm{filter:saturate(0.88) contrast(1.05) brightness(0.94)}
+.cine-tint-dark{filter:brightness(0.78) saturate(0.9)}
+.cine-tint-clear{filter:brightness(1.05) saturate(1.06)}
+.cine-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cine-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 92% at 50% 40%, transparent 42%, rgba(4,9,18,0.72) 100%)}
+.cine-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg, rgba(4,9,18,0.62) 0%, rgba(4,9,18,0.12) 30%, rgba(4,9,18,0.16) 62%, rgba(4,9,18,0.78) 100%)}
+
+.cine-chapter-kicker{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:#8A4FBE}
+.cine-chapter h3{margin:14px 0 0;font-size:clamp(28px,3.6vw,50px);line-height:1.06;letter-spacing:-0.035em;font-weight:800;color:#F4F7FC;text-wrap:balance}
+.cine-chapter p{margin:16px auto 0;max-width:640px;font-size:clamp(15px,1.25vw,17.5px);line-height:1.62;color:rgba(233,237,245,0.78)}
+.cine-chapter .cine-ctas{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cine-btn{display:inline-flex;align-items:center;gap:9px;background:#8A4FBE;color:#fff;font-weight:700;font-size:14.5px;padding:13px 22px;border-radius:11px;transition:background .18s ease,transform .18s ease}
+.cine-btn:hover{background:#9D63CE;transform:translateY(-1px)}
+.cine-btn-ghost{display:inline-flex;align-items:center;gap:9px;border:none;color:#fff;font-weight:600;font-size:14.5px;padding:13px 20px;border-radius:11px;background:#8A4FBE;transition:background .18s ease,transform .18s ease}
+.cine-btn-ghost:hover{background:#9D63CE;transform:translateY(-1px)}
+
+.cine-progress{position:absolute;right:clamp(16px,3vw,40px);top:50%;transform:translateY(-50%);z-index:6;display:flex;flex-direction:column;gap:14px}
+.cine-progress span{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.22);transition:background .3s ease,transform .3s ease}
+.cine-progress span.is-active{background:#8A4FBE;transform:scale(1.45)}
+
+/* Desktop: capítulos sobrepostos no palco fixado */
+@media (min-width:1000px){
+  .cine-stage{height:100svh}
+  .cine-chapter{position:absolute;inset:0;z-index:5;display:flex;align-items:flex-end;justify-content:center;padding:0 88px clamp(60px,11vh,120px);text-align:center;visibility:hidden;pointer-events:none}
+  .cine-chapter .cine-chapter-inner{max-width:780px;pointer-events:auto}
+}
+
+/* Mobile / tablet: capítulos empilhados, imagem por capítulo, sem pin */
+@media (max-width:999px){
+  .cine-media,.cine-progress{display:none}
+  .cine-chapter{position:relative;min-height:78svh;display:flex;align-items:flex-end;padding:80px 22px 48px;background-image:linear-gradient(180deg, rgba(7,14,26,0.72) 0%, rgba(7,14,26,0.28) 40%, rgba(7,14,26,0.88) 100%), var(--chbg-m, var(--chbg));background-size:cover;background-position:center;text-align:left;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .cine-chapter p{margin-left:0}
+  .cine-chapter .cine-ctas{justify-content:flex-start}
+}
+
+/* ---------- ACESSIBILIDADE ---------- */
+a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid #8A4FBE;outline-offset:3px;border-radius:6px}
+
+/* ---------- MOVIMENTO REDUZIDO ---------- */
+@media (prefers-reduced-motion: reduce){
+  .cine-hero-media video{display:none !important}
+  .cine-layer{transition:none}
+  .cine-progress{display:none}
+  @media (min-width:1000px){
+    /* sem pin: capítulos empilhados também no desktop, cena estática */
+    .cine-stage{height:auto}
+    .cine-media{display:none}
+    .cine-chapter{position:relative;inset:auto;visibility:visible;pointer-events:auto;min-height:64svh;align-items:flex-end;justify-content:flex-start;text-align:left;padding:90px 88px 64px;background-image:linear-gradient(180deg, rgba(7,14,26,0.72), rgba(7,14,26,0.30) 40%, rgba(7,14,26,0.88)), var(--chbg);background-size:cover;background-position:center;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .cine-chapter p{margin-left:0}
+    .cine-chapter .cine-ctas{justify-content:flex-start}
+  }
+}

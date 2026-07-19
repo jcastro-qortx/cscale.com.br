@@ -85,4 +85,3 @@ Os estilos são **inline** (fiéis ao design). Efeitos de hover/foco e o formul�
 ## Deploy
 
 Qualquer host de site estático (Netlify, Cloudflare Pages, S3+CloudFront, GitHub Pages). Build: `hugo --minify`, publique a pasta `public/`. Ajuste `baseURL` no `hugo.toml`.
-# Fri Jul 17 11:56:24 -03 2026
