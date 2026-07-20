@@ -44,6 +44,7 @@ def handler(event, context):
     # 2. Extract and validate fields
     name = body.get("name", "").strip()
     email = body.get("email", "").strip()
+    phone = body.get("phone", "").strip()
     company = body.get("company", "").strip()
     message = body.get("message", "").strip()
 
@@ -70,8 +71,16 @@ def handler(event, context):
             "body": json.dumps({"error": "Campo 'email' deve conter um endereço válido."}),
         }
 
-    # Message validation: 10-5000 chars
-    if len(message) < 10 or len(message) > 5000:
+    # Phone validation (optional but if provided, at least 8 chars)
+    if phone and len(phone) < 8:
+        return {
+            "statusCode": 400,
+            "headers": headers,
+            "body": json.dumps({"error": "Campo 'phone' deve ter pelo menos 8 caracteres."}),
+        }
+
+    # Message is optional for contact form (phone-based leads)
+    if message and (len(message) < 10 or len(message) > 5000):
         return {
             "statusCode": 400,
             "headers": headers,
@@ -80,17 +89,16 @@ def handler(event, context):
 
     # Send email via SES
     subject = f"[CoreScale Site] Nova mensagem de {name}"
+    phone_line = f"\nTelefone: {phone}" if phone else ""
     company_line = f"\nEmpresa: {company}" if company else ""
+    message_line = f"\n\nMensagem:\n{message}" if message else ""
     email_body = f"""Nova mensagem do formulário de contato do site:
 
 Nome: {name}
-Email: {email}{company_line}
-
-Mensagem:
-{message}
+Email: {email}{phone_line}{company_line}{message_line}
 
 ---
-Enviado automaticamente pelo formulário de contato do site cscale.com.br
+Enviado automaticamente pelo formulário de contato do site corescale.com.br
 """
 
     try:
