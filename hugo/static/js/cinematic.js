@@ -53,6 +53,7 @@
   });
 
   /* ---------- Hero: animação de entrada ---------- */
+  var desktopMQ = window.matchMedia('(min-width: 1000px) and (pointer: fine)');
   if (!reduced && desktopMQ.matches) {
     var heroSection = document.querySelector('.cine-hero');
     if (heroSection) {
@@ -75,7 +76,6 @@
 
   /* ---------- Hero: vídeo apenas em desktop sem movimento reduzido ---------- */
   var heroVideo = document.querySelector('[data-cine-video]');
-  var desktopMQ = window.matchMedia('(min-width: 1000px) and (pointer: fine)');
   var saveData = navigator.connection && navigator.connection.saveData;
   if (heroVideo && !reduced && desktopMQ.matches && !saveData) {
     var webm = heroVideo.getAttribute('data-src-webm');
