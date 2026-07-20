@@ -53,7 +53,7 @@
   });
 
   /* ---------- Hero: animação de entrada ---------- */
-  if (!reduced) {
+  if (!reduced && desktopMQ.matches) {
     var heroSection = document.querySelector('.cine-hero');
     if (heroSection) {
       var leftCol = heroSection.querySelector('.rm-hero > div:first-child');
