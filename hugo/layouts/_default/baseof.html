@@ -110,9 +110,24 @@ document.addEventListener('DOMContentLoaded',function(){
       var g=function(n){return (f.elements[n]&&f.elements[n].value||'').trim();};
       var nome=g('nome'),email=g('email'),tel=g('telefone');
       if(!nome||!email||!tel){return;}
-      var s=encodeURIComponent('Diagnóstico gratuito — '+nome);
-      var b=encodeURIComponent('Nome: '+nome+'\nE-mail: '+email+'\nTelefone: '+tel);
-      window.location.href='mailto:core@cscale.com.br?subject='+s+'&body='+b;
+      var btn=f.querySelector('button[type="submit"]');
+      var origText=btn.textContent;
+      btn.textContent='Enviando...';
+      btn.disabled=true;
+      fetch('https://98wsgzys1j.execute-api.us-east-1.amazonaws.com/contact',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({name:nome,email:email,phone:tel,website:''})
+      }).then(function(r){return r.json();}).then(function(d){
+        btn.textContent='✓ Enviado com sucesso!';
+        btn.style.background='#16a34a';
+        f.reset();
+        setTimeout(function(){btn.textContent=origText;btn.style.background='';btn.disabled=false;},4000);
+      }).catch(function(){
+        btn.textContent='Erro — tente novamente';
+        btn.style.background='#dc2626';
+        setTimeout(function(){btn.textContent=origText;btn.style.background='';btn.disabled=false;},3000);
+      });
     });
   });
 });
