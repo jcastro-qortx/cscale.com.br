@@ -1,13 +1,13 @@
 {{ define "main" }}
 {{ partial "rd-header.html" . }}
 <style>
-.cs-prose{color:#3A4655;font-size:16.5px;line-height:1.78}
+.cs-prose{color:#3A4655;font-size:16.5px;line-height:1.85}
 .cs-prose > *:first-child{margin-top:0}
-.cs-prose h2{font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-0.025em;color:#101B2C;margin:48px 0 0;padding-top:32px;border-top:1px solid #E6E2D8;text-wrap:balance}
-.cs-prose h3{font-size:19px;font-weight:700;color:#101B2C;margin:28px 0 0}
-.cs-prose p{margin:16px 0 0}
-.cs-prose ul,.cs-prose ol{margin:16px 0 0;padding-left:22px}
-.cs-prose li{margin:8px 0}
+.cs-prose h2{font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-0.025em;color:#101B2C;margin:52px 0 0;padding-top:36px;border-top:1px solid #E6E2D8;text-wrap:balance}
+.cs-prose h3{font-size:19px;font-weight:700;color:#101B2C;margin:32px 0 0}
+.cs-prose p{margin:18px 0 0}
+.cs-prose ul,.cs-prose ol{margin:18px 0 0;padding-left:24px}
+.cs-prose li{margin:10px 0}
 .cs-prose li::marker{color:#FF9900}
 .cs-prose a{color:#C77A00;font-weight:600;text-decoration:underline;text-decoration-color:rgba(199,122,0,0.3);text-underline-offset:3px}
 .cs-prose a:hover{text-decoration-color:#C77A00}
@@ -38,7 +38,7 @@
 <!-- CONTENT (fundo claro) -->
 <section style="background:#EDE9E0; padding:clamp(52px,7vw,84px) 0;">
   <div class="rm-pad" style="max-width:820px; margin:0 auto; padding:0 28px;">
-    <div style="background:#fff; border:1px solid #E6E2D8; border-radius:20px; padding:clamp(32px,5vw,56px) clamp(28px,4vw,48px); box-shadow:0 4px 24px rgba(0,0,0,0.04);">
+    <div style="background:#fff; border:1px solid #E6E2D8; border-radius:20px; padding:clamp(40px,6vw,64px) clamp(36px,5vw,56px); box-shadow:0 4px 24px rgba(0,0,0,0.04);">
       <div class="cs-prose">{{ .Content }}</div>
     </div>
   </div>
