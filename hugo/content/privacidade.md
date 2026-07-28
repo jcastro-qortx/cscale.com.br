@@ -17,7 +17,7 @@ Utilizamos seus dados para entrar em contato, elaborar diagnósticos e avaliaç�
 
 ## 3. Compartilhamento
 
-A CoreScale não vende nem aluga seus dados. Podemos compartilhá-los com a Amazon Web Services (AWS) quando necessário à execução de programas como o MAP, e com prestadores de serviço sob obrigações de confidencialidade.
+A CoreScale não vende nem aluga seus dados. Podemos compartilhá-los com a Amazon Web Services (AWS) quando necessário à execução de programas de migração e modernização, e com prestadores de serviço sob obrigações de confidencialidade.
 
 ## 4. Seus direitos
 

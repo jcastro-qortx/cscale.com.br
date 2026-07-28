@@ -6,9 +6,9 @@ sector = "Varejo & Distribuição · VMware → AWS"
 metric = "650%"
 metricLabel = "ROI do projeto"
 desafio = "Infraestrutura legada sem redundância, com 87h/ano de indisponibilidade e crescimento limitado."
-solucao = "Migração completa via MAP com Landing Zone multi-account, governança de segurança e IA preditiva."
+solucao = "Migração completa com Landing Zone multi-account, governança de segurança e IA preditiva."
 resultado = "Zero downtime, R$ 237 mil em créditos AWS e economia de 30% nos custos operacionais."
-description = "Como migramos 100% da infraestrutura de um grande grupo de varejo para a AWS via programa MAP — com Landing Zone segura, governança multi-account e IA preditiva para previsão de demanda."
+description = "Como migramos 100% da infraestrutura de um grande grupo de varejo para a AWS — com Landing Zone segura, governança multi-account e IA preditiva para previsão de demanda."
 +++
 
 ## O Desafio
@@ -27,7 +27,7 @@ O objetivo não era simplesmente "ir para a nuvem". Era redesenhar a infraestrut
 
 ## A Solução
 
-A CoreScale conduziu a migração completa dentro do **AWS Migration Acceleration Program (MAP)**, organizada em quatro frentes:
+A CoreScale conduziu a migração completa utilizando a **metodologia de migração da AWS**, organizada em quatro frentes:
 
 ### 1. Governança e Segurança como Fundação
 
@@ -80,7 +80,7 @@ Diferente de uma migração comum, levamos a IA do cliente para produção:
 
 ### Números do projeto
 
-- **R$ 237 mil em créditos AWS** obtidos via programa MAP
+- **R$ 237 mil em créditos AWS** obtidos via programas de migração
 - **R$ 2,5 milhões** em benefícios financeiros projetados em 3 anos
 - **ROI de 650%** com payback em 2 meses
 - **R$ 30,3 mil/mês** em economia adicional mapeada (Savings Plans, Graviton, rightsizing)
@@ -90,7 +90,7 @@ Diferente de uma migração comum, levamos a IA do cliente para produção:
 | | |
 |---|---|
 | **Setor** | Varejo & Distribuição |
-| **Programa** | AWS MAP (Migration Acceleration Program) |
+| **Programa** | Migração e Modernização AWS |
 | **Parceiro** | CoreScale — AWS Advanced Tier |
 | **Regiões** | São Paulo (sa-east-1) + Virgínia (us-east-1) |
 | **Contas AWS** | 7 (multi-account com Organizations) |
@@ -102,7 +102,7 @@ Diferente de uma migração comum, levamos a IA do cliente para produção:
 
 ## Linha do Tempo
 
-1. **Assess** (Jun/2025) — Inventário, Business Case e elegibilidade MAP
+1. **Assess** (Jun/2025) — Inventário, Business Case e elegibilidade a créditos
 2. **Mobilize** (Jul–Set/2025) — Control Tower, Landing Zone e aprovação de créditos
 3. **Migrate** (Set–Nov/2025) — Migração de bancos, compute e storage
 4. **ML/IA** (Dez/2025) — Migração da plataforma de machine learning

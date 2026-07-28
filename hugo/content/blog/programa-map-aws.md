@@ -1,12 +1,12 @@
 +++
-title = "O que é o programa MAP e como ele financia a sua migração"
+title = "Como a AWS financia a sua migração para a nuvem"
 date = 2026-04-30
 draft = false
-category = "MAP"
+category = "Migração"
 description = "A metodologia da AWS em três fases e como acessar créditos e investimento para migrar."
 +++
 
-O **Migration Acceleration Program (MAP)** é o programa oficial da AWS para acelerar migrações empresariais, combinando metodologia comprovada, ferramentas e **investimento financeiro** da própria Amazon.
+A AWS oferece programas que combinam metodologia comprovada, ferramentas e **investimento financeiro** da própria Amazon para acelerar migrações empresariais.
 
 ## As três fases
 

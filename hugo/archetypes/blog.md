@@ -2,7 +2,7 @@
 title = "{{ replace .File.ContentBaseName "-" " " | title }}"
 date = {{ .Date }}
 draft = true
-# Categoria exibida no selo do card (ex.: FinOps, Migração, MAP, Segurança, IA, Operação)
+# Categoria exibida no selo do card (ex.: FinOps, Migração, Segurança, IA, Operação)
 category = "FinOps"
 # Resumo de 1–2 frases — aparece no card do /blog/ e no topo do artigo
 description = "Resumo curto do artigo."
