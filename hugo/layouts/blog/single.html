@@ -36,16 +36,18 @@
 </section>
 
 <!-- CONTENT (fundo claro) -->
-<section style="background:#F4F2EA; padding:clamp(52px,7vw,84px) 0;">
+<section style="background:#EDE9E0; padding:clamp(52px,7vw,84px) 0;">
   <div class="rm-pad" style="max-width:820px; margin:0 auto; padding:0 28px;">
-    <div class="cs-prose">{{ .Content }}</div>
+    <div style="background:#fff; border:1px solid #E6E2D8; border-radius:20px; padding:clamp(32px,5vw,56px) clamp(28px,4vw,48px); box-shadow:0 4px 24px rgba(0,0,0,0.04);">
+      <div class="cs-prose">{{ .Content }}</div>
+    </div>
   </div>
 </section>
 
 <!-- NAV -->
-<section style="background:#F4F2EA; padding:0 0 clamp(52px,7vw,84px); border-top:none;">
+<section style="background:#EDE9E0; padding:0 0 clamp(52px,7vw,84px); border-top:none;">
   <div class="rm-pad" style="max-width:820px; margin:0 auto; padding:0 28px;">
-    <div style="padding-top:32px; border-top:1px solid #E1DCCF; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
+    <div style="margin-top:32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
       <a href="/blog/" style="display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:14.5px; color:#5F6875; border:1px solid #E1DCCF; padding:12px 20px; border-radius:11px; background:#fff;" data-hover="border-color:#FF9900; color:#101B2C;">← Todos os artigos</a>
       <a href="/#contato" style="display:inline-flex; align-items:center; gap:9px; background:#FF9900; color:#0A1322; font-weight:700; font-size:14.5px; padding:13px 24px; border-radius:11px;" data-hover="background:#FFAA2B; transform:translateY(-1px);">Falar com especialista →</a>
     </div>
