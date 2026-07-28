@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- End Google Tag Manager -->
 <title>{{ if .Title }}{{ .Title }}{{ if not .IsHome }} | CoreScale{{ end }}{{ else }}CoreScale{{ end }}</title>
 {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
@@ -68,6 +75,11 @@ a{text-decoration:none;color:inherit}
 .rm-feat{grid-template-columns:1fr !important}
 .rm-tilewide{grid-column:auto !important}
 .rm-tiletall{grid-row:auto !important}
+.rm-benefits{grid-template-columns:1fr !important}
+.rm-plan{grid-template-columns:1fr !important}
+.rm-plan-feats{grid-template-columns:1fr !important}
+.rm-plan .rm-plan-name{padding:24px 24px 16px !important}
+.rm-plan-cta{padding:0 24px 24px !important}
 }
 @media (max-width:680px){
 .rm-bento{grid-template-columns:1fr !important}
@@ -80,6 +92,10 @@ a{text-decoration:none;color:inherit}
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 {{ block "main" . }}{{ end }}
 <script>
 document.addEventListener('DOMContentLoaded',function(){
