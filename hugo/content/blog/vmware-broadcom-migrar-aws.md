@@ -2,7 +2,7 @@
 title = "VMware e Broadcom: por que 2026 é o ano de migrar para a AWS"
 date = 2026-05-27
 draft = false
-category = "Migração"
+categories = ["Migração"]
 description = "O novo licenciamento disparou o custo do VMware. Entenda o cenário e como migrar com investimento da AWS."
 +++
 

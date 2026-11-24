@@ -2,7 +2,7 @@
 title = "Como a AWS financia a sua migração para a nuvem"
 date = 2026-04-30
 draft = false
-category = "Migração"
+categories = ["Migração"]
 description = "A metodologia da AWS em três fases e como acessar créditos e investimento para migrar."
 +++
 

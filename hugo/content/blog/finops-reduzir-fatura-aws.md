@@ -2,7 +2,7 @@
 title = "FinOps na AWS: como reduzir a fatura em 30–40% sem perder performance"
 date = 2026-06-18
 draft = false
-category = "FinOps"
+categories = ["FinOps"]
 description = "Rightsizing, Savings Plans e cultura de custo — um roteiro prático para trazer previsibilidade à sua conta AWS."
 +++
 

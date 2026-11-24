@@ -1,10 +1,14 @@
-baseURL = "https://site.corescale.com.br/"
-languageCode = "pt-br"
+baseURL = "https://corescale.com.br/"
+locale = "pt-BR"
 title = "CoreScale"
 enableRobotsTXT = true
 
 [params]
   description = "Consultoria em Cloud AWS — Advanced Tier Partner. Migração, FinOps, segurança e operação gerenciada 24/7."
+  telephone = "+55-11-99999-9999"
+  email = "contato@corescale.com.br"
+  linkedin = "https://www.linkedin.com/company/corescale/"
+  whatsapp = "https://wa.me/5511999999999"
 
 [markup.goldmark.renderer]
   unsafe = true

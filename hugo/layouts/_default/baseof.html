@@ -24,6 +24,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}CoreScale{{ end }}">
 {{ with .Description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
 <meta name="twitter:image" content="{{ "og-image.png" | absURL }}">
+{{ if and .IsPage (eq .Section "blog") }}<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ .Title | jsonify }},
+  "description": {{ .Description | jsonify }},
+  "url": {{ .Permalink | jsonify }},
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "publisher": {
+    "@type": "Organization",
+    "name": "CoreScale",
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ "corescale-logo.png" | absURL | jsonify }}
+    }
+  }
+}
+</script>
+{{ end }}
 {{ if .IsHome }}<script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,7 +115,13 @@ a{text-decoration:none;color:inherit}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7PHQTZR"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<a href="#conteudo-principal" class="sr-only-focusable" style="position:absolute; top:-100px; left:16px; z-index:9999; background:#FF9900; color:#0A1322; padding:12px 18px; font-weight:700; border-radius:8px; transition:top .15s ease;" onfocus="this.style.top='16px'" onblur="this.style.top='-100px'">Pular para o conteúdo</a>
+<main id="conteudo-principal">
 {{ block "main" . }}{{ end }}
+</main>
+<a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Quero%20um%20diagn%C3%B3stico%20gratuito%20da%20CoreScale." class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Falar com a CoreScale pelo WhatsApp" style="position:fixed; bottom:24px; right:24px; z-index:90; width:52px; height:52px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(37,211,102,0.35); transition:transform .2s ease;">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.53 1.77.814 2.79.814 3.179 0 5.766-2.587 5.767-5.766.001-3.18-2.585-5.767-5.766-5.767zm0 10.378c-.908 0-1.748-.276-2.433-.761l-.174-.103-1.58.414.422-1.54-.114-.181c-.538-.857-.822-1.614-.821-2.441.001-2.539 2.066-4.604 4.607-4.604 2.539 0 4.604 2.065 4.604 4.604-.001 2.54-2.066 4.604-4.605 4.604z"/></svg>
+</a>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   function bind(attr,enter,leave){
@@ -110,39 +135,76 @@ document.addEventListener('DOMContentLoaded',function(){
   bind('data-hover','mouseenter','mouseleave');
   bind('data-focus','focus','blur');
   // Mobile menu toggle
-  var burger=document.getElementById('rm-burger');
+  var menuBtn=document.getElementById('rm-menu-btn')||document.getElementById('rm-burger');
   var mobileNav=document.getElementById('rm-mobile-nav');
-  if(burger&&mobileNav){
-    burger.addEventListener('click',function(){
+  if(menuBtn&&mobileNav){
+    function closeMenu(){
+      mobileNav.style.display='none';
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.setAttribute('aria-label','Abrir menu');
+      menuBtn.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
+    }
+    menuBtn.addEventListener('click',function(){
       var open=mobileNav.style.display==='flex';
-      mobileNav.style.display=open?'none':'flex';
-      burger.innerHTML=open?'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>':'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+      if(open){
+        closeMenu();
+      } else {
+        mobileNav.style.display='flex';
+        menuBtn.setAttribute('aria-expanded','true');
+        menuBtn.setAttribute('aria-label','Fechar menu');
+        menuBtn.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+      }
     });
-    mobileNav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mobileNav.style.display='none';burger.innerHTML='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';});});
+    mobileNav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape'&&mobileNav.style.display==='flex'){
+        closeMenu();
+        menuBtn.focus();
+      }
+    });
   }
   document.querySelectorAll('[data-contact-form]').forEach(function(f){
     f.addEventListener('submit',function(e){
       e.preventDefault();
+      if(!f.checkValidity()){
+        f.reportValidity();
+        return;
+      }
       var g=function(n){return (f.elements[n]&&f.elements[n].value||'').trim();};
-      var nome=g('nome'),email=g('email'),tel=g('telefone');
+      var nome=g('nome'),email=g('email'),tel=g('telefone'),siteVal=g('website');
       if(!nome||!email||!tel){return;}
+      var status=f.querySelector('[aria-live="polite"]')||document.getElementById('form-status');
       var btn=f.querySelector('button[type="submit"]');
       var origText=btn.textContent;
       btn.textContent='Enviando...';
       btn.disabled=true;
+      if(status){status.textContent='Enviando mensagem...';status.style.color='#B478E0';}
       fetch('https://98wsgzys1j.execute-api.us-east-1.amazonaws.com/contact',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({name:nome,email:email,phone:tel,website:''})
-      }).then(function(r){return r.json();}).then(function(d){
+        body:JSON.stringify({name:nome,email:email,phone:tel,website:g('website')})
+      }).then(function(r){
+        return r.json().catch(function(){return {};});
+      }).then(function(d){
         btn.textContent='✓ Enviado com sucesso!';
         btn.style.background='#16a34a';
+        if(status){status.textContent='✓ Mensagem enviada com sucesso! Retornaremos em breve.';status.style.color='#16a34a';}
         f.reset();
-        setTimeout(function(){btn.textContent=origText;btn.style.background='';btn.disabled=false;},4000);
+        setTimeout(function(){
+          btn.textContent=origText;
+          btn.style.background='';
+          btn.disabled=false;
+          if(status){status.textContent='';}
+        },5000);
       }).catch(function(){
         btn.textContent='Erro — tente novamente';
         btn.style.background='#dc2626';
-        setTimeout(function(){btn.textContent=origText;btn.style.background='';btn.disabled=false;},3000);
+        if(status){status.textContent='Ocorreu um erro ao enviar. Por favor, tente novamente ou fale pelo WhatsApp.';status.style.color='#dc2626';}
+        setTimeout(function(){
+          btn.textContent=origText;
+          btn.style.background='';
+          btn.disabled=false;
+        },4000);
       });
     });
   });
