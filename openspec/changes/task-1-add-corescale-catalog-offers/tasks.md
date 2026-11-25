@@ -21,3 +21,9 @@
 - [x] 4.1 Realizar commit das alterações com mensagem padronizada no repositório `cscale.com.br`.
 - [x] 4.2 Enviar push para o branch `main` no GitHub e monitorar a execução bem-sucedida do workflow do GitHub Actions (S3 sync e CloudFront invalidation).
 - [x] 4.3 Validar a página `/catalogo/` respondendo em produção com status HTTP 200 e dados corretos.
+
+## 5. Arquiteturas de Referência Oficiais AWS
+
+- [x] 5.1 Desenhar arquiteturas de referência oficiais AWS com stencils e paleta oficial (`SEC-ASSESS`, `WAR-EXPRESS`, `AI-RAG`, `AI-EXTRACT`, `AI-AGENT`) em SVG vetorial autônomo e `.drawio` editável.
+- [x] 5.2 Integrar preview visual e modal interativo no catálogo com suporte a download dos diagramas e `.drawio`.
+- [x] 5.3 Deploy em produção e validação live HTTP 200 no CloudFront.
