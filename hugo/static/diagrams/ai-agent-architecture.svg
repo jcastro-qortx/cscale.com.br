@@ -1,0 +1,268 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 650" width="100%" height="100%" style="background:#0F172A;font-family:'Inter',system-ui,-apple-system,sans-serif;">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.95"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38BDF8"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#F97316"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#22C55E"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1300" height="650" fill="#0B0F19"/>
+
+  <!-- Subtle Blueprint Grid -->
+  <g opacity="0.06">
+    <line x1="0" y1="0" x2="0" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="40" y1="0" x2="40" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="80" y1="0" x2="80" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="120" y1="0" x2="120" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="160" y1="0" x2="160" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="200" y1="0" x2="200" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="240" y1="0" x2="240" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="280" y1="0" x2="280" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="320" y1="0" x2="320" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="360" y1="0" x2="360" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="400" y1="0" x2="400" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="440" y1="0" x2="440" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="480" y1="0" x2="480" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="520" y1="0" x2="520" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="560" y1="0" x2="560" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="600" y1="0" x2="600" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="640" y1="0" x2="640" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="680" y1="0" x2="680" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="720" y1="0" x2="720" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="760" y1="0" x2="760" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="800" y1="0" x2="800" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="840" y1="0" x2="840" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="880" y1="0" x2="880" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="920" y1="0" x2="920" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="960" y1="0" x2="960" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="1000" y1="0" x2="1000" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="1040" y1="0" x2="1040" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="1080" y1="0" x2="1080" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="1120" y1="0" x2="1120" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="1160" y1="0" x2="1160" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="1200" y1="0" x2="1200" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="1240" y1="0" x2="1240" y2="650" stroke="#94A3B8" stroke-width="1"/><line x1="1280" y1="0" x2="1280" y2="650" stroke="#94A3B8" stroke-width="1"/>
+    <line x1="0" y1="0" x2="1300" y2="0" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="40" x2="1300" y2="40" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="80" x2="1300" y2="80" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="120" x2="1300" y2="120" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="160" x2="1300" y2="160" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="200" x2="1300" y2="200" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="240" x2="1300" y2="240" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="280" x2="1300" y2="280" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="320" x2="1300" y2="320" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="360" x2="1300" y2="360" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="400" x2="1300" y2="400" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="440" x2="1300" y2="440" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="480" x2="1300" y2="480" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="520" x2="1300" y2="520" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="560" x2="1300" y2="560" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="600" x2="1300" y2="600" stroke="#94A3B8" stroke-width="1"/><line x1="0" y1="640" x2="1300" y2="640" stroke="#94A3B8" stroke-width="1"/>
+  </g>
+
+  <!-- Header Banner -->
+  <rect x="30" y="24" width="1240" height="76" rx="12" fill="url(#headerGrad)" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+  
+  <!-- CoreScale Badge -->
+  <rect x="50" y="42" width="130" height="38" rx="8" fill="#F97316" fill-opacity="0.15" stroke="#F97316" stroke-width="1"/>
+  <text x="115" y="66" fill="#F97316" font-size="14" font-weight="800" text-anchor="middle" letter-spacing="1.5">CORESCALE</text>
+  
+  <text x="200" y="56" fill="#F8FAFC" font-size="20" font-weight="700">Agente Autônomo de Atendimento e Triagem</text>
+  <text x="200" y="80" fill="#94A3B8" font-size="13" font-weight="500">Orquestração conversacional com Bedrock Agents, integração com APIs internas e transbordo humano</text>
+
+  <!-- Tag Code Badge -->
+  <rect x="1090" y="44" width="160" height="34" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+  <circle cx="1110" cy="61" r="5" fill="#22C55E"/>
+  <text x="1190" y="67" fill="#E2E8F0" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">REF: AI-AGENT</text>
+
+  <!-- Inner Architectural Elements -->
+
+
+  <!-- Boundary: Canais Omnichannel -->
+  <g>
+    <rect x="40" y="125" width="270" height="480" rx="14" fill="#0F172A" fill-opacity="0.8" stroke="#334155" stroke-width="1.5" />
+    <rect x="40" y="125" width="270" height="38" rx="14" fill="#334155" fill-opacity="0.15"/>
+    <rect x="56" y="135" width="8" height="18" rx="3" fill="#8C4FFF"/>
+    <text x="72" y="148" fill="#F1F5F9" font-size="13" font-weight="700">Canais Omnichannel</text>
+    <text x="294" y="148" fill="#94A3B8" font-size="11" text-anchor="end">Entrada de Clientes</text>
+  </g>
+
+  <!-- Boundary: Amazon Bedrock AgentCore -->
+  <g>
+    <rect x="350" y="125" width="540" height="480" rx="14" fill="#0F172A" fill-opacity="0.8" stroke="#01A88D" stroke-width="1.5" />
+    <rect x="350" y="125" width="540" height="38" rx="14" fill="#01A88D" fill-opacity="0.15"/>
+    <rect x="366" y="135" width="8" height="18" rx="3" fill="#01A88D"/>
+    <text x="382" y="148" fill="#F1F5F9" font-size="13" font-weight="700">Amazon Bedrock AgentCore</text>
+    <text x="874" y="148" fill="#94A3B8" font-size="11" text-anchor="end">Raciocínio & Ferramentas</text>
+  </g>
+
+  <!-- Boundary: Sistemas & Transbordo -->
+  <g>
+    <rect x="930" y="125" width="330" height="480" rx="14" fill="#0F172A" fill-opacity="0.8" stroke="#22C55E" stroke-width="1.5" />
+    <rect x="930" y="125" width="330" height="38" rx="14" fill="#22C55E" fill-opacity="0.15"/>
+    <rect x="946" y="135" width="8" height="18" rx="3" fill="#22C55E"/>
+    <text x="962" y="148" fill="#F1F5F9" font-size="13" font-weight="700">Sistemas & Transbordo</text>
+    <text x="1244" y="148" fill="#94A3B8" font-size="11" text-anchor="end">Ações Conectadas</text>
+  </g>
+
+  <!-- Node: WhatsApp Business -->
+  <g transform="translate(65, 195)">
+    <rect width="220" height="75" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="6" height="75" rx="3" fill="#7AA116"/>
+    
+    <!-- Icon Container -->
+    <rect x="14" y="16" width="42" height="42" rx="8" fill="#7AA116" fill-opacity="0.15" stroke="#7AA116" stroke-width="1.5"/>
+    <text x="35" y="42" fill="#7AA116" font-size="16" font-weight="800" text-anchor="middle">WPP</text>
+    
+    <!-- Text Labels -->
+    <text x="68" y="31" fill="#F8FAFC" font-size="13" font-weight="700">WhatsApp Business</text>
+    <text x="68" y="49" fill="#94A3B8" font-size="11">API oficial de mensagens</text>
+  </g>
+
+  <!-- Node: Webchat Corporativo -->
+  <g transform="translate(65, 315)">
+    <rect width="220" height="75" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="6" height="75" rx="3" fill="#147EBA"/>
+    
+    <!-- Icon Container -->
+    <rect x="14" y="16" width="42" height="42" rx="8" fill="#147EBA" fill-opacity="0.15" stroke="#147EBA" stroke-width="1.5"/>
+    <text x="35" y="42" fill="#147EBA" font-size="16" font-weight="800" text-anchor="middle">WEB</text>
+    
+    <!-- Text Labels -->
+    <text x="68" y="31" fill="#F8FAFC" font-size="13" font-weight="700">Webchat Corporativo</text>
+    <text x="68" y="49" fill="#94A3B8" font-size="11">Widget responsivo no site</text>
+  </g>
+
+  <!-- Node: API Gateway -->
+  <g transform="translate(65, 435)">
+    <rect width="220" height="75" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="6" height="75" rx="3" fill="#ED7100"/>
+    
+    <!-- Icon Container -->
+    <rect x="14" y="16" width="42" height="42" rx="8" fill="#ED7100" fill-opacity="0.15" stroke="#ED7100" stroke-width="1.5"/>
+    <text x="35" y="42" fill="#ED7100" font-size="16" font-weight="800" text-anchor="middle">API</text>
+    
+    <!-- Text Labels -->
+    <text x="68" y="31" fill="#F8FAFC" font-size="13" font-weight="700">API Gateway</text>
+    <text x="68" y="49" fill="#94A3B8" font-size="11">Webhook seguro com rate-limit</text>
+  </g>
+
+  <!-- Node: Bedrock Agent Router -->
+  <g transform="translate(375, 175)">
+    <rect width="490" height="75" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="6" height="75" rx="3" fill="#01A88D"/>
+    
+    <!-- Icon Container -->
+    <rect x="14" y="16" width="42" height="42" rx="8" fill="#01A88D" fill-opacity="0.15" stroke="#01A88D" stroke-width="1.5"/>
+    <text x="35" y="42" fill="#01A88D" font-size="16" font-weight="800" text-anchor="middle">AGT</text>
+    
+    <!-- Text Labels -->
+    <text x="68" y="31" fill="#F8FAFC" font-size="13" font-weight="700">Bedrock Agent Router</text>
+    <text x="68" y="49" fill="#94A3B8" font-size="11">Orquestração ReAct e intenções</text>
+  </g>
+
+  <!-- Node: Knowledge Base Integrada -->
+  <g transform="translate(375, 275)">
+    <rect width="490" height="75" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="6" height="75" rx="3" fill="#01A88D"/>
+    
+    <!-- Icon Container -->
+    <rect x="14" y="16" width="42" height="42" rx="8" fill="#01A88D" fill-opacity="0.15" stroke="#01A88D" stroke-width="1.5"/>
+    <text x="35" y="42" fill="#01A88D" font-size="16" font-weight="800" text-anchor="middle">KB</text>
+    
+    <!-- Text Labels -->
+    <text x="68" y="31" fill="#F8FAFC" font-size="13" font-weight="700">Knowledge Base Integrada</text>
+    <text x="68" y="49" fill="#94A3B8" font-size="11">Perguntas frequentes e catálogo de produtos</text>
+  </g>
+
+  <!-- Node: Action Groups (Lambda) -->
+  <g transform="translate(375, 375)">
+    <rect width="490" height="75" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="6" height="75" rx="3" fill="#ED7100"/>
+    
+    <!-- Icon Container -->
+    <rect x="14" y="16" width="42" height="42" rx="8" fill="#ED7100" fill-opacity="0.15" stroke="#ED7100" stroke-width="1.5"/>
+    <text x="35" y="42" fill="#ED7100" font-size="16" font-weight="800" text-anchor="middle">ACT</text>
+    
+    <!-- Text Labels -->
+    <text x="68" y="31" fill="#F8FAFC" font-size="13" font-weight="700">Action Groups (Lambda)</text>
+    <text x="68" y="49" fill="#94A3B8" font-size="11">Chamadas para APIs de negócio</text>
+  </g>
+
+  <!-- Node: Amazon DynamoDB -->
+  <g transform="translate(375, 475)">
+    <rect width="490" height="75" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="6" height="75" rx="3" fill="#8C4FFF"/>
+    
+    <!-- Icon Container -->
+    <rect x="14" y="16" width="42" height="42" rx="8" fill="#8C4FFF" fill-opacity="0.15" stroke="#8C4FFF" stroke-width="1.5"/>
+    <text x="35" y="42" fill="#8C4FFF" font-size="16" font-weight="800" text-anchor="middle">DDB</text>
+    
+    <!-- Text Labels -->
+    <text x="68" y="31" fill="#F8FAFC" font-size="13" font-weight="700">Amazon DynamoDB</text>
+    <text x="68" y="49" fill="#94A3B8" font-size="11">Memória de contexto e histórico de sessão</text>
+  </g>
+
+  <!-- Node: APIs de Negócio -->
+  <g transform="translate(955, 195)">
+    <rect width="280" height="80" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="6" height="80" rx="3" fill="#7AA116"/>
+    
+    <!-- Icon Container -->
+    <rect x="14" y="19" width="42" height="42" rx="8" fill="#7AA116" fill-opacity="0.15" stroke="#7AA116" stroke-width="1.5"/>
+    <text x="35" y="45" fill="#7AA116" font-size="16" font-weight="800" text-anchor="middle">API</text>
+    
+    <!-- Text Labels -->
+    <text x="68" y="34" fill="#F8FAFC" font-size="13" font-weight="700">APIs de Negócio</text>
+    <text x="68" y="52" fill="#94A3B8" font-size="11">ERP, CRM, Status de Pedido, 2ª Via</text>
+  </g>
+
+  <!-- Node: Transbordo Humano -->
+  <g transform="translate(955, 315)">
+    <rect width="280" height="80" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="6" height="80" rx="3" fill="#ED7100"/>
+    
+    <!-- Icon Container -->
+    <rect x="14" y="19" width="42" height="42" rx="8" fill="#ED7100" fill-opacity="0.15" stroke="#ED7100" stroke-width="1.5"/>
+    <text x="35" y="45" fill="#ED7100" font-size="16" font-weight="800" text-anchor="middle">SUP</text>
+    
+    <!-- Text Labels -->
+    <text x="68" y="34" fill="#F8FAFC" font-size="13" font-weight="700">Transbordo Humano</text>
+    <text x="68" y="52" fill="#94A3B8" font-size="11">Fila de atendimento (Zendesk / GLPI)</text>
+  </g>
+
+  <!-- Node: Auditoria CloudWatch -->
+  <g transform="translate(955, 435)">
+    <rect width="280" height="80" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <rect width="6" height="80" rx="3" fill="#147EBA"/>
+    
+    <!-- Icon Container -->
+    <rect x="14" y="19" width="42" height="42" rx="8" fill="#147EBA" fill-opacity="0.15" stroke="#147EBA" stroke-width="1.5"/>
+    <text x="35" y="45" fill="#147EBA" font-size="16" font-weight="800" text-anchor="middle">LOG</text>
+    
+    <!-- Text Labels -->
+    <text x="68" y="34" fill="#F8FAFC" font-size="13" font-weight="700">Auditoria CloudWatch</text>
+    <text x="68" y="52" fill="#94A3B8" font-size="11">Métricas de FRT, tokens e conversões</text>
+  </g>
+
+  <path d="M 285 232 L 375 212" fill="none" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)" stroke-linecap="round"/>
+
+  <rect x="270.0" y="211.0" width="120" height="20" rx="4" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
+  <text x="330.0" y="225.0" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">Mensagem</text>
+
+  <path d="M 285 352 L 375 225" fill="none" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)" stroke-linecap="round"/>
+
+  <rect x="270.0" y="277.5" width="120" height="20" rx="4" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
+  <text x="330.0" y="291.5" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">Chat</text>
+
+  <path d="M 285 472 L 375 235" fill="none" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)" stroke-linecap="round"/>
+
+  <rect x="270.0" y="342.5" width="120" height="20" rx="4" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
+  <text x="330.0" y="356.5" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">Webhook</text>
+
+  <path d="M 620 250 L 620 275" fill="none" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)" stroke-linecap="round"/>
+
+  <rect x="560.0" y="251.5" width="120" height="20" rx="4" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
+  <text x="620.0" y="265.5" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">Consulta RAG</text>
+
+  <path d="M 620 350 L 620 375" fill="none" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)" stroke-linecap="round"/>
+
+  <rect x="560.0" y="351.5" width="120" height="20" rx="4" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
+  <text x="620.0" y="365.5" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">Executa Ação</text>
+
+  <path d="M 620 450 L 620 475" fill="none" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)" stroke-linecap="round"/>
+
+  <rect x="560.0" y="451.5" width="120" height="20" rx="4" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
+  <text x="620.0" y="465.5" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">Salva Contexto</text>
+
+  <path d="M 865 412 L 955 235" fill="none" stroke="#22C55E" stroke-width="2" marker-end="url(#arrow-green)" stroke-linecap="round"/>
+
+  <rect x="850.0" y="312.5" width="120" height="20" rx="4" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
+  <text x="910.0" y="326.5" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">Executa API</text>
+
+  <path d="M 865 212 L 955 355" fill="none" stroke="#F97316" stroke-width="2" marker-end="url(#arrow-orange)" stroke-linecap="round"/>
+
+  <rect x="850.0" y="272.5" width="120" height="20" rx="4" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
+  <text x="910.0" y="286.5" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">Handover</text>
+
+  <path d="M 865 512 L 955 475" fill="none" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow)" stroke-linecap="round"/>
+
+  <rect x="850.0" y="482.5" width="120" height="20" rx="4" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
+  <text x="910.0" y="496.5" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">Logs & Métricas</text>
+
+  <!-- Footer Legal / Watermark -->
+  <line x1="30" y1="615" x2="1270" y2="615" stroke="#1E293B" stroke-width="1"/>
+  <text x="40" y="634" fill="#64748B" font-size="11">Arquitetura de Referência Oficial CoreScale • Padrão AWS Well-Architected & Prescriptive Guidance</text>
+  <text x="1260" y="634" fill="#64748B" font-size="11" text-anchor="end">Suporte & Implementação: contato@corescale.com.br</text>
+</svg>

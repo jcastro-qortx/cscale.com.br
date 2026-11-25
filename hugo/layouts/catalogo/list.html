@@ -1,8 +1,6 @@
 {{ define "main" }}
-{{ partial "rd-header.html" . }}
-
-<section id="topo" style="position:relative; overflow:hidden; background:linear-gradient(180deg,#1E2839,#1A2333); border-bottom:1px solid rgba(255,255,255,0.07);">
-  <div style="position:absolute; top:-160px; right:-100px; width:520px; height:520px; background:radial-gradient(circle, rgba(255,153,0,0.1), transparent 64%); pointer-events:none;"></div>
+<section style="background:#0A1322; color:#F4F7FC; position:relative; overflow:hidden; border-bottom:1px solid rgba(255,255,255,0.08);">
+  <div style="position:absolute; top:-160px; right:-120px; width:520px; height:520px; background:radial-gradient(circle, rgba(255,153,0,0.18), transparent 64%); pointer-events:none;"></div>
   <div style="position:absolute; bottom:-180px; left:-120px; width:480px; height:480px; background:radial-gradient(circle, rgba(138,79,190,0.16), transparent 64%); pointer-events:none;"></div>
   
   <div class="rm-pad" style="position:relative; max-width:1220px; margin:0 auto; padding:clamp(52px,6vw,84px) 28px clamp(48px,6vw,72px);">
@@ -13,7 +11,7 @@
       Catálogo de Ofertas CoreScale
     </h1>
     <p style="margin:18px 0 0; font-size:clamp(16px,1.3vw,19px); line-height:1.6; color:rgba(233,237,245,0.68); max-width:720px;">
-      Projetos de escopo fechado, cronograma previsível e indicadores auditáveis. Sem consultoria abstrata: da situação de partida à remediação na conta AWS do cliente.
+      Projetos de escopo fechado, cronograma previsível e indicadores auditáveis. Sem consultoria abstrata: da situação de partida à remediação na conta AWS do cliente com arquitetura de referência oficial.
     </p>
 
     <!-- Barra de Filtros -->
@@ -66,6 +64,30 @@
             <div style="font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; font-weight:700; color:#6D2077; letter-spacing:0.06em;">Ambiente de partida</div>
             <div style="margin-top:4px; font-size:13px; line-height:1.45; color:#3F4753;">{{ .partida }}</div>
           </div>
+
+          {{ if .diagrama_svg }}
+          <!-- Arquitetura de Referência Preview -->
+          <div style="margin-top:18px; border:1px solid #E2E8F0; border-radius:12px; overflow:hidden; background:#0F172A;">
+            <div style="padding:8px 12px; background:#1E293B; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #334155;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:700; color:#38BDF8; text-transform:uppercase; letter-spacing:0.05em; display:inline-flex; align-items:center; gap:6px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                Arquitetura AWS
+              </span>
+              <a href="{{ .diagrama_drawio }}" download style="font-family:'JetBrains Mono',monospace; font-size:10px; color:#94A3B8; text-decoration:none; display:inline-flex; align-items:center; gap:4px;" title="Baixar .drawio editável">
+                .drawio ↓
+              </a>
+            </div>
+            <div style="position:relative; cursor:pointer;" onclick="openDiagramModal('{{ .diagrama_svg }}', '{{ .titulo }}', '{{ .diagrama_drawio }}')">
+              <img src="{{ .diagrama_svg }}" alt="Arquitetura de Referência {{ .titulo }}" style="width:100%; height:130px; object-fit:cover; object-position:top; display:block; opacity:0.9; transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'" loading="lazy">
+              <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(15,23,42,0.95), transparent 60%); display:flex; align-items:flex-end; justify-content:center; padding-bottom:8px;">
+                <span style="font-size:11px; font-weight:600; color:#F8FAFC; background:rgba(30,41,59,0.85); padding:3px 10px; border-radius:6px; border:1px solid #475569; display:inline-flex; align-items:center; gap:6px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                  Ver Diagrama Completo
+                </span>
+              </div>
+            </div>
+          </div>
+          {{ end }}
 
           <!-- Entregáveis em destaque -->
           <div style="margin-top:20px;">
@@ -130,7 +152,39 @@
   </div>
 </section>
 
-<!-- Script de Filtragem -->
+<!-- Modal de Diagrama de Arquitetura -->
+<div id="diagram-modal" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(10,19,34,0.88); backdrop-filter:blur(8px); align-items:center; justify-content:center; padding:20px;" onclick="closeDiagramModal(event)">
+  <div style="background:#0F172A; border:1px solid #334155; border-radius:16px; max-width:1100px; width:100%; max-height:92vh; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 25px 50px -12px rgba(0,0,0,0.5);" onclick="event.stopPropagation()">
+    <!-- Header do Modal -->
+    <div style="padding:16px 20px; background:#1E293B; border-bottom:1px solid #334155; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:#38BDF8; letter-spacing:0.06em; text-transform:uppercase;">
+          Arquitetura de Referência AWS Oficial
+        </div>
+        <div id="modal-title" style="font-size:16px; font-weight:700; color:#F8FAFC; margin-top:2px;">
+          Visualizador de Arquitetura
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <a id="modal-svg-link" href="#" target="_blank" style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; color:#F8FAFC; background:#334155; padding:6px 14px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+          Abrir SVG
+        </a>
+        <a id="modal-drawio-link" href="#" download style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:600; color:#0A1322; background:#FF9900; padding:6px 14px; border-radius:8px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+          Baixar .drawio
+        </a>
+        <button type="button" onclick="closeDiagramModal()" style="background:transparent; border:none; color:#94A3B8; font-size:22px; cursor:pointer; padding:4px 8px; line-height:1;" aria-label="Fechar modal">
+          &times;
+        </button>
+      </div>
+    </div>
+    <!-- Corpo com Imagem SVG -->
+    <div style="padding:20px; overflow:auto; display:flex; align-items:center; justify-content:center; background:#0B0F19;">
+      <img id="modal-img" src="" alt="Arquitetura de Referência" style="max-width:100%; height:auto; border-radius:10px; box-shadow:0 10px 25px -5px rgba(0,0,0,0.5);">
+    </div>
+  </div>
+</div>
+
+<!-- Script de Filtragem e Modal -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var filterButtons = document.querySelectorAll('.cat-filter-btn');
@@ -160,7 +214,36 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+
+  // Fecha modal com Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeDiagramModal();
+    }
+  });
 });
+
+function openDiagramModal(svgUrl, title, drawioUrl) {
+  var modal = document.getElementById('diagram-modal');
+  var img = document.getElementById('modal-img');
+  var titleEl = document.getElementById('modal-title');
+  var svgLink = document.getElementById('modal-svg-link');
+  var drawioLink = document.getElementById('modal-drawio-link');
+
+  img.src = svgUrl;
+  titleEl.textContent = title;
+  svgLink.href = svgUrl;
+  drawioLink.href = drawioUrl;
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDiagramModal(event) {
+  var modal = document.getElementById('diagram-modal');
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
 </script>
 
 {{ partial "rd-cta.html" . }}

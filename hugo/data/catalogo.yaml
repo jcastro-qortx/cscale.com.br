@@ -1,188 +1,230 @@
 categorias:
-  - id: "todas"
-    nome: "Todas as ofertas"
-  - id: "seguranca"
-    nome: "Segurança & Conformidade"
-  - id: "arquitetura"
-    nome: "Arquitetura & Resiliência"
-  - id: "ia"
-    nome: "IA Aplicada na AWS"
-
+- id: todas
+  nome: Todas as ofertas
+- id: seguranca
+  nome: Segurança & Conformidade
+- id: arquitetura
+  nome: Arquitetura & Resiliência
+- id: ia
+  nome: IA Aplicada na AWS
 ofertas:
-  - id: "SEC-ASSESS"
-    categoria_id: "seguranca"
-    categoria_nome: "Segurança & Conformidade"
-    titulo: "Security Assessment & Auditoria de Postura AWS"
-    duracao: "1 a 2 semanas"
-    formato: "Escopo Fechado (One-time)"
-    publico: "CTO, CISO, Tech Lead ou Diretor de Operações"
-    resumo: "Auditoria técnica e normativa de segurança na AWS para identificar vulnerabilidades críticas, chaves expostas, permissões excessivas e gaps regulatórios (LGPD / CIS Benchmark)."
-    partida: "Conta AWS em produção sem auditoria recente, preparação para auditoria externa/investimento ou receio de vazamento de dados."
-    fases:
-      - nome: "Coleta e Varredura (D+1 a D+3)"
-        descricao: "Ativação de AWS Security Hub (CIS Foundations v3.0 e Best Practices), Amazon GuardDuty e IAM Access Analyzer."
-      - nome: "Análise de Riscos Críticos (D+4 a D+7)"
-        descricao: "Mapeamento de portas abertas (22, 3389, 5432), buckets S3 públicos, snapshots órfãos e auditoria de trilhas CloudTrail/VPC Flow Logs."
-      - nome: "Plano de Remediação & Quick Wins (D+8 a D+10)"
-        descricao: "Workshop executivo com matriz de severidade e aplicação imediata de quick wins para fechar brechas urgentes."
-    entregaveis:
-      - "Relatório Executivo de Postura e Conformidade com Score CIS"
-      - "Matriz Técnica de Riscos com priorização e plano de ação passo a passo"
-      - "Quick wins de segurança aplicados diretamente no ambiente"
-      - "Proposta de Sustentação de Segurança Contínua (SEC-MNG)"
-    indicadores:
-      - metrica: "Score de conformidade CIS Benchmark"
-        como_medimos: "Score inicial vs remediado no AWS Security Hub"
-        impacto: "Elevação do índice de postura de segurança acima de 85%"
-      - metrica: "Vulnerabilidades e portas críticas expostas"
-        como_medimos: "Varredura de Security Groups e IAM Access Analyzer"
-        impacto: "Eliminação a zero de credenciais sem MFA e acessos públicos indevidos"
-    whatsapp_texto: "Olá! Quero agendar um alinhamento técnico para o Security Assessment AWS (SEC-ASSESS)."
-
-  - id: "WAR-EXPRESS"
-    categoria_id: "arquitetura"
-    categoria_nome: "Arquitetura & Resiliência"
-    titulo: "AWS Well-Architected Review Express"
-    duracao: "5 a 10 dias úteis"
-    formato: "Escopo Fechado (Créditos AWS)"
-    publico: "CTO, Head de Engenharia ou Arquiteto de Soluções"
-    resumo: "Revisão oficial dos 6 pilares da AWS com remediação técnica que destrava até US$ 5.000 em créditos de serviço da própria AWS para o cliente."
-    partida: "Workload em produção com custo crescente, instabilidades intermitentes ou crescimento rápido sem validação de arquitetura."
-    fases:
-      - nome: "Diagnóstico dos 6 Pilares (D+1 a D+3)"
-        descricao: "Entrevistas técnicas cobrindo Segurança, Confiabilidade, Performance, Custos, Operação e Sustentabilidade via AWS Well-Architected Tool."
-      - nome: "Priorização de Riscos (D+4 a D+5)"
-        descricao: "Classificação rigorosa de High Risk Issues (HRIs) e Medium Risk Issues (MRIs) com backlog de engenharia."
-      - nome: "Sprint de Remediação & Submissão AWS (D+6 a D+10)"
-        descricao: "Correção de no mínimo 25% dos HRIs identificados e submissão formal para aprovação e liberação dos créditos AWS."
-    entregaveis:
-      - "Relatório Oficial WAR emitido no console da AWS"
-      - "Backlog técnico de remediação priorizado para a equipe interna"
-      - "Comprovação de remediação de HRIs submetida à AWS"
-      - "Atesto de concessão de créditos de serviço AWS (até US$ 5.000)"
-    indicadores:
-      - metrica: "High Risk Issues (HRIs) eliminados"
-        como_medimos: "Validação na AWS Well-Architected Tool"
-        impacto: "Redução de pelo menos 25% dos riscos críticos da carga de trabalho"
-      - metrica: "Incentivo financeiro destravado"
-        como_medimos: "Créditos creditados na conta AWS do cliente"
-        impacto: "Compensação de até US$ 5.000 na fatura AWS"
-    whatsapp_texto: "Olá! Tenho interesse no AWS Well-Architected Review Express (WAR-EXPRESS) e nos créditos AWS."
-
-  - id: "AI-ASSESS"
-    categoria_id: "ia"
-    categoria_nome: "IA Aplicada na AWS"
-    titulo: "AI Readiness Assessment (Diagnóstico e Viabilidade)"
-    duracao: "2 semanas"
-    formato: "Escopo Fechado (Consultoria Técnica)"
-    publico: "CEO, CTO, CDO ou Diretoria de Inovação"
-    resumo: "Mapeamento pragmático de processos com ROI real em IA, auditoria de prontidão dos dados corporativos, governança de Shadow AI e modelagem de custos de tokens na AWS."
-    partida: "Desejo da liderança em adotar IA, mas sem clareza de quais casos têm ROI tangível, como proteger os dados (LGPD) ou quanto custará a infraestrutura."
-    fases:
-      - nome: "Semana 1: Imersão e Inventário de Dados"
-        descricao: "Mapeamento de 3 a 5 casos candidatos, inventário de fontes documentais, classificação de dados sensíveis e diagnóstico de Shadow AI."
-      - nome: "Semana 2: Matriz Valor/Esforço e PRD do Piloto"
-        descricao: "Modelagem de TCO e tokens no Amazon Bedrock, definição do critério de sucesso do Caso #1 e desenho da arquitetura do piloto."
-    entregaveis:
-      - "Dossiê Executivo de Viabilidade e Governança de IA"
-      - "Matriz de Priorização: Esforço de Engenharia vs Impacto Financeiro"
-      - "Modelagem de custos e consumo de tokens para o caso prioritário"
-      - "Especificação Técnica (PRD) com critérios de sucesso para a PoC"
-    indicadores:
-      - metrica: "Casos de uso qualificados com meta escrita"
-        como_medimos: "Fichas técnicas assinadas com donos de processos"
-        impacto: "Transição de ideias genéricas para 3 casos comparáveis com meta de ROI"
-      - metrica: "Previsibilidade de custos e teto de gastos"
-        como_medimos: "Planilha de consumo de tokens com cenários e limites"
-        impacto: "Adoção de IA com teto orçamentário estabelecido, sem surpresas na fatura"
-    whatsapp_texto: "Olá! Gostaria de agendar o AI Readiness Assessment (AI-ASSESS) para avaliar casos de IA."
-
-  - id: "AI-RAG"
-    categoria_id: "ia"
-    categoria_nome: "IA Aplicada na AWS"
-    titulo: "Assistente de Conhecimento Corporativo (Enterprise RAG)"
-    duracao: "2 a 3 semanas"
-    formato: "Escopo Fechado (Implementação na Conta AWS)"
-    publico: "Jurídico, RH, Engenharia, Suporte Técnico ou Compliance"
-    resumo: "Base de conhecimento vetorial na conta AWS do cliente usando Amazon Bedrock Knowledge Bases e Guardrails, garantindo busca sem alucinações e com citação exata de fonte."
-    partida: "Equipes perdem horas procurando respostas em PDFs extensos, manuais, procedimentos, bases do SharePoint ou código legado."
-    fases:
-      - nome: "Semana 1: Infraestrutura e Base Vetorial"
-        descricao: "Provisionamento na conta AWS do cliente com OpenSearch Serverless ou Aurora pgvector e conectores para S3/SharePoint."
-      - nome: "Semana 2: Modelos, Guardrails e Ingestão"
-        descricao: "Configuração de Claude 3.5 Sonnet / Haiku no Amazon Bedrock, chunking e Bedrock Guardrails anti-alucinação e LGPD."
-      - nome: "Semana 3: Interface e Validação Operacional"
-        descricao: "Entrega de interface de chat segura, citação exata de página e fonte, homologação com especialistas e monitoramento de tokens."
-    entregaveis:
-      - "Aplicação RAG funcional hospedada 100% na conta AWS do cliente"
-      - "Pipeline automático de sincronização de documentos"
-      - "Guardrails de segurança e prevenção de vazamento de dados configurados"
-      - "Painel de auditoria e consumo de tokens no CloudWatch"
-    indicadores:
-      - metrica: "Acurácia de respostas com fonte citada"
-        como_medimos: "Auditoria comparativa com especialistas de negócio"
-        impacto: "Mais de 90% de acerto com link direto para o trecho do documento"
-      - metrica: "Tempo de busca de informação interna"
-        como_medimos: "Tempo médio de resposta vs processo manual de consulta"
-        impacto: "Redução de mais de 70% no tempo gasto pelos colaboradores"
-    whatsapp_texto: "Olá! Tenho interesse no Enterprise RAG no Bedrock (AI-RAG) para nossa base de conhecimento."
-
-  - id: "AI-EXTRACT"
-    categoria_id: "ia"
-    categoria_nome: "IA Aplicada na AWS"
-    titulo: "Extração Inteligente de Documentos para ERP"
-    duracao: "3 a 4 semanas"
-    formato: "Escopo Fechado (Pipeline Serverless)"
-    publico: "Controladoria, Financeiro, Logística e Backoffice"
-    resumo: "Pipeline serverless automatizado na AWS que lê faturas, notas fiscais, contratos e pedidos com Textract e Bedrock, gerando JSON estrito para integração direta com ERP."
-    partida: "Equipe administrativa gasta dias digitando manualmente notas, boletos, faturas ou formulários em sistemas ERP legados."
-    fases:
-      - nome: "Semana 1: Mapeamento de Layouts e Arquitetura"
-        descricao: "Definição do esquema JSON de destino e montagem da arquitetura orientada a eventos (S3 + SQS + Lambda)."
-      - nome: "Semana 2: OCR com Textract e Normalização Bedrock"
-        descricao: "Extração de tabelas e formulários via Amazon Textract e normalização inteligente de campos via Amazon Bedrock."
-      - nome: "Semanas 3 e 4: Integração ERP e Fila de Exceções"
-        descricao: "Webhook/API de envio para ERP, fila de exceção para documentos de baixa confiança e homologação em produção."
-    entregaveis:
-      - "Pipeline serverless em produção na conta AWS do cliente"
-      - "Módulo de leitura com Amazon Textract + Amazon Bedrock"
-      - "API/Webhook de integração formatada para o ERP de destino"
-      - "Fila de exceção e dashboard de monitoramento operacional"
-    indicadores:
-      - metrica: "Tempo de lançamento manual de documentos"
-        como_medimos: "Horas gastas pelo time financeiro/administrativo"
-        impacto: "Redução de mais de 80% do tempo operacional de digitação"
-      - metrica: "Acurácia na extração de campos críticos"
-        como_medimos: "Amostragem de dados extraídos vs conferência manual"
-        impacto: "Acurácia superior a 96% em CNPJ, valores, impostos e vencimentos"
-    whatsapp_texto: "Olá! Gostaria de agendar uma reunião técnica sobre Extração de Documentos com Textract (AI-EXTRACT)."
-
-  - id: "AI-AGENT"
-    categoria_id: "ia"
-    categoria_nome: "IA Aplicada na AWS"
-    titulo: "Agente Autônomo de Atendimento e Triagem"
-    duracao: "3 a 4 semanas"
-    formato: "Escopo Fechado (Agente Conversacional)"
-    publico: "Atendimento ao Cliente, Suporte Técnico, Vendas ou RH"
-    resumo: "Agente inteligente construído no Amazon Bedrock integrado ao WhatsApp ou Webchat, capaz de resolver solicitações consultando APIs internas com transbordo humano seguro."
-    partida: "Equipe de atendimento sobrecarregada com dúvidas frequentes, triagem repetitiva ou solicitações manuais de segunda via e status."
-    fases:
-      - nome: "Semana 1: Mapeamento de Intenções e APIs"
-        descricao: "Desenho da árvore de resolução, regras de transbordo e mapeamento de APIs de consulta (saldo, pedido, ticket)."
-      - nome: "Semana 2: Construção com Bedrock AgentCore"
-        descricao: "Configuração do agente, prompt instrucional de persona, integração com funções AWS Lambda e Guardrails corporativos."
-      - nome: "Semanas 3 e 4: Integração WhatsApp/Web e Go-Live"
-        descricao: "Conexão com a API oficial do WhatsApp ou widget web, homologação de testes e ativação com logs no CloudWatch."
-    entregaveis:
-      - "Agente conversacional em produção no canal selecionado"
-      - "Integrações serverless via AWS Lambda com sistemas internos"
-      - "Mecanismo de transbordo suave para operadores humanos"
-      - "Painel de métricas operacionais e histórico de diálogos"
-    indicadores:
-      - metrica: "Taxa de resolução no primeiro contato sem operador"
-        como_medimos: "Percentual de chamados finalizados pelo agente"
-        impacto: "Mais de 50% das demandas comuns resolvidas instantaneamente 24/7"
-      - metrica: "Tempo médio de primeira resposta (FRT)"
-        como_medimos: "Tempo entre a mensagem do usuário e o retorno do agente"
-        impacto: "Redução do tempo de espera de minutos/horas para menos de 5 segundos"
-    whatsapp_texto: "Olá! Tenho interesse no Agente Autônomo de Atendimento (AI-AGENT) para integrar ao WhatsApp/Web."
+- id: SEC-ASSESS
+  categoria_id: seguranca
+  categoria_nome: Segurança & Conformidade
+  titulo: Security Assessment & Auditoria de Postura AWS
+  duracao: 1 a 2 semanas
+  formato: Escopo Fechado (One-time)
+  publico: CTO, CISO, Tech Lead ou Diretor de Operações
+  resumo: Auditoria técnica e normativa de segurança na AWS para identificar vulnerabilidades
+    críticas, chaves expostas, permissões excessivas e gaps regulatórios (LGPD / CIS
+    Benchmark).
+  partida: Conta AWS em produção sem auditoria recente, preparação para auditoria
+    externa/investimento ou receio de vazamento de dados.
+  fases:
+  - nome: Coleta e Varredura (D+1 a D+3)
+    descricao: Ativação de AWS Security Hub (CIS Foundations v3.0 e Best Practices),
+      Amazon GuardDuty e IAM Access Analyzer.
+  - nome: Análise de Riscos Críticos (D+4 a D+7)
+    descricao: Mapeamento de portas abertas (22, 3389, 5432), buckets S3 públicos,
+      snapshots órfãos e auditoria de trilhas CloudTrail/VPC Flow Logs.
+  - nome: Plano de Remediação & Quick Wins (D+8 a D+10)
+    descricao: Workshop executivo com matriz de severidade e aplicação imediata de
+      quick wins para fechar brechas urgentes.
+  entregaveis:
+  - Relatório Executivo de Postura e Conformidade com Score CIS
+  - Matriz Técnica de Riscos com priorização e plano de ação passo a passo
+  - Quick wins de segurança aplicados diretamente no ambiente
+  - Proposta de Sustentação de Segurança Contínua (SEC-MNG)
+  indicadores:
+  - metrica: Score de conformidade CIS Benchmark
+    como_medimos: Score inicial vs remediado no AWS Security Hub
+    impacto: Elevação do índice de postura de segurança acima de 85%
+  - metrica: Vulnerabilidades e portas críticas expostas
+    como_medimos: Varredura de Security Groups e IAM Access Analyzer
+    impacto: Eliminação a zero de credenciais sem MFA e acessos públicos indevidos
+  whatsapp_texto: Olá! Quero agendar um alinhamento técnico para o Security Assessment
+    AWS (SEC-ASSESS).
+  diagrama_svg: /diagrams/sec-assess-architecture.svg
+  diagrama_drawio: /diagrams/sec-assess-architecture.drawio
+- id: WAR-EXPRESS
+  categoria_id: arquitetura
+  categoria_nome: Arquitetura & Resiliência
+  titulo: AWS Well-Architected Review Express
+  duracao: 5 a 10 dias úteis
+  formato: Escopo Fechado (Créditos AWS)
+  publico: CTO, Head de Engenharia ou Arquiteto de Soluções
+  resumo: Revisão oficial dos 6 pilares da AWS com remediação técnica que destrava
+    até US$ 5.000 em créditos de serviço da própria AWS para o cliente.
+  partida: Workload em produção com custo crescente, instabilidades intermitentes
+    ou crescimento rápido sem validação de arquitetura.
+  fases:
+  - nome: Diagnóstico dos 6 Pilares (D+1 a D+3)
+    descricao: Entrevistas técnicas cobrindo Segurança, Confiabilidade, Performance,
+      Custos, Operação e Sustentabilidade via AWS Well-Architected Tool.
+  - nome: Priorização de Riscos (D+4 a D+5)
+    descricao: Classificação rigorosa de High Risk Issues (HRIs) e Medium Risk Issues
+      (MRIs) com backlog de engenharia.
+  - nome: Sprint de Remediação & Submissão AWS (D+6 a D+10)
+    descricao: Correção de no mínimo 25% dos HRIs identificados e submissão formal
+      para aprovação e liberação dos créditos AWS.
+  entregaveis:
+  - Relatório Oficial WAR emitido no console da AWS
+  - Backlog técnico de remediação priorizado para a equipe interna
+  - Comprovação de remediação de HRIs submetida à AWS
+  - Atesto de concessão de créditos de serviço AWS (até US$ 5.000)
+  indicadores:
+  - metrica: High Risk Issues (HRIs) eliminados
+    como_medimos: Validação na AWS Well-Architected Tool
+    impacto: Redução de pelo menos 25% dos riscos críticos da carga de trabalho
+  - metrica: Incentivo financeiro destravado
+    como_medimos: Créditos creditados na conta AWS do cliente
+    impacto: Compensação de até US$ 5.000 na fatura AWS
+  whatsapp_texto: Olá! Tenho interesse no AWS Well-Architected Review Express (WAR-EXPRESS)
+    e nos créditos AWS.
+- id: AI-ASSESS
+  categoria_id: ia
+  categoria_nome: IA Aplicada na AWS
+  titulo: AI Readiness Assessment (Diagnóstico e Viabilidade)
+  duracao: 2 semanas
+  formato: Escopo Fechado (Consultoria Técnica)
+  publico: CEO, CTO, CDO ou Diretoria de Inovação
+  resumo: Mapeamento pragmático de processos com ROI real em IA, auditoria de prontidão
+    dos dados corporativos, governança de Shadow AI e modelagem de custos de tokens
+    na AWS.
+  partida: Desejo da liderança em adotar IA, mas sem clareza de quais casos têm ROI
+    tangível, como proteger os dados (LGPD) ou quanto custará a infraestrutura.
+  fases:
+  - nome: 'Semana 1: Imersão e Inventário de Dados'
+    descricao: Mapeamento de 3 a 5 casos candidatos, inventário de fontes documentais,
+      classificação de dados sensíveis e diagnóstico de Shadow AI.
+  - nome: 'Semana 2: Matriz Valor/Esforço e PRD do Piloto'
+    descricao: 'Modelagem de TCO e tokens no Amazon Bedrock, definição do critério
+      de sucesso do Caso #1 e desenho da arquitetura do piloto.'
+  entregaveis:
+  - Dossiê Executivo de Viabilidade e Governança de IA
+  - 'Matriz de Priorização: Esforço de Engenharia vs Impacto Financeiro'
+  - Modelagem de custos e consumo de tokens para o caso prioritário
+  - Especificação Técnica (PRD) com critérios de sucesso para a PoC
+  indicadores:
+  - metrica: Casos de uso qualificados com meta escrita
+    como_medimos: Fichas técnicas assinadas com donos de processos
+    impacto: Transição de ideias genéricas para 3 casos comparáveis com meta de ROI
+  - metrica: Previsibilidade de custos e teto de gastos
+    como_medimos: Planilha de consumo de tokens com cenários e limites
+    impacto: Adoção de IA com teto orçamentário estabelecido, sem surpresas na fatura
+  whatsapp_texto: Olá! Gostaria de agendar o AI Readiness Assessment (AI-ASSESS) para
+    avaliar casos de IA.
+- id: AI-RAG
+  categoria_id: ia
+  categoria_nome: IA Aplicada na AWS
+  titulo: Assistente de Conhecimento Corporativo (Enterprise RAG)
+  duracao: 2 a 3 semanas
+  formato: Escopo Fechado (Implementação na Conta AWS)
+  publico: Jurídico, RH, Engenharia, Suporte Técnico ou Compliance
+  resumo: Base de conhecimento vetorial na conta AWS do cliente usando Amazon Bedrock
+    Knowledge Bases e Guardrails, garantindo busca sem alucinações e com citação exata
+    de fonte.
+  partida: Equipes perdem horas procurando respostas em PDFs extensos, manuais, procedimentos,
+    bases do SharePoint ou código legado.
+  fases:
+  - nome: 'Semana 1: Infraestrutura e Base Vetorial'
+    descricao: Provisionamento na conta AWS do cliente com OpenSearch Serverless ou
+      Aurora pgvector e conectores para S3/SharePoint.
+  - nome: 'Semana 2: Modelos, Guardrails e Ingestão'
+    descricao: Configuração de Claude 3.5 Sonnet / Haiku no Amazon Bedrock, chunking
+      e Bedrock Guardrails anti-alucinação e LGPD.
+  - nome: 'Semana 3: Interface e Validação Operacional'
+    descricao: Entrega de interface de chat segura, citação exata de página e fonte,
+      homologação com especialistas e monitoramento de tokens.
+  entregaveis:
+  - Aplicação RAG funcional hospedada 100% na conta AWS do cliente
+  - Pipeline automático de sincronização de documentos
+  - Guardrails de segurança e prevenção de vazamento de dados configurados
+  - Painel de auditoria e consumo de tokens no CloudWatch
+  indicadores:
+  - metrica: Acurácia de respostas com fonte citada
+    como_medimos: Auditoria comparativa com especialistas de negócio
+    impacto: Mais de 90% de acerto com link direto para o trecho do documento
+  - metrica: Tempo de busca de informação interna
+    como_medimos: Tempo médio de resposta vs processo manual de consulta
+    impacto: Redução de mais de 70% no tempo gasto pelos colaboradores
+  whatsapp_texto: Olá! Tenho interesse no Enterprise RAG no Bedrock (AI-RAG) para
+    nossa base de conhecimento.
+  diagrama_svg: /diagrams/ai-rag-architecture.svg
+  diagrama_drawio: /diagrams/ai-rag-architecture.drawio
+- id: AI-EXTRACT
+  categoria_id: ia
+  categoria_nome: IA Aplicada na AWS
+  titulo: Extração Inteligente de Documentos para ERP
+  duracao: 3 a 4 semanas
+  formato: Escopo Fechado (Pipeline Serverless)
+  publico: Controladoria, Financeiro, Logística e Backoffice
+  resumo: Pipeline serverless automatizado na AWS que lê faturas, notas fiscais, contratos
+    e pedidos com Textract e Bedrock, gerando JSON estrito para integração direta
+    com ERP.
+  partida: Equipe administrativa gasta dias digitando manualmente notas, boletos,
+    faturas ou formulários em sistemas ERP legados.
+  fases:
+  - nome: 'Semana 1: Mapeamento de Layouts e Arquitetura'
+    descricao: Definição do esquema JSON de destino e montagem da arquitetura orientada
+      a eventos (S3 + SQS + Lambda).
+  - nome: 'Semana 2: OCR com Textract e Normalização Bedrock'
+    descricao: Extração de tabelas e formulários via Amazon Textract e normalização
+      inteligente de campos via Amazon Bedrock.
+  - nome: 'Semanas 3 e 4: Integração ERP e Fila de Exceções'
+    descricao: Webhook/API de envio para ERP, fila de exceção para documentos de baixa
+      confiança e homologação em produção.
+  entregaveis:
+  - Pipeline serverless em produção na conta AWS do cliente
+  - Módulo de leitura com Amazon Textract + Amazon Bedrock
+  - API/Webhook de integração formatada para o ERP de destino
+  - Fila de exceção e dashboard de monitoramento operacional
+  indicadores:
+  - metrica: Tempo de lançamento manual de documentos
+    como_medimos: Horas gastas pelo time financeiro/administrativo
+    impacto: Redução de mais de 80% do tempo operacional de digitação
+  - metrica: Acurácia na extração de campos críticos
+    como_medimos: Amostragem de dados extraídos vs conferência manual
+    impacto: Acurácia superior a 96% em CNPJ, valores, impostos e vencimentos
+  whatsapp_texto: Olá! Gostaria de agendar uma reunião técnica sobre Extração de Documentos
+    com Textract (AI-EXTRACT).
+  diagrama_svg: /diagrams/ai-extract-architecture.svg
+  diagrama_drawio: /diagrams/ai-extract-architecture.drawio
+- id: AI-AGENT
+  categoria_id: ia
+  categoria_nome: IA Aplicada na AWS
+  titulo: Agente Autônomo de Atendimento e Triagem
+  duracao: 3 a 4 semanas
+  formato: Escopo Fechado (Agente Conversacional)
+  publico: Atendimento ao Cliente, Suporte Técnico, Vendas ou RH
+  resumo: Agente inteligente construído no Amazon Bedrock integrado ao WhatsApp ou
+    Webchat, capaz de resolver solicitações consultando APIs internas com transbordo
+    humano seguro.
+  partida: Equipe de atendimento sobrecarregada com dúvidas frequentes, triagem repetitiva
+    ou solicitações manuais de segunda via e status.
+  fases:
+  - nome: 'Semana 1: Mapeamento de Intenções e APIs'
+    descricao: Desenho da árvore de resolução, regras de transbordo e mapeamento de
+      APIs de consulta (saldo, pedido, ticket).
+  - nome: 'Semana 2: Construção com Bedrock AgentCore'
+    descricao: Configuração do agente, prompt instrucional de persona, integração
+      com funções AWS Lambda e Guardrails corporativos.
+  - nome: 'Semanas 3 e 4: Integração WhatsApp/Web e Go-Live'
+    descricao: Conexão com a API oficial do WhatsApp ou widget web, homologação de
+      testes e ativação com logs no CloudWatch.
+  entregaveis:
+  - Agente conversacional em produção no canal selecionado
+  - Integrações serverless via AWS Lambda com sistemas internos
+  - Mecanismo de transbordo suave para operadores humanos
+  - Painel de métricas operacionais e histórico de diálogos
+  indicadores:
+  - metrica: Taxa de resolução no primeiro contato sem operador
+    como_medimos: Percentual de chamados finalizados pelo agente
+    impacto: Mais de 50% das demandas comuns resolvidas instantaneamente 24/7
+  - metrica: Tempo médio de primeira resposta (FRT)
+    como_medimos: Tempo entre a mensagem do usuário e o retorno do agente
+    impacto: Redução do tempo de espera de minutos/horas para menos de 5 segundos
+  whatsapp_texto: Olá! Tenho interesse no Agente Autônomo de Atendimento (AI-AGENT)
+    para integrar ao WhatsApp/Web.
+  diagrama_svg: /diagrams/ai-agent-architecture.svg
+  diagrama_drawio: /diagrams/ai-agent-architecture.drawio
