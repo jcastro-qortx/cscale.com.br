@@ -18,6 +18,6 @@
 
 ## 4. Publicação e Deploy Contínuo
 
-- [ ] 4.1 Realizar commit das alterações com mensagem padronizada no repositório `cscale.com.br`.
-- [ ] 4.2 Enviar push para o branch `main` no GitHub e monitorar a execução bem-sucedida do workflow do GitHub Actions (S3 sync e CloudFront invalidation).
-- [ ] 4.3 Validar a página `/catalogo/` respondendo em produção com status HTTP 200 e dados corretos.
+- [x] 4.1 Realizar commit das alterações com mensagem padronizada no repositório `cscale.com.br`.
+- [x] 4.2 Enviar push para o branch `main` no GitHub e monitorar a execução bem-sucedida do workflow do GitHub Actions (S3 sync e CloudFront invalidation).
+- [x] 4.3 Validar a página `/catalogo/` respondendo em produção com status HTTP 200 e dados corretos.
