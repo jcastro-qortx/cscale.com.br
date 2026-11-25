@@ -12,6 +12,7 @@ import base64
 from pathlib import Path
 from xml.etree.ElementTree import Element, SubElement, tostring, ElementTree
 import datetime
+from html import escape
 
 BASE_DIR = Path('/home/jcastro/hermes-data/projects/cscale.com.br/cscale.com.br')
 OUT_DIR = BASE_DIR / 'hugo/static/diagrams'
@@ -80,12 +81,12 @@ def create_svg(title, subtitle, code, width, height, elements_fn):
   <rect x="50" y="42" width="130" height="38" rx="8" fill="#F97316" fill-opacity="0.15" stroke="#F97316" stroke-width="1"/>
   <text x="115" y="66" fill="#F97316" font-size="14" font-weight="800" text-anchor="middle" letter-spacing="1.5">CORESCALE</text>
   
-  <text x="200" y="56" fill="#F8FAFC" font-size="20" font-weight="700">{title}</text>
-  <text x="200" y="80" fill="#94A3B8" font-size="13" font-weight="500">{subtitle}</text>
+  <text x="200" y="56" fill="#F8FAFC" font-size="20" font-weight="700">{escape(title)}</text>
+  <text x="200" y="80" fill="#94A3B8" font-size="13" font-weight="500">{escape(subtitle)}</text>
 
   <rect x="{width - 220}" y="44" width="170" height="34" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1"/>
   <circle cx="{width - 200}" cy="61" r="5" fill="#22C55E"/>
-  <text x="{width - 115}" y="67" fill="#E2E8F0" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">REF: {code}</text>
+  <text x="{width - 115}" y="67" fill="#E2E8F0" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">REF: {escape(code)}</text>
 
   <!-- Content Elements -->
 ''')
@@ -106,8 +107,8 @@ def svg_box(svg, x, y, w, h, title, subtitle="", stroke="#334155", badge_color="
     <rect x="{x}" y="{y}" width="{w}" height="{h}" rx="14" fill="#0F172A" fill-opacity="0.85" stroke="{stroke}" stroke-width="1.5" {dash_attr}/>
     <rect x="{x}" y="{y}" width="{w}" height="38" rx="14" fill="{stroke}" fill-opacity="0.18"/>
     <rect x="{x+16}" y="{y+10}" width="8" height="18" rx="3" fill="{badge_color}"/>
-    <text x="{x+32}" y="{y+23}" fill="#F1F5F9" font-size="13" font-weight="700">{title}</text>
-    {f'<text x="{x+w-16}" y="{y+23}" fill="#94A3B8" font-size="11" text-anchor="end">{subtitle}</text>' if subtitle else ''}
+    <text x="{x+32}" y="{y+23}" fill="#F1F5F9" font-size="13" font-weight="700">{escape(title)}</text>
+    {f'<text x="{x+w-16}" y="{y+23}" fill="#94A3B8" font-size="11" text-anchor="end">{escape(subtitle)}</text>' if subtitle else ''}
   </g>''')
 
 def svg_node(svg, x, y, w, h, label, sublabel, icon_key, color_accent="#F97316"):
@@ -119,8 +120,8 @@ def svg_node(svg, x, y, w, h, label, sublabel, icon_key, color_accent="#F97316")
     <rect width="{w}" height="{h}" rx="10" fill="#1E293B" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
     <rect width="5" height="{h}" rx="2.5" fill="{color_accent}"/>
     {img_tag}
-    <text x="70" y="{(h-16)//2 + 2}" fill="#F8FAFC" font-size="13" font-weight="700">{label}</text>
-    <text x="70" y="{(h-16)//2 + 20}" fill="#94A3B8" font-size="11">{sublabel}</text>
+    <text x="70" y="{(h-16)//2 + 2}" fill="#F8FAFC" font-size="13" font-weight="700">{escape(label)}</text>
+    <text x="70" y="{(h-16)//2 + 20}" fill="#94A3B8" font-size="11">{escape(sublabel)}</text>
   </g>''')
 
 def svg_arrow(svg, x1, y1, x2, y2, label="", color="#38BDF8", marker="arrow"):
@@ -130,7 +131,7 @@ def svg_arrow(svg, x1, y1, x2, y2, label="", color="#38BDF8", marker="arrow"):
         mx, my = (x1 + x2) / 2, (y1 + y2) / 2
         svg.append(f'''
   <rect x="{mx - 65}" y="{my - 11}" width="130" height="20" rx="4" fill="#0B0F19" stroke="#334155" stroke-width="1"/>
-  <text x="{mx}" y="{my + 3}" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">{label}</text>''')
+  <text x="{mx}" y="{my + 3}" fill="#E2E8F0" font-size="10" font-weight="600" text-anchor="middle">{escape(label)}</text>''')
 
 
 # ==============================================================================
