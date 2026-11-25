@@ -1,0 +1,38 @@
+schema: spec-driven
+
+context: |
+  Purpose: Official CoreScale website (https://corescale.com.br), AWS Advanced Partner focused on SMB and mid-market.
+  Stack: Hugo static site in hugo/, hosted on AWS (S3 + CloudFront) provisioned by Terraform in terraform/; deploy via GitHub Actions and deploy.sh.
+  Language: site content in Brazilian Portuguese; code, commits and docs in English.
+  Workflow: every change references a Backlog.md task (backlog/) and is named task-{id}-{change-slug}.
+
+# Project context (optional)
+# This is shown to AI when creating artifacts.
+# Add your tech stack, conventions, style guides, domain knowledge, etc.
+# Example:
+#   context: |
+#     Tech stack: TypeScript, React, Node.js
+#     We use conventional commits
+#     Domain: e-commerce platform
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always include a "Non-goals" section
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing
