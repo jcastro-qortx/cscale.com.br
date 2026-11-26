@@ -7,9 +7,9 @@
   <!-- ============ HERO CINEMATOGRÁFICO ============ -->
   <section id="topo" class="cine-hero" style="position:relative; overflow:hidden; background:linear-gradient(180deg,#1E2839,#1A2333); border-bottom:1px solid rgba(255,255,255,0.07);">
     <div class="cine-hero-media" aria-hidden="true">
-      <img src="/media/scene-migration.webp" srcset="/media/scene-migration-mobile.webp 1080w, /media/scene-migration.webp 2048w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
-      <!-- Vídeo do hero desativado temporariamente: será regravado a partir da cena do corredor (migração) quando houver créditos no Higgsfield. Basta devolver os atributos data-src-webm/data-src-mp4 para reativar. -->
-      <video data-cine-video poster="/media/scene-migration.webp" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+      <img src="/media/hero-shift-poster.webp" srcset="/media/hero-shift-poster-mobile.webp 1080w, /media/hero-shift-poster.webp 2048w" sizes="100vw" alt="" fetchpriority="high" decoding="async">
+      <!-- Hero video: one continuous take (rack corridor > particles > cloud mesh > growth chart). Plays once on capable desktops; the last frame stays as background. Sources are attached by cinematic.js; no poster attribute because the <img> above already shows frame 0 (avoids a desktop-poster fetch on mobile). -->
+      <video data-cine-video data-src-webm="/media/hero-shift.webm" data-src-mp4="/media/hero-shift.mp4" muted playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
       <div class="cine-hero-grade"></div>
       <canvas class="cine-neural" aria-hidden="true"></canvas>
     </div>
@@ -81,15 +81,15 @@
   <section id="jornada" class="cine-story" aria-label="A jornada CoreScale na AWS">
     <div class="cine-stage">
       <div class="cine-media" aria-hidden="true">
-        <div class="cine-layer" style="background-image:url('/media/scene-migration.webp')"></div>
-        <div class="cine-layer cine-tint-cyan" style="background-image:url('/media/scene-core-end.webp')"></div>
-        <div class="cine-layer cine-tint-warm" style="background-image:url('/media/scene-core.webp')"></div>
+        <div class="cine-layer" style="background-image:url('/media/journey-migration.webp')"></div>
+        <div class="cine-layer cine-tint-cyan" style="background-image:url('/media/journey-cloud.webp')"></div>
+        <div class="cine-layer cine-tint-warm" style="background-image:url('/media/journey-growth.webp')"></div>
         <canvas class="cine-canvas"></canvas>
         <div class="cine-vignette"></div>
         <div class="cine-shade"></div>
       </div>
 
-      <article class="cine-chapter" style="--chbg:url('/media/scene-migration.webp'); --chbg-m:url('/media/scene-migration-mobile.webp')">
+      <article class="cine-chapter" style="--chbg:url('/media/journey-migration.webp'); --chbg-m:url('/media/journey-migration-mobile.webp')">
         <div class="cine-chapter-inner">
           <div class="cine-chapter-kicker">01 · Migração para a AWS</div>
           <h3>De qualquer origem para a AWS, com migração planejada e controlada</h3>
@@ -98,7 +98,7 @@
         </div>
       </article>
 
-      <article class="cine-chapter" style="--chbg:url('/media/scene-core-end.webp'); --chbg-m:url('/media/scene-core-end.webp')">
+      <article class="cine-chapter" style="--chbg:url('/media/journey-cloud.webp'); --chbg-m:url('/media/journey-cloud-mobile.webp')">
         <div class="cine-chapter-inner">
           <div class="cine-chapter-kicker">02 · Operação gerenciada 24/7</div>
           <h3>Sua nuvem operada como uma extensão do seu time</h3>
@@ -107,7 +107,7 @@
         </div>
       </article>
 
-      <article class="cine-chapter" style="--chbg:url('/media/scene-core.webp'); --chbg-m:url('/media/scene-core-mobile.webp')">
+      <article class="cine-chapter" style="--chbg:url('/media/journey-growth.webp'); --chbg-m:url('/media/journey-growth-mobile.webp')">
         <div class="cine-chapter-inner">
           <div class="cine-chapter-kicker">03 · Segurança &amp; resultado</div>
           <h3>Pronto para transformar sua infraestrutura AWS?</h3>

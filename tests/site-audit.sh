@@ -103,6 +103,45 @@ assert_contains "$home" 'src="/aws-logo.png"[^>]*loading="lazy"[^>]*decoding="as
 assert_contains "$home" 'src="/corescale-logo.png"[^>]*width="[0-9]+"[^>]*height="[0-9]+"' "logo sem dimensões intrínsecas"
 assert_not_contains "$home" 'header\.mp4|yas\.mov' "home referencia mídia obsoleta"
 
+# Mídia do hero e da jornada (spec home-hero-media)
+public_dir="$build_dir/public"
+assert_contains "$home" 'data-src-webm="/media/hero-shift\.webm"' "hero sem fonte WebM do vídeo"
+assert_contains "$home" 'data-src-mp4="/media/hero-shift\.mp4"' "hero sem fonte MP4 do vídeo"
+assert_not_contains "$home" 'hero-loop\.|scene-migration|scene-core' "home referencia mídia aposentada"
+
+while IFS= read -r media_path; do
+  assert_file "$public_dir$media_path"
+done < <(grep -oE '/media/[A-Za-z0-9._-]+' "$home" | sort -u)
+
+assert_max_size() {
+  local file="$1"
+  local max_bytes="$2"
+  assert_file "$file"
+  local size
+  size="$(stat -c %s "$file")"
+  (( size <= max_bytes )) || fail "$(basename "$file") com $size bytes excede o orçamento de $max_bytes bytes"
+}
+
+assert_max_size "$public_dir/media/hero-shift.mp4" 3500000
+assert_max_size "$public_dir/media/hero-shift.webm" 2500000
+for still in hero-shift-poster journey-migration journey-cloud journey-growth; do
+  assert_max_size "$public_dir/media/$still.webp" 200000
+  assert_max_size "$public_dir/media/$still-mobile.webp" 100000
+done
+
+if find "$public_dir" -name 'hero-loop.*' -o -name 'One-single-continuous-*' | grep -q .; then
+  fail "build contém mídia aposentada ou o vídeo-fonte"
+fi
+
+if command -v ffprobe >/dev/null 2>&1; then
+  for video in "$public_dir/media/hero-shift.mp4" "$public_dir/media/hero-shift.webm"; do
+    [[ -z "$(ffprobe -v error -select_streams a -show_entries stream=index -of csv=p=0 "$video")" ]] \
+      || fail "$(basename "$video") contém trilha de áudio"
+  done
+else
+  echo "site-audit: ffprobe ausente, verificação de áudio do hero ignorada"
+fi
+
 echo "site-audit: OK"
 
 # Verificação da Landing Page The Next Shift (pós-evento privada)

@@ -37,3 +37,6 @@ generated-diagrams/*.dot
 /index.html
 /index.html.old
 *.backup
+
+# Source media (encode with scripts/encode-hero-media.sh)
+/*.mp4

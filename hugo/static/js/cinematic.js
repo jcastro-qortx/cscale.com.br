@@ -87,6 +87,11 @@
       heroVideo.src = src;
       heroVideo.muted = true;
       heroVideo.setAttribute('playsinline', '');
+      /* o vídeo já traz partículas e malha: atenua o campo neural só quando ele de fato toca */
+      heroVideo.addEventListener('playing', function () {
+        var heroHost = heroVideo.closest('.cine-hero');
+        if (heroHost) { heroHost.classList.add('is-playing-video'); }
+      }, { once: true });
       heroVideo.addEventListener('canplay', function onCanPlay() {
         heroVideo.removeEventListener('canplay', onCanPlay);
         heroVideo.classList.add('is-ready');
