@@ -1,353 +1,821 @@
 {{ define "main" }}
-<div style="font-family:'Manrope',system-ui,sans-serif; background:#0A1322; color:#E9EDF5; overflow-x:hidden; -webkit-font-smoothing:antialiased;">
+<div class="next-shift-page">
+  <style>
+    .next-shift-page {
+      --bg-dark: #0A1322;
+      --bg-card: #111A28;
+      --bg-surface: #172338;
+      --border-subtle: #24324A;
+      --border-focus: #FF9900;
+      --text-main: #F4F7FC;
+      --text-muted: #8E9DB5;
+      --text-soft: #C5D1E2;
+      --accent-orange: #FF9900;
+      --accent-orange-hover: #E68A00;
+      --accent-green: #22C55E;
+      --accent-green-hover: #16A34A;
+      --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-  <!-- TOP BAR / CO-BRANDING -->
-  <header style="position:sticky; top:0; z-index:60; background:rgba(10,19,34,0.88); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.08);">
-    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px; height:74px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
-      <div style="display:flex; align-items:center; gap:18px;">
-        <a href="/" style="display:flex; align-items:center;" aria-label="CoreScale Home">
-          <img src="/corescale-logo.png" alt="CoreScale" width="316" height="81" style="height:26px; width:auto; display:block;">
-        </a>
-        <div style="height:22px; width:1px; background:rgba(255,255,255,0.18);"></div>
-        <div style="display:inline-flex; align-items:center; gap:8px;">
-          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#FF9900; background:rgba(255,153,0,0.1); border:1px solid rgba(255,153,0,0.3); padding:4px 10px; border-radius:6px;">
-            Apoio Oficial The Next Shift
-          </span>
+    .next-shift-page * { box-sizing: border-box; }
+
+    .next-shift-page .bg-grid {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at 50% 15%, black 40%, transparent 85%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .next-shift-page .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    .next-shift-page header {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .next-shift-page .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .next-shift-page .logos {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .next-shift-page .brand-logo {
+      height: 26px;
+      width: auto;
+      display: block;
+    }
+
+    .next-shift-page .header-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--border-subtle);
+    }
+
+    .next-shift-page .vip-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-orange);
+      background: rgba(255, 153, 0, 0.1);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 153, 0, 0.25);
+    }
+
+    .next-shift-page .header-link {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-soft);
+      text-decoration: none;
+      border: 1px solid var(--border-subtle);
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .next-shift-page .header-link:hover {
+      border-color: var(--accent-orange);
+      color: var(--accent-orange);
+    }
+
+    /* Hero */
+    .next-shift-page .hero {
+      padding: 64px 0 56px;
+      text-align: center;
+    }
+
+    .next-shift-page .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      background: rgba(255, 153, 0, 0.08);
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 153, 0, 0.2);
+      margin-bottom: 22px;
+    }
+
+    .next-shift-page .hero-kicker::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--accent-orange);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-orange);
+    }
+
+    .next-shift-page .hero h1 {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #FFFFFF;
+      max-width: 860px;
+      margin: 0 auto 20px;
+    }
+
+    .next-shift-page .hero h1 span {
+      color: var(--accent-orange);
+    }
+
+    .next-shift-page .hero p {
+      font-size: 18px;
+      color: var(--text-soft);
+      max-width: 760px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .next-shift-page .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .next-shift-page .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      background: var(--accent-orange);
+      color: #0A1322;
+      font-weight: 800;
+      font-size: 15px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .next-shift-page .btn-primary:hover {
+      background: var(--accent-orange-hover);
+      transform: translateY(-2px);
+    }
+
+    .next-shift-page .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .next-shift-page .btn-secondary:hover {
+      border-color: var(--accent-green);
+      color: var(--accent-green);
+    }
+
+    /* As Duas Ofertas Principais */
+    .next-shift-page .section-offers {
+      padding: 64px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .next-shift-page .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .next-shift-page .section-kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      margin-bottom: 8px;
+    }
+
+    .next-shift-page .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .next-shift-page .section-desc {
+      font-size: 16px;
+      color: var(--text-soft);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .next-shift-page .offers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .next-shift-page .offer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 38px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .next-shift-page .offer-card:hover {
+      border-color: rgba(255, 153, 0, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .next-shift-page .offer-card.featured {
+      border-color: rgba(255, 153, 0, 0.35);
+      box-shadow: 0 10px 30px rgba(255, 153, 0, 0.05);
+    }
+
+    .next-shift-page .offer-tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-orange);
+      background: rgba(255, 153, 0, 0.08);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .next-shift-page .offer-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .next-shift-page .offer-hook {
+      font-size: 15px;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .next-shift-page .offer-bullets {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .next-shift-page .offer-bullets li {
+      font-size: 14.5px;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .next-shift-page .offer-bullets li svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--accent-orange);
+    }
+
+    .next-shift-page .offer-box {
+      background: #0D1624;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .next-shift-page .offer-box strong {
+      color: #FFFFFF;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .next-shift-page .btn-offer {
+      width: 100%;
+      padding: 13px 20px;
+      background: var(--bg-surface);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 14.5px;
+      text-align: center;
+      text-decoration: none;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .next-shift-page .btn-offer:hover {
+      background: var(--accent-orange);
+      color: #0A1322;
+      border-color: var(--accent-orange);
+    }
+
+    /* Seção de Agendamento Executivo */
+    .next-shift-page .section-booking {
+      padding: 72px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #0E1726;
+    }
+
+    .next-shift-page .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .next-shift-page .booking-info h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .next-shift-page .booking-info p {
+      font-size: 16px;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .next-shift-page .booking-points {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .next-shift-page .booking-points li {
+      font-size: 14px;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .next-shift-page .booking-points li svg {
+      color: var(--accent-orange);
+    }
+
+    .next-shift-page .booking-form-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+    }
+
+    .next-shift-page .form-group {
+      margin-bottom: 16px;
+    }
+
+    .next-shift-page .form-label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .next-shift-page .form-input, .next-shift-page .form-select {
+      width: 100%;
+      padding: 11px 14px;
+      background: #0A1322;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      color: #FFFFFF;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .next-shift-page .form-input:focus, .next-shift-page .form-select:focus {
+      border-color: var(--accent-orange);
+      box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.15);
+    }
+
+    .next-shift-page .form-submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent-orange);
+      color: #0A1322;
+      font-weight: 800;
+      font-size: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s ease, transform 0.1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .next-shift-page .form-submit-btn:hover {
+      background: var(--accent-orange-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Seção de Contato Direto via WhatsApp () */
+    .next-shift-page .section-community {
+      padding: 64px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .next-shift-page .community-box {
+      background: linear-gradient(135deg, #111A28 0%, #17243A 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .next-shift-page .community-text {
+      max-width: 620px;
+    }
+
+    .next-shift-page .community-kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #22C55E;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .next-shift-page .community-kicker::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #22C55E;
+      border-radius: 50%;
+    }
+
+    .next-shift-page .community-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .next-shift-page .community-desc {
+      font-size: 15px;
+      color: var(--text-soft);
+      line-height: 1.55;
+    }
+
+    .next-shift-page .community-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: #22C55E;
+      color: #0A1322;
+      font-weight: 800;
+      font-size: 15px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.2s ease, transform 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .next-shift-page .community-btn:hover {
+      background: #16A34A;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .next-shift-page footer {
+      padding: 40px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .next-shift-page .hero h1 { font-size: 32px; }
+      .next-shift-page .offers-grid { grid-template-columns: 1fr; }
+      .next-shift-page .booking-grid { grid-template-columns: 1fr; }
+      .next-shift-page .community-box { flex-direction: column; align-items: flex-start; }
+      .next-shift-page .community-btn { width: 100%; justify-content: center; }
+    }
+  </style>
+
+  <div class="bg-grid"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logos">
+          <a href="/" style="display:flex; align-items:center;" aria-label="CoreScale Home">
+            <img class="brand-logo" src="/corescale-logo.png" alt="CoreScale" width="316" height="81">
+          </a>
+          <div class="header-divider"></div>
+          <span class="vip-badge">Acesso Exclusivo · The Next Shift</span>
         </div>
-      </div>
-      <div style="display:flex; align-items:center; gap:16px;">
-        <span class="rm-nav" style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:rgba(233,237,245,0.55);">Exame · AWS · Saint Paul · CoreScale</span>
-        <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Participei%20do%20The%20Next%20Shift%20e%20gostaria%20de%20conversar%20diretamente%20com%20um%20especialista%20da%20CoreScale." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; background:#22C55E; color:#0A1322; font-weight:700; font-size:13.5px; padding:10px 18px; border-radius:10px; text-decoration:none;" data-hover="background:#16A34A; transform:translateY(-1px);">
+        <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Participei%20do%20The%20Next%20Shift%20e%20gostaria%20de%20conversar%20diretamente%20com%20um%20especialista%20da%20CoreScale." target="_blank" rel="noopener" class="header-link">
           Falar no WhatsApp
         </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section style="position:relative; overflow:hidden; background:linear-gradient(180deg,#0E1A2D,#0A1322); border-bottom:1px solid rgba(255,255,255,0.08); padding:clamp(56px,7vw,92px) 0 clamp(48px,6vw,76px);">
-    <div style="position:absolute; top:-160px; right:-120px; width:520px; height:520px; background:radial-gradient(circle, rgba(255,153,0,0.18), transparent 64%); pointer-events:none;"></div>
-    <div style="position:absolute; bottom:-180px; left:-120px; width:480px; height:480px; background:radial-gradient(circle, rgba(138,79,190,0.18), transparent 64%); pointer-events:none;"></div>
-
-    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px; position:relative;">
-      
-      <div style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;" class="rm-hero">
-        <div>
-          <!-- Badge -->
-          <div style="display:inline-flex; align-items:center; gap:9px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#38BDF8; border:1px solid rgba(56,189,248,0.35); background:rgba(56,189,248,0.08); padding:7px 14px; border-radius:999px;">
-            <span style="width:7px; height:7px; border-radius:50%; background:#38BDF8;"></span>
-            Pós-Evento Exclusivo · The Next Shift
-          </div>
-
-          <h1 style="margin:22px 0 0; font-size:clamp(36px,4.5vw,58px); line-height:1.06; letter-spacing:-0.035em; font-weight:800; color:#F4F7FC; text-wrap:balance;">
-            Da Visão de IA à <span style="color:#FF9900;">Execução Corporativa</span> na AWS
-          </h1>
-
-          <p style="margin:20px 0 0; font-size:clamp(16px,1.35vw,19px); line-height:1.6; color:rgba(233,237,245,0.72); max-width:580px;">
-            No palco do <strong>The Next Shift</strong>, líderes discutiram como a Inteligência Artificial redefine indústrias e lideranças. O próximo passo é tirar a IA do hype e implantá-la em ambiente corporativo seguro, com governança estrita de dados e fundação de nuvem robusta.
-          </p>
-
-          <div style="margin-top:28px; display:flex; flex-wrap:wrap; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(233,237,245,0.75);">
-            <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:8px 14px; border-radius:8px;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              AWS Advanced Tier Partner
-            </div>
-            <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:8px 14px; border-radius:8px;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Dados Privados (Sem Treino Externo)
-            </div>
-            <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:8px 14px; border-radius:8px;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              Faturamento Local em Reais (BRL)
-            </div>
-          </div>
-        </div>
-
-        <!-- FORM CARD / SESSÃO ESTRATÉGICA -->
-        <div id="sessao-estrategica" style="background:#131E31; border:1px solid rgba(255,153,0,0.32); border-radius:20px; padding:32px 28px; box-shadow:0 32px 64px -24px rgba(0,0,0,0.7); position:relative;">
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
-            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:#FF9900; letter-spacing:0.08em; text-transform:uppercase;">
-              Atendimento Direto
-            </span>
-            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#22C55E; display:inline-flex; align-items:center; gap:5px;">
-              <span style="width:6px; height:6px; border-radius:50%; background:#22C55E;"></span>
-              Especialistas Online
-            </span>
-          </div>
-
-          <h3 style="margin:0; font-size:20px; font-weight:800; color:#F4F7FC; line-height:1.25;">
-            Converse via WhatsApp com o Nosso Time de Especialistas
-          </h3>
-          <p style="margin:8px 0 20px; font-size:13.5px; line-height:1.5; color:rgba(233,237,245,0.65);">
-            Tire dúvidas sobre arquitetura, custos de tokens na AWS e priorização para o seu negócio diretamente com nossos engenheiros.
-          </p>
-
-          <form action="https://wa.me/5511916464113" method="GET" target="_blank" onsubmit="return handleFormSubmit(event)">
-            <div style="display:flex; flex-direction:column; gap:14px;">
-              <div>
-                <label style="display:block; font-size:12px; font-weight:700; color:#E9EDF5; margin-bottom:6px; font-family:'JetBrains Mono',monospace;">Seu Nome Completo</label>
-                <input type="text" id="form-nome" required placeholder="Ex: Roberto Silva" style="width:100%; box-sizing:border-box; background:#0A1322; border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:11px 14px; color:#fff; font-size:14px; outline:none;" onfocus="this.style.borderColor='#22C55E'" onblur="this.style.borderColor='rgba(255,255,255,0.16)'">
-              </div>
-
-              <div>
-                <label style="display:block; font-size:12px; font-weight:700; color:#E9EDF5; margin-bottom:6px; font-family:'JetBrains Mono',monospace;">E-mail Corporativo</label>
-                <input type="email" id="form-email" required placeholder="roberto@suaempresa.com.br" style="width:100%; box-sizing:border-box; background:#0A1322; border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:11px 14px; color:#fff; font-size:14px; outline:none;" onfocus="this.style.borderColor='#22C55E'" onblur="this.style.borderColor='rgba(255,255,255,0.16)'">
-              </div>
-
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                <div>
-                  <label style="display:block; font-size:12px; font-weight:700; color:#E9EDF5; margin-bottom:6px; font-family:'JetBrains Mono',monospace;">Empresa</label>
-                  <input type="text" id="form-empresa" required placeholder="Ex: Grupo Alfa" style="width:100%; box-sizing:border-box; background:#0A1322; border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:11px 14px; color:#fff; font-size:14px; outline:none;" onfocus="this.style.borderColor='#22C55E'" onblur="this.style.borderColor='rgba(255,255,255,0.16)'">
-                </div>
-                <div>
-                  <label style="display:block; font-size:12px; font-weight:700; color:#E9EDF5; margin-bottom:6px; font-family:'JetBrains Mono',monospace;">Cargo</label>
-                  <input type="text" id="form-cargo" required placeholder="Ex: CTO / Diretor" style="width:100%; box-sizing:border-box; background:#0A1322; border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:11px 14px; color:#fff; font-size:14px; outline:none;" onfocus="this.style.borderColor='#22C55E'" onblur="this.style.borderColor='rgba(255,255,255,0.16)'">
-                </div>
-              </div>
-
-              <div>
-                <label style="display:block; font-size:12px; font-weight:700; color:#E9EDF5; margin-bottom:6px; font-family:'JetBrains Mono',monospace;">Assunto Principal</label>
-                <select id="form-trilha" style="width:100%; box-sizing:border-box; background:#0A1322; border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:11px 14px; color:#fff; font-size:13.5px; outline:none;" onfocus="this.style.borderColor='#22C55E'" onblur="this.style.borderColor='rgba(255,255,255,0.16)'">
-                  <option value="Trilha 1: Workshop de Priorização de IA (AI DLC)">Trilha 1: Workshop de Priorização de IA & Piloto Bedrock</option>
-                  <option value="Trilha 2: Fundação de Dados e Migração para IA">Trilha 2: Fundação de Dados e Migração Cloud para IA</option>
-                  <option value="Dúvidas Gerais sobre AWS e IA">Dúvidas Gerais sobre AWS, IA e Parceria</option>
-                </select>
-              </div>
-
-              <button type="submit" style="margin-top:6px; width:100%; display:flex; align-items:center; justify-content:center; gap:9px; background:#22C55E; color:#0A1322; font-weight:800; font-size:15px; padding:15px 20px; border-radius:10px; border:none; cursor:pointer; transition:background .2s, transform .2s;" data-hover="background:#16A34A; transform:translateY(-1px);">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
-                Iniciar Conversa no WhatsApp
-              </button>
-            </div>
-          </form>
-
-          <div style="margin-top:14px; text-align:center; font-size:11.5px; color:rgba(233,237,245,0.48);">
-            Atendimento imediato pelo canal oficial CoreScale no WhatsApp (+55 11 91646-4113)
-          </div>
-        </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-kicker">AWS · Saint Paul · CoreScale</div>
+      <h1>Da Visão de Liderança à <span>Execução Técnica na Nuvem</span></h1>
+      <p>
+        O The Next Shift reuniu líderes para discutir inteligência artificial, governança e novos rumos de mercado. Para os executivos presentes, a CoreScale e a AWS desenharam dois caminhos práticos para tirar a estratégia do slide e levar para a operação.
+      </p>
+      <div class="hero-actions">
+        <a href="#ofertas" class="btn-primary">
+          <span>Explorar as 2 Ofertas Executivas</span>
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+        </a>
+        <a href="#contato-whatsapp" class="btn-secondary">
+          <span>Falar com Especialista via WhatsApp</span>
+        </a>
       </div>
-
     </div>
   </section>
 
-  <!-- AS DUAS OFERTAS CENTRAIS ALINHADAS -->
-  <section style="background:#0F1A2C; padding:clamp(56px,7vw,88px) 0; border-bottom:1px solid rgba(255,255,255,0.06);">
-    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
-      
-      <div style="text-align:center; max-width:760px; margin:0 auto 52px;">
-        <span style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#FF9900;">
-          Estrutura de Aceleração
-        </span>
-        <h2 style="margin:14px 0 0; font-size:clamp(28px,3.8vw,44px); line-height:1.15; font-weight:800; color:#F4F7FC; letter-spacing:-0.03em;">
-          Duas Trilhas Práticas para Implementar após o Evento
-        </h2>
-        <p style="margin:16px 0 0; font-size:16px; line-height:1.6; color:rgba(233,237,245,0.68);">
-          Projetos desenhados para a realidade dos C-Levels presentes no The Next Shift: foco em governança, proteção de dados e resultados tangíveis sem alucinação.
+  <!-- Seção de Ofertas Principais (As Duas Ofertas Alinhadas) -->
+  <section id="ofertas" class="section-offers">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Próximos Passos Imediatos</div>
+        <h2 class="section-title">Duas Frentes para Acelerar sua Organização</h2>
+        <p class="section-desc">
+          Formatos executivos com escopo fechado, sem atrito comercial e focados nas decisões prioritárias para 2027:
         </p>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:28px;">
-        
-        <!-- TRILHA 1: IA -->
-        <div style="background:#142033; border:1px solid rgba(255,153,0,0.3); border-radius:20px; padding:36px 30px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 16px 36px -12px rgba(0,0,0,0.5);">
+      <div class="offers-grid">
+
+        <!-- OFERTA 1: WORKSHOP DE IA / AI DLC -->
+        <div class="offer-card featured">
           <div>
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
-              <span style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#FF9900; background:rgba(255,153,0,0.12); border:1px solid rgba(255,153,0,0.3); padding:5px 12px; border-radius:6px;">
-                Trilha 1 · Inteligência Artificial
-              </span>
-              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(233,237,245,0.6);">
-                2 a 3 semanas
-              </span>
-            </div>
-
-            <h3 style="margin:0; font-size:24px; font-weight:800; color:#F4F7FC; line-height:1.25;">
-              Workshop de Priorização de IA & AI DLC
-            </h3>
-            
-            <p style="margin:14px 0 0; font-size:15px; line-height:1.6; color:rgba(233,237,245,0.72);">
-              Imersão técnica com arquitetos CoreScale e AWS para filtrar o hype, auditar fontes de dados corporativos e construir o piloto certo no Amazon Bedrock.
+            <span class="offer-tag">Oferta 01 · Estratégia &amp; Casos de Uso</span>
+            <h3 class="offer-title">Workshop Executivo de Priorização de IA (AI DLC)</h3>
+            <p class="offer-hook">
+              Uma imersão executiva com especialistas da CoreScale e arquitetura AWS para filtrar o hype, mapear dores reais do seu negócio e construir a matriz de priorização de projetos de inteligência artificial.
             </p>
-
-            <div style="margin-top:24px; padding:18px; background:rgba(10,19,34,0.6); border-radius:12px; border:1px solid rgba(255,255,255,0.08);">
-              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; font-weight:700; color:#38BDF8; letter-spacing:0.06em; margin-bottom:10px;">
-                O que entregamos nesta trilha
-              </div>
-              <ul style="margin:0; padding-left:18px; font-size:13.5px; line-height:1.6; color:rgba(233,237,245,0.85);">
-                <li style="margin-bottom:6px;"><strong>Mapeamento de Casos:</strong> Filtro de 3 a 5 casos de negócio com cálculo de ROI e matriz Impacto vs Esforço.</li>
-                <li style="margin-bottom:6px;"><strong>Diagnóstico de Shadow AI & LGPD:</strong> Políticas para evitar vazamento de propriedade intelectual em IAs públicas.</li>
-                <li style="margin-bottom:6px;"><strong>Arquitetura & TCO no Bedrock:</strong> Dimensionamento de consumo de tokens, latência e modelos (Claude 3.5 Sonnet / Haiku).</li>
-                <li><strong>PRD Executivo do Piloto:</strong> Especificação pronta para homologação interna e liberação de orçamento.</li>
-              </ul>
-            </div>
+            <ul class="offer-bullets">
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span><strong>Mapeamento de Casos:</strong> 3 a 5 oportunidades concretas na sua cadeia de valor.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span><strong>Matriz Esforço x Impacto:</strong> Separação clara entre quick wins e iniciativas estruturantes.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span><strong>Governança &amp; Custos:</strong> Modelagem de consumo de tokens (Amazon Bedrock) e conformidade LGPD.</span>
+              </li>
+            </ul>
           </div>
-
-          <div style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08);">
-            <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Participei%20do%20The%20Next%20Shift%20e%20gostaria%20de%20detalhes%20sobre%20o%20Workshop%20de%20Prioriza%C3%A7%C3%A3o%20de%20IA%20(Trilha%201)." target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:center; gap:8px; background:#FF9900; color:#0A1322; font-weight:800; font-size:14px; padding:13px 20px; border-radius:10px; text-decoration:none;" data-hover="background:#FFAA2B;">
-              Falar sobre Casos de IA no WhatsApp
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div>
+            <div class="offer-box">
+              <strong>Entregável do Workshop:</strong>
+              Executive Roadmap de IA contendo caso piloto selecionado, desenho arquitetural inicial e TCO projetado.
+            </div>
+            <a href="#agendamento" class="btn-offer" onclick="selecionarOferta('Workshop de Priorização de IA (AI DLC)')">
+              <span>Agendar Workshop de IA</span>
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
           </div>
         </div>
 
-        <!-- TRILHA 2: FUNDAÇÃO DE DADOS & MIGRAÇÃO -->
-        <div style="background:#142033; border:1px solid rgba(56,189,248,0.3); border-radius:20px; padding:36px 30px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 16px 36px -12px rgba(0,0,0,0.5);">
+        <!-- OFERTA 2: FUNDAÇÃO DE DADOS & TECNOLOGIA / MIGRAÇÃO -->
+        <div class="offer-card">
           <div>
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
-              <span style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#38BDF8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:5px 12px; border-radius:6px;">
-                Trilha 2 · Fundação & Modernização
-              </span>
-              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(233,237,245,0.6);">
-                Cronograma Estruturado
-              </span>
-            </div>
-
-            <h3 style="margin:0; font-size:24px; font-weight:800; color:#F4F7FC; line-height:1.25;">
-              Fundação de Dados e Migração para IA
-            </h3>
-            
-            <p style="margin:14px 0 0; font-size:15px; line-height:1.6; color:rgba(233,237,245,0.72);">
-              Nenhum modelo de IA gera valor sobre servidores legados e dados isolados. Modernizamos sua infraestrutura com o framing de IA para garantir disponibilidade e segurança.
+            <span class="offer-tag">Oferta 02 · Fundação Técnica &amp; Infraestrutura</span>
+            <h3 class="offer-title">Fundação de Dados &amp; Tecnologia para IA</h3>
+            <p class="offer-hook">
+              Nenhuma empresa consegue escalar inteligência artificial sobre servidores legados, bases fragmentadas ou arquiteturas on-premise sem governança. Aceleramos a modernização e migração para a AWS com foco em habilitar IA.
             </p>
-
-            <div style="margin-top:24px; padding:18px; background:rgba(10,19,34,0.6); border-radius:12px; border:1px solid rgba(255,255,255,0.08);">
-              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; font-weight:700; color:#22C55E; letter-spacing:0.06em; margin-bottom:10px;">
-                O que entregamos nesta trilha
-              </div>
-              <ul style="margin:0; padding-left:18px; font-size:13.5px; line-height:1.6; color:rgba(233,237,245,0.85);">
-                <li style="margin-bottom:6px;"><strong>Landing Zone Pronta para IA:</strong> Isolamento de VPCs, permissões IAM RBAC, KMS e AWS Control Tower.</li>
-                <li style="margin-bottom:6px;"><strong>Modernização & Saída VMware:</strong> Migração de workloads de missão crítica sem parada (AWS MGN/DMS).</li>
-                <li style="margin-bottom:6px;"><strong>Data Lake & Vector Storage:</strong> Organização de repositórios no Amazon S3 e OpenSearch Serverless.</li>
-                <li><strong>FinOps & Faturamento BRL:</strong> Previsibilidade orçamentária de nuvem em moeda local, eliminando IOF e surpresas.</li>
-              </ul>
-            </div>
+            <ul class="offer-bullets">
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span><strong>Diagnóstico de Modernização:</strong> Mapeamento das bases de dados e workloads legadas.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span><strong>Migração sem Imprevistos:</strong> Saída segura de datacenters físicos e VMware com AWS MGN/DMS.</span>
+              </li>
+              <li>
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                <span><strong>Data Foundation:</strong> Estrutura de dados centralizada e segura na sua conta AWS para alimentar os modelos.</span>
+              </li>
+            </ul>
           </div>
-
-          <div style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08);">
-            <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Participei%20do%20The%20Next%20Shift%20e%20gostaria%20de%20detalhes%20sobre%20a%20Funda%C3%A7%C3%A3o%20de%20Dados%20e%20Migra%C3%A7%C3%A3o%20(Trilha%202)." target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:center; gap:8px; background:#38BDF8; color:#0A1322; font-weight:800; font-size:14px; padding:13px 20px; border-radius:10px; text-decoration:none;" data-hover="background:#7DD3FC;">
-              Falar sobre Fundação de Dados no WhatsApp
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div>
+            <div class="offer-box">
+              <strong>Entregável da Fundação:</strong>
+              Plano de ondas de migração, inventário de dependências e blueprint de segurança multi-account.
+            </div>
+            <a href="#agendamento" class="btn-offer" onclick="selecionarOferta('Fundação de Dados e Migração para IA')">
+              <span>Agendar Avaliação de Fundação</span>
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
           </div>
         </div>
 
       </div>
-
     </div>
   </section>
 
-  <!-- SEÇÃO DE CONTATO DIRETO VIA WHATSAPP COM O TIME -->
-  <section style="background:linear-gradient(180deg,#0A1322,#111E33); padding:clamp(56px,7vw,88px) 0; border-bottom:1px solid rgba(255,255,255,0.06);">
-    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
-      
-      <div style="background:radial-gradient(ellipse at top left, rgba(34,197,94,0.12), transparent 70%), #131E31; border:1px solid rgba(34,197,94,0.3); border-radius:24px; padding:clamp(36px,5vw,56px); display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;" class="rm-hero">
-        <div>
-          <div style="display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:#22C55E; background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.3); padding:5px 12px; border-radius:999px; text-transform:uppercase;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
-            Canal Direto Pós-Evento
-          </div>
-
-          <h2 style="margin:20px 0 0; font-size:clamp(26px,3.4vw,40px); font-weight:800; color:#F4F7FC; line-height:1.18; letter-spacing:-0.03em;">
-            Fale Diretamente com o Nosso Time pelo WhatsApp
-          </h2>
-
-          <p style="margin:16px 0 0; font-size:15.5px; line-height:1.6; color:rgba(233,237,245,0.72);">
-            Tem dúvidas sobre como aplicar IA no seu modelo de negócio, custos de infraestrutura ou estratégias de migração para a nuvem AWS? Nosso time de liderança técnica está à disposição para atendimento ágil e sem burocracia.
+  <!-- Seção de Agendamento Executivo Direto -->
+  <section id="agendamento" class="section-booking">
+    <div class="container">
+      <div class="booking-grid">
+        
+        <div class="booking-info">
+          <div class="section-kicker">Alinhamento Executivo</div>
+          <h2>Converse com um Especialista CoreScale &amp; AWS</h2>
+          <p>
+            Como participante do The Next Shift, sua organização tem acesso direto à nossa equipe de arquitetura para desenhar os próximos passos técnicos e orçamentários.
           </p>
-
-          <div style="margin-top:24px; display:flex; flex-direction:column; gap:10px; font-size:14px; color:rgba(233,237,245,0.85);">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <span style="color:#22C55E; font-weight:bold;">✓</span> Respostas rápidas diretamente de arquitetos e especialistas AWS
-            </div>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <span style="color:#22C55E; font-weight:bold;">✓</span> Análise preliminar de viabilidade técnica e arquitetura de dados
-            </div>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <span style="color:#22C55E; font-weight:bold;">✓</span> Alinhamento sob medida para os participantes do The Next Shift
-            </div>
-          </div>
+          <ul class="booking-points">
+            <li>
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>Sessão executiva confidencial de 30 minutos</span>
+            </li>
+            <li>
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>Avaliação técnica por Arquiteto de Soluções AWS Sênior</span>
+            </li>
+            <li>
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+              <span>Sem compromisso financeiro ou exigência de contratação</span>
+            </li>
+          </ul>
         </div>
 
-        <div style="text-align:center; background:#0B1320; border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:32px 24px;">
-          <div style="width:64px; height:64px; border-radius:50%; background:rgba(34,197,94,0.15); border:1px solid rgba(34,197,94,0.3); display:inline-flex; align-items:center; justify-content:center; margin-bottom:18px;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="#22C55E"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
-          </div>
-          <h3 style="margin:0; font-size:18px; font-weight:800; color:#F4F7FC;">
-            Plantão Técnico CoreScale
-          </h3>
-          <p style="margin:8px 0 24px; font-size:13px; color:rgba(233,237,245,0.6);">
-            Envie sua dúvida ou agende um alinhamento individual pelo WhatsApp.
+        <div class="booking-form-box">
+          <form onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label class="form-label" for="nome">Nome Completo</label>
+              <input class="form-input" type="text" id="nome" placeholder="Ex: Rodrigo Mendonça" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">E-mail Corporativo</label>
+              <input class="form-input" type="email" id="email" placeholder="nome@suaempresa.com.br" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="empresa">Empresa &amp; Cargo</label>
+              <input class="form-input" type="text" id="empresa" placeholder="Ex: Grupo Alfa | Diretor de TI" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="oferta_interesse">Oferta de Interesse</label>
+              <select class="form-select" id="oferta_interesse" required>
+                <option value="Workshop de Priorização de IA (AI DLC)">Workshop de Priorização de IA (AI DLC)</option>
+                <option value="Fundação de Dados e Migração para IA">Fundação de Dados e Migração para IA</option>
+                <option value="Diagnóstico Completo de Arquitetura AWS">Diagnóstico Completo de Arquitetura AWS</option>
+              </select>
+            </div>
+
+            <button type="submit" class="form-submit-btn">
+              <span>Falar no WhatsApp com o Time</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Contato Direto via WhatsApp com o Time -->
+  <section id="contato-whatsapp" class="section-community">
+    <div class="container">
+      <div class="community-box">
+        <div class="community-text">
+          <div class="community-kicker">Canal Direto Pós-Evento</div>
+          <h3 class="community-title">Fale Diretamente com o Nosso Time pelo WhatsApp</h3>
+          <p class="community-desc">
+            Dúvidas sobre como aplicar IA no seu modelo de negócio, custos de infraestrutura ou estratégias de migração para a nuvem AWS? Nosso time de liderança técnica está à disposição para atendimento ágil e sem burocracia.
           </p>
-          <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Participei%20do%20The%20Next%20Shift%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20IA%20e%20AWS%20com%20o%20time%20CoreScale." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:9px; background:#22C55E; color:#0A1322; font-weight:800; font-size:14.5px; padding:15px 24px; border-radius:10px; text-decoration:none; width:100%; box-sizing:border-box;" data-hover="background:#16A34A; transform:translateY(-1px);">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
-            Iniciar Conversa no WhatsApp
+        </div>
+        <div>
+          <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Participei%20do%20The%20Next%20Shift%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20IA%20e%20AWS%20com%20o%20time%20CoreScale." target="_blank" rel="noopener" class="community-btn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+            <span>Falar no WhatsApp com o Time</span>
           </a>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- CREDENCIAIS & AUTORIDADE -->
-  <section style="background:#0A1322; padding:clamp(48px,6vw,72px) 0;">
-    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px; text-align:center;">
-      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(233,237,245,0.4);">
-        Por que a CoreScale?
-      </span>
-      <h3 style="margin:12px 0 32px; font-size:clamp(22px,2.8vw,32px); font-weight:800; color:#F4F7FC;">
-        Competência Técnica Comprovada em Nuvem AWS
-      </h3>
-
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:20px;">
-        <div style="background:#111B2C; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:24px 20px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:800; color:#FF9900;">100%</div>
-          <div style="font-weight:700; font-size:14px; color:#F4F7FC; margin-top:4px;">Nuvem AWS</div>
-          <div style="font-size:12.5px; color:rgba(233,237,245,0.55); margin-top:6px;">Parceria Advanced Tier com foco exclusivo no ecossistema AWS.</div>
-        </div>
-        <div style="background:#111B2C; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:24px 20px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:800; color:#38BDF8;">Sem Paradas</div>
-          <div style="font-weight:700; font-size:14px; color:#F4F7FC; margin-top:4px;">Migrações Críticas</div>
-          <div style="font-size:12.5px; color:rgba(233,237,245,0.55); margin-top:6px;">Histórico comprovado em ERPs, VMware e bancos de dados complexos.</div>
-        </div>
-        <div style="background:#111B2C; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:24px 20px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:800; color:#22C55E;">Privacidade</div>
-          <div style="font-weight:700; font-size:14px; color:#F4F7FC; margin-top:4px;">Governança LGPD</div>
-          <div style="font-size:12.5px; color:rgba(233,237,245,0.55); margin-top:6px;">IAs isoladas na VPC do cliente, sem compartilhamento com modelos públicos.</div>
-        </div>
-        <div style="background:#111B2C; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:24px 20px;">
-          <div style="font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:800; color:#A855F7;">Em Reais</div>
-          <div style="font-weight:700; font-size:14px; color:#F4F7FC; margin-top:4px;">Faturamento BRL</div>
-          <div style="font-size:12.5px; color:rgba(233,237,245,0.55); margin-top:6px;">Boleto faturado no Brasil, com impostos retidos na fonte e sem IOF.</div>
-        </div>
-      </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>
+        <strong>CoreScale Tecnologia Ltda.</strong> &middot; AWS Advanced Tier Services Partner<br>
+        Apoiadora Oficial do The Next Shift (Saint Paul &middot; AWS &middot; Exame)
+      </p>
     </div>
-  </section>
+  </footer>
 
-  <!-- FOOTER -->
-  {{ partial "rd-footer.html" . }}
+  <script>
+    function selecionarOferta(nomeOferta) {
+      const select = document.getElementById('oferta_interesse');
+      if (select) {
+        select.value = nomeOferta;
+      }
+    }
 
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const empresa = document.getElementById('empresa').value.trim();
+      const oferta = document.getElementById('oferta_interesse').value;
+
+      const texto = "Olá time CoreScale & AWS!\n\n" +
+                    "Participei do The Next Shift e gostaria de agendar uma conversa sobre:\n" +
+                    "*Oferta:* " + oferta + "\n\n" +
+                    "*Nome:* " + nome + "\n" +
+                    "*E-mail Corporativo:* " + email + "\n" +
+                    "*Empresa / Cargo:* " + empresa + "\n\n" +
+                    "---\nCanal: Landing Page Exclusiva The Next Shift";
+
+      const url = "https://wa.me/5511916464113?text=" + encodeURIComponent(texto);
+      window.open(url, '_blank');
+    }
+  </script>
 </div>
-
-<!-- SCRIPT DE PROCESSAMENTO DO FORMULÁRIO -->
-<script>
-function handleFormSubmit(event) {
-  event.preventDefault();
-  
-  var nome = document.getElementById('form-nome').value.trim();
-  var email = document.getElementById('form-email').value.trim();
-  var empresa = document.getElementById('form-empresa').value.trim();
-  var cargo = document.getElementById('form-cargo').value.trim();
-  var trilha = document.getElementById('form-trilha').value;
-
-  var texto = "Olá! Participei do evento The Next Shift (Exame/AWS) e gostaria de conversar com o time de especialistas da CoreScale.\n\n" +
-              "*Nome:* " + nome + "\n" +
-              "*E-mail:* " + email + "\n" +
-              "*Empresa:* " + empresa + "\n" +
-              "*Cargo:* " + cargo + "\n" +
-              "*Assunto:* " + trilha;
-
-  var url = "https://wa.me/5511916464113?text=" + encodeURIComponent(texto);
-  window.open(url, '_blank');
-  return false;
-}
-</script>
 {{ end }}
