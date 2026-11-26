@@ -53,9 +53,9 @@
 
 
 
-    /* Hero com Efeitos Reduzidos da Home (Orbs, Neural Canvas, Ticker) */
+    /* Hero com Efeitos Reduzidos da Home (Orbs, Neural Canvas) */
     .next-shift-page .hero {
-      padding: 68px 0 0;
+      padding: 68px 0 64px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -91,18 +91,6 @@
       background: radial-gradient(circle, rgba(157, 110, 214, 0.13), transparent 64%);
       pointer-events: none;
       z-index: 0;
-    }
-
-    .next-shift-page .hero-ticker-wrap {
-      margin-top: 56px;
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-      background: rgba(10, 19, 34, 0.78);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      overflow: hidden;
-      position: relative;
-      z-index: 1;
     }
 
     .next-shift-page .hero-kicker {
@@ -567,7 +555,7 @@
     </div>
   </div>
 
-  <!-- Hero Section (Com Efeitos Reduzidos da Home) -->
+  <!-- Hero Section (Com Efeitos Reduzidos da Home e Agendamento Bookings) -->
   <section class="hero">
     <!-- Efeitos de iluminação atmosférica (Glow Orbs) -->
     <div class="hero-glow-amber"></div>
@@ -583,56 +571,18 @@
         O The Next Shift reuniu líderes para discutir inteligência artificial, governança e novos rumos de mercado. Para os executivos presentes, a CoreScale e a AWS desenharam dois caminhos práticos para tirar a estratégia do slide e levar para a operação.
       </p>
       <div class="hero-actions">
-        <a href="#ofertas" class="btn-primary">
-          <span>Explorar as 2 Ofertas Executivas</span>
+        <a href="https://bookings.cloud.microsoft/book/corescalecscalecombr1@cscale.com.br/?ismsaljsauthenabled" target="_blank" rel="noopener" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Agendar Reunião Executiva (30 min)</span>
+        </a>
+        <a href="#ofertas" class="btn-secondary">
+          <span>Explorar as 2 Ofertas</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#contato-whatsapp" class="btn-secondary">
+        <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Participei%20do%20The%20Next%20Shift%20e%20gostaria%20de%20falar%20diretamente%20com%20um%20especialista%20em%20IA%20e%20Nuvem%20AWS." target="_blank" rel="noopener" class="btn-secondary" style="border-color: rgba(34,197,94,0.35); color: #4ade80;">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
-          <span>Plantão Executivo via WhatsApp</span>
+          <span>Falar no WhatsApp</span>
         </a>
-      </div>
-    </div>
-
-    <!-- Ticker de Capacidades & Credenciais AWS da Home (rmMarquee) -->
-    <div class="hero-ticker-wrap">
-      <div class="container" style="padding:13px 24px; display:flex; align-items:center; gap:20px;">
-        <span style="flex:none; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-orange); display:flex; align-items:center; gap:8px;">
-          <span style="width:7px; height:7px; border-radius:50%; background:var(--accent-orange); box-shadow:0 0 8px var(--accent-orange);"></span>
-          Credenciais AWS
-        </span>
-        <div style="position:relative; flex:1; overflow:hidden; -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);">
-          <div style="display:flex; width:max-content; animation:rmMarquee 34s linear infinite;">
-            <div style="display:flex; align-items:center;">
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">AWS Advanced Tier Services Partner</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">Amazon Bedrock &amp; Generative AI</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">Migration Acceleration Program (MAP)</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">Modernização de Infraestrutura &amp; FinOps</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">Governança Well-Architected &amp; Segurança</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">Apoiadora Oficial The Next Shift (Saint Paul &middot; AWS)</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-            </div>
-            <div style="display:flex; align-items:center;" aria-hidden="true">
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">AWS Advanced Tier Services Partner</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">Amazon Bedrock &amp; Generative AI</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">Migration Acceleration Program (MAP)</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">Modernização de Infraestrutura &amp; FinOps</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">Governança Well-Architected &amp; Segurança</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-              <span style="font-size:13.5px; font-weight:600; color:rgba(233,237,245,0.72); white-space:nowrap;">Apoiadora Oficial The Next Shift (Saint Paul &middot; AWS)</span>
-              <span style="display:inline-block; width:4px; height:4px; border-radius:50%; background:rgba(255,153,0,0.5); margin:0 18px;"></span>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -749,6 +699,21 @@
               <span>Sem compromisso financeiro ou exigência de contratação</span>
             </li>
           </ul>
+
+          <!-- Card de Agendamento Online Microsoft Bookings -->
+          <div style="background: rgba(255,153,0,0.08); border: 1px solid rgba(255,153,0,0.28); border-radius: 12px; padding: 22px; margin-top: 28px;">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <strong style="color:#FFFFFF; font-size:15px;">Prefere agendar direto no calendário?</strong>
+            </div>
+            <p style="font-size:13.5px; color:var(--text-soft); margin-bottom:16px; line-height:1.5;">
+              Acesse a agenda da liderança técnica da CoreScale e reserve instantaneamente o melhor dia e horário via Microsoft Bookings.
+            </p>
+            <a href="https://bookings.cloud.microsoft/book/corescalecscalecombr1@cscale.com.br/?ismsaljsauthenabled" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; background:#FF9900; color:#0A1322; font-weight:800; font-size:14px; padding:12px 20px; border-radius:8px; text-decoration:none; transition:all 0.2s ease;">
+              <span>Agendar via Microsoft Bookings</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
 
         <div class="booking-form-box">
@@ -799,9 +764,13 @@
             Dúvidas sobre como aplicar IA no seu modelo de negócio, custos de infraestrutura ou estratégias de migração para a nuvem AWS? Nosso time de liderança técnica está à disposição para atendimento ágil e sem burocracia.
           </p>
         </div>
-        <div>
-          <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Participei%20do%20The%20Next%20Shift%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20IA%20e%20AWS%20com%20o%20time%20CoreScale." target="_blank" rel="noopener" class="community-btn">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+        <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-end;">
+          <a href="https://bookings.cloud.microsoft/book/corescalecscalecombr1@cscale.com.br/?ismsaljsauthenabled" target="_blank" rel="noopener" class="community-btn" style="background:#FF9900; color:#0A1322;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Agendar via Microsoft Bookings</span>
+          </a>
+          <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Participei%20do%20The%20Next%20Shift%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20IA%20e%20AWS%20com%20o%20time%20CoreScale." target="_blank" rel="noopener" class="community-btn" style="background:transparent; color:#4ade80; border:1px solid rgba(34,197,94,0.4);">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
             <span>Falar no WhatsApp com o Time</span>
           </a>
         </div>
