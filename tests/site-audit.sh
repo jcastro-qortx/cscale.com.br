@@ -112,4 +112,4 @@ assert_contains "$next_shift" 'name="robots" content="noindex, nofollow"' "landi
 assert_contains "$next_shift" "The Next Shift" "landing page sem menção ao The Next Shift"
 assert_contains "$next_shift" "Workshop de Priorização de IA" "landing page sem Trilha 1 (IA)"
 assert_contains "$next_shift" "Fundação de Dados e Migração para IA" "landing page sem Trilha 2 (Fundação de Dados)"
-assert_contains "$next_shift" "Comunidade The Next Shift no WhatsApp" "landing page sem chamada para a comunidade WhatsApp"
+assert_contains "$next_shift" "Fale Diretamente com o Nosso Time pelo WhatsApp" "landing page sem chamada para a comunidade WhatsApp"
