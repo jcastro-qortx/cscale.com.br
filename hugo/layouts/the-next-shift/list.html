@@ -1,0 +1,353 @@
+{{ define "main" }}
+<div style="font-family:'Manrope',system-ui,sans-serif; background:#0A1322; color:#E9EDF5; overflow-x:hidden; -webkit-font-smoothing:antialiased;">
+
+  <!-- TOP BAR / CO-BRANDING -->
+  <header style="position:sticky; top:0; z-index:60; background:rgba(10,19,34,0.88); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.08);">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px; height:74px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <div style="display:flex; align-items:center; gap:18px;">
+        <a href="/" style="display:flex; align-items:center;" aria-label="CoreScale Home">
+          <img src="/corescale-logo.png" alt="CoreScale" width="316" height="81" style="height:26px; width:auto; display:block;">
+        </a>
+        <div style="height:22px; width:1px; background:rgba(255,255,255,0.18);"></div>
+        <div style="display:inline-flex; align-items:center; gap:8px;">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#FF9900; background:rgba(255,153,0,0.1); border:1px solid rgba(255,153,0,0.3); padding:4px 10px; border-radius:6px;">
+            Apoio Oficial The Next Shift
+          </span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <span class="rm-nav" style="font-family:'JetBrains Mono',monospace; font-size:11.5px; color:rgba(233,237,245,0.55);">Exame · AWS · Saint Paul · CoreScale</span>
+        <a href="#sessao-estrategica" style="display:inline-flex; align-items:center; gap:8px; background:#FF9900; color:#0A1322; font-weight:700; font-size:13.5px; padding:10px 18px; border-radius:10px; text-decoration:none;" data-hover="background:#FFAA2B; transform:translateY(-1px);">
+          Agendar Sessão
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section style="position:relative; overflow:hidden; background:linear-gradient(180deg,#0E1A2D,#0A1322); border-bottom:1px solid rgba(255,255,255,0.08); padding:clamp(56px,7vw,92px) 0 clamp(48px,6vw,76px);">
+    <div style="position:absolute; top:-160px; right:-120px; width:520px; height:520px; background:radial-gradient(circle, rgba(255,153,0,0.18), transparent 64%); pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-180px; left:-120px; width:480px; height:480px; background:radial-gradient(circle, rgba(138,79,190,0.18), transparent 64%); pointer-events:none;"></div>
+
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px; position:relative;">
+      
+      <div style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:48px; align-items:center;" class="rm-hero">
+        <div>
+          <!-- Badge -->
+          <div style="display:inline-flex; align-items:center; gap:9px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#38BDF8; border:1px solid rgba(56,189,248,0.35); background:rgba(56,189,248,0.08); padding:7px 14px; border-radius:999px;">
+            <span style="width:7px; height:7px; border-radius:50%; background:#38BDF8;"></span>
+            Pós-Evento Exclusivo · The Next Shift
+          </div>
+
+          <h1 style="margin:22px 0 0; font-size:clamp(36px,4.5vw,58px); line-height:1.06; letter-spacing:-0.035em; font-weight:800; color:#F4F7FC; text-wrap:balance;">
+            Da Visão de IA à <span style="color:#FF9900;">Execução Corporativa</span> na AWS
+          </h1>
+
+          <p style="margin:20px 0 0; font-size:clamp(16px,1.35vw,19px); line-height:1.6; color:rgba(233,237,245,0.72); max-width:580px;">
+            No palco do <strong>The Next Shift</strong>, líderes discutiram como a Inteligência Artificial redefine indústrias e lideranças. O próximo passo é tirar a IA do hype e implantá-la em ambiente corporativo seguro, com governança estrita de dados e fundação de nuvem robusta.
+          </p>
+
+          <div style="margin-top:28px; display:flex; flex-wrap:wrap; gap:14px; font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(233,237,245,0.75);">
+            <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:8px 14px; border-radius:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              AWS Advanced Tier Partner
+            </div>
+            <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:8px 14px; border-radius:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Dados Privados (Sem Treino Externo)
+            </div>
+            <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); padding:8px 14px; border-radius:8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Faturamento Local em Reais (BRL)
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM CARD / SESSÃO ESTRATÉGICA -->
+        <div id="sessao-estrategica" style="background:#131E31; border:1px solid rgba(255,153,0,0.32); border-radius:20px; padding:32px 28px; box-shadow:0 32px 64px -24px rgba(0,0,0,0.7); position:relative;">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:#FF9900; letter-spacing:0.08em; text-transform:uppercase;">
+              Exclusivo Participantes
+            </span>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:#22C55E; display:inline-flex; align-items:center; gap:5px;">
+              <span style="width:6px; height:6px; border-radius:50%; background:#22C55E;"></span>
+              Agenda Aberta
+            </span>
+          </div>
+
+          <h3 style="margin:0; font-size:20px; font-weight:800; color:#F4F7FC; line-height:1.25;">
+            Sessão Executiva de 30 Minutos com Arquiteto AWS Sênior
+          </h3>
+          <p style="margin:8px 0 20px; font-size:13.5px; line-height:1.5; color:rgba(233,237,245,0.65);">
+            Diagnóstico direto de maturidade e priorização de arquitetura na AWS para a sua empresa.
+          </p>
+
+          <form action="https://wa.me/5511916464113" method="GET" target="_blank" onsubmit="return handleFormSubmit(event)">
+            <div style="display:flex; flex-direction:column; gap:14px;">
+              <div>
+                <label style="display:block; font-size:12px; font-weight:700; color:#E9EDF5; margin-bottom:6px; font-family:'JetBrains Mono',monospace;">Seu Nome Completo</label>
+                <input type="text" id="form-nome" required placeholder="Ex: Roberto Silva" style="width:100%; box-sizing:border-box; background:#0A1322; border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:11px 14px; color:#fff; font-size:14px; outline:none;" onfocus="this.style.borderColor='#FF9900'" onblur="this.style.borderColor='rgba(255,255,255,0.16)'">
+              </div>
+
+              <div>
+                <label style="display:block; font-size:12px; font-weight:700; color:#E9EDF5; margin-bottom:6px; font-family:'JetBrains Mono',monospace;">E-mail Corporativo</label>
+                <input type="email" id="form-email" required placeholder="roberto@suaempresa.com.br" style="width:100%; box-sizing:border-box; background:#0A1322; border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:11px 14px; color:#fff; font-size:14px; outline:none;" onfocus="this.style.borderColor='#FF9900'" onblur="this.style.borderColor='rgba(255,255,255,0.16)'">
+              </div>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <div>
+                  <label style="display:block; font-size:12px; font-weight:700; color:#E9EDF5; margin-bottom:6px; font-family:'JetBrains Mono',monospace;">Empresa</label>
+                  <input type="text" id="form-empresa" required placeholder="Ex: Grupo Alfa" style="width:100%; box-sizing:border-box; background:#0A1322; border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:11px 14px; color:#fff; font-size:14px; outline:none;" onfocus="this.style.borderColor='#FF9900'" onblur="this.style.borderColor='rgba(255,255,255,0.16)'">
+                </div>
+                <div>
+                  <label style="display:block; font-size:12px; font-weight:700; color:#E9EDF5; margin-bottom:6px; font-family:'JetBrains Mono',monospace;">Cargo</label>
+                  <input type="text" id="form-cargo" required placeholder="Ex: CTO / Diretor" style="width:100%; box-sizing:border-box; background:#0A1322; border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:11px 14px; color:#fff; font-size:14px; outline:none;" onfocus="this.style.borderColor='#FF9900'" onblur="this.style.borderColor='rgba(255,255,255,0.16)'">
+                </div>
+              </div>
+
+              <div>
+                <label style="display:block; font-size:12px; font-weight:700; color:#E9EDF5; margin-bottom:6px; font-family:'JetBrains Mono',monospace;">Prioridade Imediata</label>
+                <select id="form-trilha" style="width:100%; box-sizing:border-box; background:#0A1322; border:1px solid rgba(255,255,255,0.16); border-radius:8px; padding:11px 14px; color:#fff; font-size:13.5px; outline:none;" onfocus="this.style.borderColor='#FF9900'" onblur="this.style.borderColor='rgba(255,255,255,0.16)'">
+                  <option value="Trilha 1: Workshop de Priorização de IA (AI DLC)">Trilha 1: Workshop de Priorização de IA & Piloto Bedrock</option>
+                  <option value="Trilha 2: Fundação de Dados e Migração para IA">Trilha 2: Fundação de Dados e Migração Cloud para IA</option>
+                  <option value="Ambas: Diagnóstico Geral de IA e Infraestrutura">Ambas: Diagnóstico de Maturidade Técnica & Custos</option>
+                </select>
+              </div>
+
+              <button type="submit" style="margin-top:6px; width:100%; display:flex; align-items:center; justify-content:center; gap:8px; background:#FF9900; color:#0A1322; font-weight:800; font-size:15px; padding:15px 20px; border-radius:10px; border:none; cursor:pointer; transition:background .2s, transform .2s;" data-hover="background:#FFAA2B; transform:translateY(-1px);">
+                Confirmar Agendamento de 30 Minutos
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </form>
+
+          <div style="margin-top:14px; text-align:center; font-size:11.5px; color:rgba(233,237,245,0.48);">
+            Atendimento direto com Arquiteto Sênior • Sem compromisso comercial
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AS DUAS OFERTAS CENTRAIS ALINHADAS -->
+  <section style="background:#0F1A2C; padding:clamp(56px,7vw,88px) 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      
+      <div style="text-align:center; max-width:760px; margin:0 auto 52px;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:#FF9900;">
+          Estrutura de Aceleração
+        </span>
+        <h2 style="margin:14px 0 0; font-size:clamp(28px,3.8vw,44px); line-height:1.15; font-weight:800; color:#F4F7FC; letter-spacing:-0.03em;">
+          Duas Trilhas Práticas para Implementar após o Evento
+        </h2>
+        <p style="margin:16px 0 0; font-size:16px; line-height:1.6; color:rgba(233,237,245,0.68);">
+          Projetos desenhados para a realidade dos C-Levels presentes no The Next Shift: foco em governança, proteção de dados e resultados tangíveis sem alucinação.
+        </p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:28px;">
+        
+        <!-- TRILHA 1: IA -->
+        <div style="background:#142033; border:1px solid rgba(255,153,0,0.3); border-radius:20px; padding:36px 30px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 16px 36px -12px rgba(0,0,0,0.5);">
+          <div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#FF9900; background:rgba(255,153,0,0.12); border:1px solid rgba(255,153,0,0.3); padding:5px 12px; border-radius:6px;">
+                Trilha 1 · Inteligência Artificial
+              </span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(233,237,245,0.6);">
+                2 a 3 semanas
+              </span>
+            </div>
+
+            <h3 style="margin:0; font-size:24px; font-weight:800; color:#F4F7FC; line-height:1.25;">
+              Workshop de Priorização de IA & AI DLC
+            </h3>
+            
+            <p style="margin:14px 0 0; font-size:15px; line-height:1.6; color:rgba(233,237,245,0.72);">
+              Imersão técnica com arquitetos CoreScale e AWS para filtrar o hype, auditar fontes de dados corporativos e construir o piloto certo no Amazon Bedrock.
+            </p>
+
+            <div style="margin-top:24px; padding:18px; background:rgba(10,19,34,0.6); border-radius:12px; border:1px solid rgba(255,255,255,0.08);">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; font-weight:700; color:#38BDF8; letter-spacing:0.06em; margin-bottom:10px;">
+                O que entregamos nesta trilha
+              </div>
+              <ul style="margin:0; padding-left:18px; font-size:13.5px; line-height:1.6; color:rgba(233,237,245,0.85);">
+                <li style="margin-bottom:6px;"><strong>Mapeamento de Casos:</strong> Filtro de 3 a 5 casos de negócio com cálculo de ROI e matriz Impacto vs Esforço.</li>
+                <li style="margin-bottom:6px;"><strong>Diagnóstico de Shadow AI & LGPD:</strong> Políticas para evitar vazamento de propriedade intelectual em IAs públicas.</li>
+                <li style="margin-bottom:6px;"><strong>Arquitetura & TCO no Bedrock:</strong> Dimensionamento de consumo de tokens, latência e modelos (Claude 3.5 Sonnet / Haiku).</li>
+                <li><strong>PRD Executivo do Piloto:</strong> Especificação pronta para homologação interna e liberação de orçamento.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08);">
+            <a href="#sessao-estrategica" style="display:flex; align-items:center; justify-content:center; gap:8px; background:#FF9900; color:#0A1322; font-weight:800; font-size:14px; padding:13px 20px; border-radius:10px; text-decoration:none;" data-hover="background:#FFAA2B;">
+              Quero Priorizar Casos de IA
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- TRILHA 2: FUNDAÇÃO DE DADOS & MIGRAÇÃO -->
+        <div style="background:#142033; border:1px solid rgba(56,189,248,0.3); border-radius:20px; padding:36px 30px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 16px 36px -12px rgba(0,0,0,0.5);">
+          <div>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#38BDF8; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.3); padding:5px 12px; border-radius:6px;">
+                Trilha 2 · Fundação & Modernização
+              </span>
+              <span style="font-family:'JetBrains Mono',monospace; font-size:12px; color:rgba(233,237,245,0.6);">
+                Cronograma Estruturado
+              </span>
+            </div>
+
+            <h3 style="margin:0; font-size:24px; font-weight:800; color:#F4F7FC; line-height:1.25;">
+              Fundação de Dados e Migração para IA
+            </h3>
+            
+            <p style="margin:14px 0 0; font-size:15px; line-height:1.6; color:rgba(233,237,245,0.72);">
+              Nenhum modelo de IA gera valor sobre servidores legados e dados isolados. Modernizamos sua infraestrutura com o framing de IA para garantir disponibilidade e segurança.
+            </p>
+
+            <div style="margin-top:24px; padding:18px; background:rgba(10,19,34,0.6); border-radius:12px; border:1px solid rgba(255,255,255,0.08);">
+              <div style="font-family:'JetBrains Mono',monospace; font-size:11px; text-transform:uppercase; font-weight:700; color:#22C55E; letter-spacing:0.06em; margin-bottom:10px;">
+                O que entregamos nesta trilha
+              </div>
+              <ul style="margin:0; padding-left:18px; font-size:13.5px; line-height:1.6; color:rgba(233,237,245,0.85);">
+                <li style="margin-bottom:6px;"><strong>Landing Zone Pronta para IA:</strong> Isolamento de VPCs, permissões IAM RBAC, KMS e AWS Control Tower.</li>
+                <li style="margin-bottom:6px;"><strong>Modernização & Saída VMware:</strong> Migração de workloads de missão crítica sem parada (AWS MGN/DMS).</li>
+                <li style="margin-bottom:6px;"><strong>Data Lake & Vector Storage:</strong> Organização de repositórios no Amazon S3 e OpenSearch Serverless.</li>
+                <li><strong>FinOps & Faturamento BRL:</strong> Previsibilidade orçamentária de nuvem em moeda local, eliminando IOF e surpresas.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.08);">
+            <a href="#sessao-estrategica" style="display:flex; align-items:center; justify-content:center; gap:8px; background:#38BDF8; color:#0A1322; font-weight:800; font-size:14px; padding:13px 20px; border-radius:10px; text-decoration:none;" data-hover="background:#7DD3FC;">
+              Quero Construir a Fundação de Dados
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMUNIDADE WHATSAPP & WEBINARS -->
+  <section style="background:linear-gradient(180deg,#0A1322,#111E33); padding:clamp(56px,7vw,88px) 0; border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px;">
+      
+      <div style="background:radial-gradient(ellipse at top left, rgba(34,197,94,0.12), transparent 70%), #131E31; border:1px solid rgba(34,197,94,0.3); border-radius:24px; padding:clamp(36px,5vw,56px); display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;" class="rm-hero">
+        <div>
+          <div style="display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:#22C55E; background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.3); padding:5px 12px; border-radius:999px; text-transform:uppercase;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+            Comunidade Executiva Pós-Evento
+          </div>
+
+          <h2 style="margin:20px 0 0; font-size:clamp(26px,3.4vw,40px); font-weight:800; color:#F4F7FC; line-height:1.18; letter-spacing:-0.03em;">
+            Continue a Troca de Ideias com C-Levels e Especialistas em IA
+          </h2>
+
+          <p style="margin:16px 0 0; font-size:15.5px; line-height:1.6; color:rgba(233,237,245,0.72);">
+            Como alinhado no encerramento do evento, os debates não param por aqui. Faça parte da <strong>Comunidade The Next Shift no WhatsApp</strong> para trocar experiências de implementação, participar de webinars técnicos exclusivos e acessar benchmarks reais de mercado.
+          </p>
+
+          <div style="margin-top:24px; display:flex; flex-direction:column; gap:10px; font-size:14px; color:rgba(233,237,245,0.85);">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="color:#22C55E; font-weight:bold;">✓</span> Discussões focadas em governança e casos reais de IA aplicada
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="color:#22C55E; font-weight:bold;">✓</span> Convites antecipados para os webinars periódicos com AWS e Saint Paul
+            </div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="color:#22C55E; font-weight:bold;">✓</span> Acesso direto aos líderes técnicos e de negócios da CoreScale
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; background:#0B1320; border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:32px 24px;">
+          <div style="width:64px; height:64px; border-radius:50%; background:rgba(34,197,94,0.15); border:1px solid rgba(34,197,94,0.3); display:inline-flex; align-items:center; justify-content:center; margin-bottom:18px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#22C55E"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.92-9.91-9.92z"/></svg>
+          </div>
+          <h3 style="margin:0; font-size:18px; font-weight:800; color:#F4F7FC;">
+            Entrar na Comunidade VIP
+          </h3>
+          <p style="margin:8px 0 24px; font-size:13px; color:rgba(233,237,245,0.6);">
+            Grupo exclusivo e restrito aos líderes participantes do The Next Shift.
+          </p>
+          <a href="https://wa.me/5511916464113?text=Ol%C3%A1!%20Participei%20do%20The%20Next%20Shift%20e%20gostaria%20do%20link%20de%20acesso%20%C3%A0%20Comunidade%20no%20WhatsApp." target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; background:#22C55E; color:#0A1322; font-weight:800; font-size:14px; padding:14px 24px; border-radius:10px; text-decoration:none; width:100%; box-sizing:border-box;" data-hover="background:#16A34A; transform:translateY(-1px);">
+            Acessar Comunidade no WhatsApp
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CREDENCIAIS & AUTORIDADE -->
+  <section style="background:#0A1322; padding:clamp(48px,6vw,72px) 0;">
+    <div class="rm-pad" style="max-width:1220px; margin:0 auto; padding:0 28px; text-align:center;">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:rgba(233,237,245,0.4);">
+        Por que a CoreScale?
+      </span>
+      <h3 style="margin:12px 0 32px; font-size:clamp(22px,2.8vw,32px); font-weight:800; color:#F4F7FC;">
+        Competência Técnica Comprovada em Nuvem AWS
+      </h3>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:20px;">
+        <div style="background:#111B2C; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:24px 20px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:800; color:#FF9900;">100%</div>
+          <div style="font-weight:700; font-size:14px; color:#F4F7FC; margin-top:4px;">Nuvem AWS</div>
+          <div style="font-size:12.5px; color:rgba(233,237,245,0.55); margin-top:6px;">Parceria Advanced Tier com foco exclusivo no ecossistema AWS.</div>
+        </div>
+        <div style="background:#111B2C; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:24px 20px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:800; color:#38BDF8;">Sem Paradas</div>
+          <div style="font-weight:700; font-size:14px; color:#F4F7FC; margin-top:4px;">Migrações Críticas</div>
+          <div style="font-size:12.5px; color:rgba(233,237,245,0.55); margin-top:6px;">Histórico comprovado em ERPs, VMware e bancos de dados complexos.</div>
+        </div>
+        <div style="background:#111B2C; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:24px 20px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:800; color:#22C55E;">Privacidade</div>
+          <div style="font-weight:700; font-size:14px; color:#F4F7FC; margin-top:4px;">Governança LGPD</div>
+          <div style="font-size:12.5px; color:rgba(233,237,245,0.55); margin-top:6px;">IAs isoladas na VPC do cliente, sem compartilhamento com modelos públicos.</div>
+        </div>
+        <div style="background:#111B2C; border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:24px 20px;">
+          <div style="font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:800; color:#A855F7;">Em Reais</div>
+          <div style="font-weight:700; font-size:14px; color:#F4F7FC; margin-top:4px;">Faturamento BRL</div>
+          <div style="font-size:12.5px; color:rgba(233,237,245,0.55); margin-top:6px;">Boleto faturado no Brasil, com impostos retidos na fonte e sem IOF.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  {{ partial "rd-footer.html" . }}
+
+</div>
+
+<!-- SCRIPT DE PROCESSAMENTO DO FORMULÁRIO -->
+<script>
+function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  var nome = document.getElementById('form-nome').value.trim();
+  var email = document.getElementById('form-email').value.trim();
+  var empresa = document.getElementById('form-empresa').value.trim();
+  var cargo = document.getElementById('form-cargo').value.trim();
+  var trilha = document.getElementById('form-trilha').value;
+
+  var texto = "Olá! Participei do evento The Next Shift (Exame/AWS) e gostaria de agendar a sessão estratégica de 30 minutos com arquiteto CoreScale.\n\n" +
+              "*Nome:* " + nome + "\n" +
+              "*E-mail:* " + email + "\n" +
+              "*Empresa:* " + empresa + "\n" +
+              "*Cargo:* " + cargo + "\n" +
+              "*Interesse:* " + trilha;
+
+  var url = "https://wa.me/5511916464113?text=" + encodeURIComponent(texto);
+  window.open(url, '_blank');
+  return false;
+}
+</script>
+{{ end }}

@@ -104,3 +104,12 @@ assert_contains "$home" 'src="/corescale-logo.png"[^>]*width="[0-9]+"[^>]*height
 assert_not_contains "$home" 'header\.mp4|yas\.mov' "home referencia mídia obsoleta"
 
 echo "site-audit: OK"
+
+# Verificação da Landing Page The Next Shift (pós-evento privada)
+next_shift="$build_dir/public/the-next-shift/index.html"
+assert_file "$next_shift"
+assert_contains "$next_shift" 'name="robots" content="noindex, nofollow"' "landing page the-next-shift deve conter meta noindex, nofollow"
+assert_contains "$next_shift" "The Next Shift" "landing page sem menção ao The Next Shift"
+assert_contains "$next_shift" "Workshop de Priorização de IA" "landing page sem Trilha 1 (IA)"
+assert_contains "$next_shift" "Fundação de Dados e Migração para IA" "landing page sem Trilha 2 (Fundação de Dados)"
+assert_contains "$next_shift" "Comunidade The Next Shift no WhatsApp" "landing page sem chamada para a comunidade WhatsApp"

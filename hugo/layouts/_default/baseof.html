@@ -10,7 +10,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-N7PHQTZR');</script>
 <!-- End Google Tag Manager -->
-<title>{{ if .Title }}{{ .Title }}{{ if not .IsHome }} | CoreScale{{ end }}{{ else }}CoreScale{{ end }}</title>
+{{ if .Params.noindex }}<meta name="robots" content="noindex, nofollow">
+{{ end }}<title>{{ if .Title }}{{ .Title }}{{ if not .IsHome }} | CoreScale{{ end }}{{ else }}CoreScale{{ end }}</title>
 {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 <meta property="og:site_name" content="CoreScale">
