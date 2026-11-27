@@ -1,18 +1,18 @@
 ---
 id: TASK-2
 title: Reativar vídeo do hero da home com nova cena migração-nuvem-crescimento
-status: In Progress
+status: Done
 assignee:
   - '@claude'
 created_date: '2026-11-26 23:37'
-updated_date: '2026-11-26 23:50'
+updated_date: '2026-11-26 23:56'
 labels:
   - frontend
   - media
   - home
 dependencies: []
 documentation:
-  - openspec/changes/task-2-home-hero-shift-video/proposal.md
+  - openspec/changes/archive/2026-11-26-task-2-home-hero-shift-video/proposal.md
 priority: medium
 ordinal: 2000
 ---
@@ -41,3 +41,9 @@ Progress (claude): 12/14 tasks. Assets encoded (MP4 3.40 MB CRF 28, WebM 2.47 MB
 
 2.4 resolved: user accepted framing (curve visible in column gap, bars partly behind text/card); spec scenario updated. 4.2 resolved: /*.mp4 added to .gitignore. 14/14 tasks; openspec validate --strict OK.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Home hero reactivated with the new 15s migration-to-growth video (WebM 2.47 MB / MP4 3.40 MB, no audio), playing once on capable desktops and holding the growth-chart frame; neural canvas dims while it plays. Journey chapters use stills from the same video with legibility tuning. Retired hero-loop/scene media removed; site-audit extended with hero media checks. Committed 9ead72b, deployed via GitHub Actions run 45913542160 (success), verified live on corescale.com.br. OpenSpec change archived; main spec openspec/specs/home-hero-media created.
+<!-- SECTION:FINAL_SUMMARY:END -->
